@@ -81,11 +81,9 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Technology Feed</h2>
                     <hr class="light">
-                    <?php
-        $comedy_feed = file_get_contents('http://www.huffingtonpost.com/feeds/verticals/technology/news.xml');
-        include('../display-post.php');
-        
-        ?>
+                    
+
+                    <!--http://www.huffingtonpost.com/feeds/verticals/technology/news.xml-->
                 </div>
             </div>
         </div>
@@ -107,7 +105,14 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../js/creative.js"></script>
-
+    <script type="text/javascript">
+                       jQuery(document).ready(function(){
+                        //alert('hi');
+                        //jQuery.get("www.google.com", function(response) { alert(response); });
+                        jQuery.ajax({ type: 'GET', url: 'http://www.google.com', success: function(data) { alert(data); } });
+                       });
+                        
+                    </script>
 </body>
 
 </html>
