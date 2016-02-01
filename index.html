@@ -47,7 +47,9 @@
   })();
 
 </script>
-
+<style>
+#success_message{ display: none;}
+</style>
 </head>
 
 <body id="page-top">
@@ -320,14 +322,15 @@
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                     
-                        
+                        <!-- Success message -->
+			<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
                         
                         <div class="form-group">
 				  
 			  <div class="col-md-12 inputGroupContainer">
 			  <div class="input-group">
 			  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			  <input  name="name" placeholder="Name" class="form-control"  type="text">
+			  <input id="name" placeholder="Name" class="form-control"  type="text">
 			    </div>
 			  </div>
 			</div>
@@ -337,7 +340,7 @@
 			    <div class="col-md-12 inputGroupContainer">
 			    <div class="input-group">
 			        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+			  <input id="email" placeholder="E-Mail Address" class="form-control"  type="text">
 			    </div>
 			  </div>
 			</div>
@@ -347,7 +350,7 @@
 			    <div class="col-md-12 inputGroupContainer">
 			    <div class="input-group">
 			        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-			  <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
+			  <input id="phone" placeholder="(845)555-1212" class="form-control" type="text">
 			    </div>
 			  </div>
 			</div>
@@ -357,18 +360,17 @@
 			    <div class="col-md-12 inputGroupContainer">
 			    <div class="input-group">
 			        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-			        	<textarea class="form-control" id="comment" name="comment" placeholder="Project Description"></textarea>
+			        	<textarea class="form-control" id="comment" placeholder="Project Description"></textarea>
 			  </div>
 			  </div>
 			</div>
                         <br>
-                        <!-- Success message -->
-			<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+                        
 
 			<!-- Button -->
 			<div class="form-group">
 			  <label class="col-md-12 control-label"></label>
-			  <div class="col-md-4">
+			  <div class="col-md-12">
 			    <button class="btn btn-warning" id="submit" >Send <span class="glyphicon glyphicon-send"></span></button>
 			  </div>
 			</div>
@@ -436,11 +438,12 @@
 					type: 'POST',
 					data: 'name='+name+'&email='+email+'&phone='+phone+'&message='+message,
 					success: function(res){
-						console.log(res);
+						console.log('success');
+						$('#success_message').fadeIn();
 						
 					},
 					error: function(res){
-						console.log(res);
+						console.log('error');
 					} 
 				})
 			});
