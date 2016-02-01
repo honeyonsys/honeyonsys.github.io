@@ -47,33 +47,7 @@
   })();
 
 </script>
-<script>
-$(document).ready(function() {
-   console.log('worked');     
-	    $('#submit').click(function(){
-			var name = $('#name').val(),
-			email = $('#email').val(),
-			phone = $('#phone').val(),
-			message = $('#comment').val();
 
-			$.ajax({
-				url: 'https://script.google.com/macros/s/AKfycbxRaIJfzLcO4srYnKUDVqxHqLK7_7U2KbKgFX6OflFZfKd7-eAH/exec',
-				type: 'POST',
-				data: 'name='+name+'&email='+email+'&phone='+phone+'&message='+message,
-				success: function(res){
-					console.log(res);
-					
-				},
-				error: function(res){
-					console.log(res);
-				} 
-			})
-		});
-		
-});
-
-
-</script>
 </head>
 
 <body id="page-top">
@@ -448,7 +422,33 @@ $(document).ready(function() {
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
-
+	<script>
+	$(document).ready(function() {
+	   console.log('worked');     
+		    $('#submit').click(function(){
+				var name = $('#name').val(),
+				email = $('#email').val(),
+				phone = $('#phone').val(),
+				message = $('#comment').val();
+	
+				$.ajax({
+					url: 'https://script.google.com/macros/s/AKfycbxRaIJfzLcO4srYnKUDVqxHqLK7_7U2KbKgFX6OflFZfKd7-eAH/exec',
+					type: 'POST',
+					data: 'name='+name+'&email='+email+'&phone='+phone+'&message='+message,
+					success: function(res){
+						console.log(res);
+						
+					},
+					error: function(res){
+						console.log(res);
+					} 
+				})
+			});
+			
+	});
+	
+	
+	</script>
 </body>
 
 </html>
