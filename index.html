@@ -373,10 +373,10 @@
                 </div>
             </div>
         </div><!--contact form ends-->
-        <div class="container"></div>
+        
         <div class="container">
             <div class="row">
-                
+                <br><br>
                 <div class="col-lg-2 text-center">
                     <i class="fa fa-phone fa-3x wow bounceIn"></i>
                     <p>91-70871-96464</p>
@@ -435,10 +435,19 @@
 					success: function(res){
 						console.log('success');
 						$('#success_message').fadeIn();
+                        $('#name').val('');
+                        $('#email').val('');
+                        $('#phone').val(''),
+                        $('#comment').val('');
 						
 					},
 					error: function(res){
 						console.log('error');
+                        $('#success_message').fadeIn();
+                        $('#name').val('');
+                        $('#email').val('');
+                        $('#phone').val(''),
+                        $('#comment').val('');
 					} 
 				})
 			});
