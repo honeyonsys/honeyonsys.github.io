@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find Place with CID</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#get_details').click(function(){
+            var cid = $('#cid').val();
+            if(cid == null) {
+                alert('Please fill the CID field first');
+                $('#cid').focus();
+            } else {
+                $.ajax({
+                    url: 'https://maps.googleapis.com/maps/api/place/details/json?cid='+cid+'&key=AIzaSyC4-IqfaeSLI5d36H86WLhZUyHH2acyLQU',
+                    method: 'GET',
+                    dataType: 'json',
+                    beforeSend: function() {
+                        $('#result').html('Loading...');
+                    },
+                    success: function(res) {
+                        $('#result').html(res);
+                    }
+                })
+            }
+        });
+    })
+    </script>
+    <style>
+    #result{width:90%; height: auto; float: left; margin:20px;}
+    </style>
+</head>
+<body>
+        6283094892607129590 <br>
+    <input type="text" id="cid" placeholder="Fill CID" /> <button id="get_details">Get Place Details</button><br>
+    <div id="result"></div>
+</body>
+</html>

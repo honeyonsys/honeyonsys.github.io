@@ -15,7 +15,7 @@ app.config(function($routeProvider){
 
 
 app.controller('MainCtrl', function ($scope, $rootScope, $location) {
-    
+    $scope.loading = true;
     $scope.isActive = function (viewLocation) {
         var active = (viewLocation === $location.path());
         return active;
