@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html ng-app="honeyonsys">
+<html>
 <head>
 <title>Freelance Web Developer in Ludhiana, Punjab, India | honeyonsys - full stack web developer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,47 +9,247 @@
 <meta name="author" content="honeyonsys">
 <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <link rel="stylesheet/less" href="assets/css/style.less" />
+<style>
+/*
+Title: honeyonsys - full stack web developer
+Description: honeyonsys is a full stack developer based in ludhiana punjab india, he is providing services in web technologies, his services include web development, website maintenance, website customzations, web applications development etc.
+Author: honeyonsys
+Author URL: http://honeyonsys.github.io
+font-family: 'Rajdhani', sans-serif;
+font-family: 'Quicksand', sans-serif;
+*/
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700|Rajdhani:400,700');
+body{
+    background: url(bg3.jpg) no-repeat fixed; 
+    margin:0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1.home_title{
+    font-size:3em;
+	text-transform: uppercase;
+	
+}
+h1.home_title span{
+	color:#939BAC;
+	text-transform: lowercase;
+}
+.main_container{
+    width:100%;
+    height:550px;
+    float:left;
+    /*background:rgba(3,26,33,0.6);*/
+}
+
+.navigation{
+    width:100%;
+    height:50px;
+    float:right;
+    background: rgba(121,146,227,0.8);
+}
+.navigation ul{
+    list-style: none;
+    float:right;
+	width:100%;
+	height:50px;
+    margin-top:-10px;
+}
+.navigation ul li{
+	width:28%;
+	height:30px;
+    float: left;
+	text-align:right;
+	border-right:#415BB8 solid 1px;
+	border-left:#0E1B52 solid 1px;
+    padding:15px;
+    background: rgba(121,146,227,0.8);
+}
+.navigation ul li i{
+    color: #ffffff;
+	font-size:28px;
+	float:left;
+	margin-right:10px;
+	
+	
+
+}
+.navigation ul li div:nth-child(1){
+	width:20%;
+	height:30px;
+	float: left;
+}
+.navigation ul li div:nth-of-type(2){
+	width:80%;
+	height:30px;
+	float:right;
+	text-align:left;
+	color:#282C34;
+	
+}
+.active{
+    color:#5FC8ED !important;
+    border-bottom:#5FC8ED solid 2px;
+    
+}
+.social_icons{
+    width:50px;
+    height:auto;
+    position: fixed;
+    bottom:10px;
+    right:0;
+    
+    color:#4579B2;
+    font-size: 20px;
+    text-align: center;
+
+}
+.social_icons i{
+    margin-top:20px;
+}
+.content{
+    width:100%;
+	height:auto;
+	float: left;
+}
+.content h1{
+	color:#ffffff;
+	margin-top:10px;
+	margin-left:10px;
+}
+.content p{
+	font-size:18px;
+	color: #AEC5C5;
+	margin-left:10px;
+}
+.contentLeft, .contentRight{
+	width:50%;
+	height:auto;
+	min-height:400px;
+	float:left;
+	
+}
+.skillBox{
+	width:100%;
+	height:500px;
+	float: left;
+	background:rgba(170,173,179,0.5);
+}	
+.skillBox h3{
+	font-size:12em;
+	color:rgba(170,173,179,0.4);
+	margin:10px;
+	position: absolute;
+}
+.contact{
+	width:100%;
+	height:60px;
+	float: left;
+	background:#A2B1E8;
+}
+.contactDetail{
+	width:30%;
+	height:60px;
+	float: left;
+}
+.contactDetail:nth-last-child(){
+	width:auto;
+}
+.contactDetail div:nth-child(1){
+	width:60px;
+	height:60px;
+	float: left;
+	background:#5C718B;
+	color:#ffffff;
+	font-size:40px;
+	text-align: center;
+}
+.contactDetail div:nth-child(2){
+	width:65%;
+	height:60px;
+	float: left;
+	font-size:18px;
+	margin-left:10px;
+	color:#ffffff;
+	text-overflow:initial;
+}
+@media screen and (max-width: 460px){
+	.contentLeft, .contentRight, .navigation ul li{
+		width:100%;
+	
+	}
+	.navigation, .navigation ul{
+		height:auto;
+	}
+	.contact{
+		height:auto;
+	}
+	.contactDetail{
+		width:100%;
+	}
+}
+</style>
 </head>
 <body>
 <div class="main_container">
-	<div class="top_area">
-		<div class="logo">honeyonsys</div>
-		<div class="navigationBtn"><i class="fa fa-bars"></i></div>
-		<div class="navigation">
-			<ul>
-				<li ><a href="#!">Home</a></li>
-				<li><a href="#!/about" ng-class="{ active: isActive('/about') }">ABout</a></li>
-				<li><a href="#!/services">Services</a></li>
-				<li><a href="#!/portfolio">Portfolio</a></li>
-				<li><a href="#!/contact">Contact</a></li>
-			</ul>
+	<div class="content">
+		<div class="contentLeft">
+			<h1 class="home_title"><span>honeyonsys</span> <br>Full Stack<br> Web Developer</h1>
+			<p>I am a programmer with a vision to help people to acheive their goals and their vision with the help of technology. For me technology is a tool which we use to create something which makes our life easier and our work better. Currently i am focused on web technologies and providing services like website development, website maintenance, web apps etc for various clients across the globe.</p>
+		</div>
+		<div class="contentRight">
+			<div class="navigation">
+				<ul>
+					<li><div><i class="fa fa-code"></i></div> <div>Web Application <br>Development</div></li>
+					<li><div><i class="fa fa-mobile"></i></div> <div>Mobile Application <br>Development</div></li>
+					<li><div><i class="fa fa-desktop"></i></div> <div>Desktop Application <br>Development</div></li>
+				</ul>
+			</div>
+			<div class="skillBox">
+				<h3>Skills</h3>
+				<i class="fa fa-node"></i>
+				<i class="fa fa-angular"></i>
+				-/ Javascript<br>
+				-/ VueJS<br>
+				-/ JQuery<br>
+				-/ Cordova<br>
+				-/ Electron<br>
+				-/ NPM<br>
+				-/ HTML<br>
+				-/ css<br>
+				-/ less<br>
+				-/ APIs<br>
+				-/ GIT<br>
+			</div>
+			<div class="contact">
+				<div class="contactDetail">
+					<div><i class="fa fa-skype"></i></div>
+					<div>honeyonsys1</div>
+				</div>
+				<div class="contactDetail">
+					<div><i class="fa fa-envelope"></i></div>
+					<div>honeyonsys@gmail.com</div>
+				</div>
+				<div class="contactDetail">
+					<div><i class="fa fa-phone"></i></div>
+					<div>+91-70871-96464</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="loader" ng-show="loading"><img src="assets/img/ajax-loader.gif" /></div>
-	<div class="content" ng-view>
-		
-	</div>
 	<div class="social_icons">
-		<a href=""><i class="fa fa-facebook-f"></i></a><br>
-		<a href=""><i class="fa fa-instagram"></i></a><br>
-		<a href=""><i class="fa fa-stack-overflow"></i></a><br>
-		<a href=""><i class="fa fa-linkedin"></i></a>
+		<a href="https://www.facebook.com/honeyonsyswebservices/" target="_blank"><i class="fa fa-facebook-f"></i></a><br>
+		<a href="https://www.instagram.com/honeyonsys/"><i class="fa fa-instagram" target="_blank"></i></a><br>
+		<a href="https://stackoverflow.com/users/1203808/harish-kumar"><i class="fa fa-stack-overflow" target="_blank"></i></a><br>
+		<a href=""><i class="fa fa-linkedin" target="_blank"></i></a>
 	</div>
 
 </div>
 </body>
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.5.0/less.min.js" ></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js" type="text/javascript"></script>
-<script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.min.js" type="text/javascript"></script>
-<script src="assets/js/app.js"></script>
 </html>
 
