@@ -24,15 +24,18 @@ font-family: 'Quicksand', sans-serif;
 */
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700|Rajdhani:400,700');
 body{
-    background: url(bg3.jpg) no-repeat fixed; 
+    /* background: url(bg3.jpg) no-repeat fixed;  */
     margin:0;
     font-family: 'Quicksand', sans-serif;
 }
 
-h1.home_title{
+h1.home_title, .contentRight h3{
     font-size:3em;
 	text-transform: uppercase;
-	
+	color:#364352;	
+}
+.contentRight h3 {
+	margin-left:20px;
 }
 h1.home_title span{
 	color:#939BAC;
@@ -101,7 +104,7 @@ h1.home_title span{
     position: fixed;
     bottom:10px;
     right:0;
-    
+	
     color:#4579B2;
     font-size: 20px;
     text-align: center;
@@ -116,7 +119,6 @@ h1.home_title span{
 	float: left;
 }
 .content h1{
-	color:#ffffff;
 	margin-top:10px;
 	margin-left:10px;
 }
@@ -125,33 +127,27 @@ h1.home_title span{
 	color: #AEC5C5;
 	margin-left:10px;
 }
+
 .contentLeft, .contentRight{
 	width:50%;
-	height:auto;
+	height:100%;
 	min-height:400px;
 	float:left;
 	
 }
-.skillBox{
-	width:100%;
-	height:500px;
-	float: left;
+.contentRight{
 	background:rgba(170,173,179,0.5);
-}	
-.skillBox h3{
-	font-size:12em;
-	color:rgba(170,173,179,0.4);
-	margin:10px;
-	position: absolute;
 }
+	
 .contact{
 	width:100%;
-	height:60px;
+	height:auto;
 	float: left;
-	background:#A2B1E8;
 }
 .contactDetail{
-	width:30%;
+	width:70%;
+	margin-left:10%;
+	margin-top:20px;
 	height:60px;
 	float: left;
 }
@@ -162,10 +158,14 @@ h1.home_title span{
 	width:60px;
 	height:60px;
 	float: left;
+	border-radius: 50px;
 	background:#5C718B;
 	color:#ffffff;
 	font-size:40px;
 	text-align: center;
+}
+.contactDetail .fa{
+	font-size:30px;
 }
 .contactDetail div:nth-child(2){
 	width:65%;
@@ -173,8 +173,9 @@ h1.home_title span{
 	float: left;
 	font-size:18px;
 	margin-left:10px;
-	color:#ffffff;
+	color:#364352;
 	text-overflow:initial;
+	line-height: 50px;
 }
 @media screen and (max-width: 460px){
 	.contentLeft, .contentRight, .navigation ul li{
@@ -199,8 +200,6 @@ h1.home_title span{
 		<div class="contentLeft">
 			<h1 class="home_title"><span>honeyonsys</span> <br>Full Stack<br> Web Developer</h1>
 			<p>I am a programmer with a vision to help people to acheive their goals and their vision with the help of technology. For me technology is a tool which we use to create something which makes our life easier and our work better. Currently i am focused on web technologies and providing services like website development, website maintenance, web apps etc for various clients across the globe.</p>
-		</div>
-		<div class="contentRight">
 			<div class="navigation">
 				<ul>
 					<li><div><i class="fa fa-code"></i></div> <div>Web Application <br>Development</div></li>
@@ -208,22 +207,9 @@ h1.home_title span{
 					<li><div><i class="fa fa-desktop"></i></div> <div>Desktop Application <br>Development</div></li>
 				</ul>
 			</div>
-			<div class="skillBox">
-				<h3>Skills</h3>
-				<i class="fa fa-node"></i>
-				<i class="fa fa-angular"></i>
-				-/ Javascript<br>
-				-/ VueJS<br>
-				-/ JQuery<br>
-				-/ Cordova<br>
-				-/ Electron<br>
-				-/ NPM<br>
-				-/ HTML<br>
-				-/ css<br>
-				-/ less<br>
-				-/ APIs<br>
-				-/ GIT<br>
-			</div>
+		</div>
+		<div class="contentRight">
+			<h3>Contact for services</h3>
 			<div class="contact">
 				<div class="contactDetail">
 					<div><i class="fa fa-skype"></i></div>
