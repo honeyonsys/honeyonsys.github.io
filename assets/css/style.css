@@ -26,6 +26,23 @@ section{
     padding:20px;
     float:left;
 }
+.topBanner{
+    width:100%;
+    height:auto;
+    min-height: 400px;
+    background: url("../img/LudhianaBG.png");
+    
+}
+.topBanner h1{
+    font-size:65px;
+    color:#ffffff;
+    float:right;
+    margin-right:10px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 700;
+    text-align: right;
+    text-shadow: #000 0px 5px 10px;
+}
 .heading{
     width:100%;
     float: left;
@@ -125,45 +142,31 @@ section{
     color:#000000;
 }
 .experience{
-    width:350px;
-    height:100px;
+    width:360px;
+    height:50px;
     float: left;
     margin-top:30px;
     margin-right:30px;
     background: #b0b2b9;
+    border-left: solid #585F86 10px;
 }
-.experienceIcon{
-    width:100px;
-    height:100px;
-    float:left;
-}
-.experienceIcon img{
-    width:100px;
-    height:100px;
-}
+
 .experienceDetail{
-    width:240px;
-    height:100px;
+    width:360px;
+    height:50px;
     float: left;
     margin-left:10px;
 }
 .experienceTitle{
-    width:240px;
+    width:360px;
     height:20px;
     float:left;
     font-size:20px;
 }
 .experienceDesg{
-    width:240px;
+    width:360px;
     height:10px;
     float:left;
     font-size:12px;
     margin-top:5px;
-}
-.experienceTime{
-    width:240px;
-    height:30px;
-    float:left;
-    font-size:14px;
-    margin-top:10px;
 }
