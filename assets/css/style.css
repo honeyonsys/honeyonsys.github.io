@@ -29,7 +29,7 @@ section{
 .topBanner{
     width:100%;
     height:auto;
-    min-height: 400px;
+    min-height: 500px;
     background: url("../img/LudhianaBG.png");
     
 }
@@ -42,6 +42,27 @@ section{
     font-weight: 700;
     text-align: right;
     text-shadow: #000 0px 5px 10px;
+}
+.topBanner h1 span{
+    color:#DC4E41;
+}
+.serviceBox{
+    width:300px;
+    height:400px;
+    float: left;
+    border: #000 dashed 1px;
+    margin-left:30px;
+}
+.serviceIcon:first-child{
+    margin-left:0;
+}
+.serviceIcon{
+    width:300px;
+    height: 300px;
+    float: left;
+}
+.serviceIcon i{
+    font-size:200px;
 }
 .heading{
     width:100%;
