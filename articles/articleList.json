@@ -1,0 +1,9 @@
+{
+    "articles": [
+        {
+            "title": "title1",
+            "slug": "some small summary",
+            "content": "1.json"
+        }
+    ]
+}
