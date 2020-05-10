@@ -91,6 +91,7 @@ section{
     height:250px;
     float:left;
     margin-left:20px;
+    margin-top:10px;
     border:#5F6368 double 4px;
     border-radius:150px;
     overflow: hidden;
