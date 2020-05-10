@@ -2,16 +2,12 @@
 <html>
 
 <head>
-    <title>Harish Kumar - Web/Mobile Application Programmer | Javascript Engineer | HTML | CSS | LESS | SASS | Jquery |
-        Angular | VueJS | Freelance Web Developer in Ludhiana, Punjab, India</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" itemprop="description"
-        content="Providing services like website development/Mobile application development in ludhiana." />
-    <meta name="keywords" itemprop="keywords"
-        content="Web Developer in ludhiana, Fronend Developer, Javascript Developer, Angular Developer, Vuejs Developer, Javascript Engineer, freelance developer in punjab, freelance developer in ludhiana" />
+    <meta name="description" itemprop="description" content="" />
+    <meta name="keywords" itemprop="keywords" content="" />
     <meta name="author" content="Harish Kumar">
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
-    <link rel="stylesheet" href="assets/fontawesome-free-5.13.0-web/css/all.css" />
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -163,7 +159,22 @@
     (function () {
         loadJSONFile(function (response) {
             // Parse JSON string into object
+
             var obj = JSON.parse(response);
+            document.title = obj.title;
+            var allMetaElements = document.getElementsByTagName('meta');
+            //loop through and find the element you want
+            for (var i = 0; i < allMetaElements.length; i++) {
+                if (allMetaElements[i].getAttribute("name") == "description") {
+                    allMetaElements[i].setAttribute('content', obj.title);
+
+                }
+                if (allMetaElements[i].getAttribute("name") == "keywords") {
+                    allMetaElements[i].setAttribute('content', obj.keywords);
+
+                }
+
+            }
             var singleBlog = document.getElementById('singleBlog');
             var tags = '';
             var tagArray = obj.keywords.split(",");
