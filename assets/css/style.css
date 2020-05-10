@@ -23,7 +23,7 @@ body {
     margin-top:20px;
     
 }
-.leftBar{
+#leftBar{
     width: 350px;
     height:auto;
     min-height: 600px;
@@ -186,7 +186,7 @@ section{
 .contactDetail a{
     color:#000000;
 }
-.rightArea{
+#rightArea{
     width: calc(100% - 380px);
     float: left;
     margin-left: 20px;

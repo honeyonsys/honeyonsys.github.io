@@ -14,7 +14,7 @@
 
 <body>
     <div class="homeBtn"><a href="./"><img src="assets/img/home-icon.png" width="40"></a></div>
-    <div class="leftBar">
+    <div id="leftBar">
 
         <div class="profile_pic"><img src="assets/img/harishKumar.jpg" alt="web developer in ludhiana" /></div>
         <div class="profile_desc">
@@ -149,7 +149,7 @@
             </section>
         </div>
     </div>
-    <div class="rightArea">
+    <div id="rightArea">
         <div id="singleBlog">
 
         </div>
@@ -185,6 +185,16 @@
             });
             singleBlog.innerHTML = '<div class="blog"><div class="blogTitle"><h1><a href="article.html?article=' + obj.id + '">' + obj.title + '</a></h1></div><div class="blogBelowLine">' + tags + '<div class="datePublished">published on: <span>' + obj.publishedOn + '</span></div></div><div class="blogDescription">' + obj.content + '</div></div>';
         });
+        // waiting for the content to be loaded completely then setting the height of left bar same as the height of right side area
+        setTimeout(function () {
+            var leftBar = document.getElementById('leftBar');
+            var rightBar = document.getElementById('rightArea');
+            if (leftBar.clientHeight < rightBar.clientHeight) {
+                leftBar.style.height = rightBar.clientHeight + "px";
+            }
+
+        }, 3000);
+
 
     })();
     function loadJSONFile(callback) {
