@@ -128,8 +128,9 @@ section{
     height:20px;
     float:left;
     font-size:12px;
-    line-height:18px;
-    padding-left:10px;
+    color:#ffffff;
+    line-height:20px;
+    padding-left:5px;
 }
 
 .socialLinks{
