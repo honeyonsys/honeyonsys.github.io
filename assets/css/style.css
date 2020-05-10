@@ -15,6 +15,14 @@ body {
     background: #EEEFF0;
     
 }
+.homeBtn{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 20px;
+    margin-top:20px;
+    
+}
 .leftBar{
     width: 350px;
     height:auto;
@@ -182,7 +190,13 @@ section{
     float: left;
     margin-top: 10px;
 }
-
+#singleBlog ul li {
+    margin-top: 20px;
+    font-style: italic;
+}
+#singleBlog img {
+    max-width: 100%;
+}
 .blog{
     width:calc(100% - 70px);
     height:auto;
