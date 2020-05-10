@@ -203,11 +203,19 @@ section{
     
 }
 .blogTitle a{
-    color:#463FA7;
     text-decoration: none;
 }
 .blogTitle a:hover{
     text-decoration: underline;
+}
+.blogTitle h1 {
+    font-size:25px;
+    margin-top:0;
+    color:#463FA7;
+}
+.blogTitle h3 {
+    margin-top:0;
+    color:#463FA7;
 }
 .blogBelowLine{
     width: calc(100% - 60px);

@@ -83,6 +83,18 @@
                 </div>
                 <div class="skill">
                     <div class="triangle-right"></div>
+                    <div class="tagName">JASMINE</div>
+                </div>
+                <div class="skill">
+                    <div class="triangle-right"></div>
+                    <div class="tagName">MOCHA</div>
+                </div>
+                <div class="skill">
+                    <div class="triangle-right"></div>
+                    <div class="tagName">JEST</div>
+                </div>
+                <div class="skill">
+                    <div class="triangle-right"></div>
                     <div class="tagName">GIT</div>
                 </div>
                 <div class="skill">
@@ -157,7 +169,7 @@
             tagArray.forEach(tag => {
                 tags += '<div class="blogTags">' + tag + '</div>';
             });
-            singleBlog.innerHTML = '<div class="blog"><div class="blogTitle"><a href="article.html?article=' + obj.id + '">' + obj.title + '</a></div><div class="blogBelowLine">' + tags + '<div class="datePublished">published on: <span>' + obj.publishedOn + '</span></div></div><div class="blogDescription">' + obj.content + '</div></div>';
+            singleBlog.innerHTML = '<div class="blog"><div class="blogTitle"><h1><a href="article.html?article=' + obj.id + '">' + obj.title + '</a></h1></div><div class="blogBelowLine">' + tags + '<div class="datePublished">published on: <span>' + obj.publishedOn + '</span></div></div><div class="blogDescription">' + obj.content + '</div></div>';
         });
 
     })();
