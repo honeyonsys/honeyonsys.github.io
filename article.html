@@ -146,7 +146,6 @@
         </div>
     </div>
 </body>
-<!-- <script src="assets/js/jquery-3.5.1.min.js"></script> -->
 <script type="text/javascript">
     (function () {
         loadJSONFile(function (response) {
@@ -160,8 +159,6 @@
             });
             singleBlog.innerHTML = '<div class="blog"><div class="blogTitle"><a href="article.html?article=' + obj.id + '">' + obj.title + '</a></div><div class="blogBelowLine">' + tags + '<div class="datePublished">published on: <span>' + obj.publishedOn + '</span></div></div><div class="blogDescription">' + obj.content + '</div></div>';
         });
-
-
 
     })();
     function loadJSONFile(callback) {
