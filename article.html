@@ -141,25 +141,24 @@
         </div>
     </div>
     <div class="rightArea">
-        <div class="blogList" id="blogList">
+        <div id="singleBlog">
 
         </div>
     </div>
 </body>
 <!-- <script src="assets/js/jquery-3.5.1.min.js"></script> -->
-<!-- <script type="text/javascript" id="articleJS" src=""></script> -->
 <script type="text/javascript">
     (function () {
-        //var articleID = getParameterByName('article');
-        //var script = document.createElement('script');
-        //script.src = "articles/" + articleID + ".js";
-        //document.getElementById('articleJS').setAttribute("src", "articles/" + articleID + ".js");
-
-
         loadJSONFile(function (response) {
             // Parse JSON string into object
             var obj = JSON.parse(response);
-            console.log(obj.title);
+            var singleBlog = document.getElementById('singleBlog');
+            var tags = '';
+            var tagArray = obj.keywords.split(",");
+            tagArray.forEach(tag => {
+                tags += '<div class="blogTags">' + tag + '</div>';
+            });
+            singleBlog.innerHTML = '<div class="blog"><div class="blogTitle"><a href="article.html?article=' + obj.id + '">' + obj.title + '</a></div><div class="blogBelowLine">' + tags + '<div class="datePublished">published on: <span>' + obj.publishedOn + '</span></div></div><div class="blogDescription">' + obj.content + '</div></div>';
         });
 
 

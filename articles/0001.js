@@ -1,1 +1,0 @@
-var article = '{"title": "title of the article",  "keywords": "key words", "content": "html content minified",  "publishedOn": "1 May 2020"}';

@@ -176,12 +176,13 @@ section{
     height: auto;
     
 }
-.blogList{
+#blogList, #singleBlog{
     width:100%;
     height:auto;
     float: left;
     margin-top: 10px;
 }
+
 .blog{
     width:calc(100% - 70px);
     height:auto;
@@ -242,4 +243,11 @@ section{
 .datePublished span{
     color: #155986;
     font-weight: normal;
+}
+.blogDescription{
+    width:100%;
+    height:auto;
+    float: left;
+    margin-top:40px;
+    
 }
