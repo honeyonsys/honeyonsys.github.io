@@ -20,7 +20,7 @@ body {
     height: 40px;
     position: fixed;
     right: 20px;
-    margin-top:20px;
+    margin-top:10px;
     
 }
 #leftBar{
@@ -282,4 +282,12 @@ section{
     float: left;
     margin-top:40px;
     
+}
+span.code{
+    width:99%;
+    height: auto;
+    background:#000;
+    color: #BBBDC0;
+    float: left;
+    padding:10px 2;
 }
