@@ -12,14 +12,14 @@
 	<meta name="author" content="Harish Kumar">
 	<meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
 	<link rel="stylesheet" href="assets/css/style.css">
-		<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
 	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	gtag('config', 'UA-27880645-1');
+		gtag('config', 'UA-27880645-1');
 	</script>
 
 </head>
@@ -194,8 +194,11 @@
 		setTimeout(function () {
 			var leftBar = document.getElementById('leftBar');
 			var rightBar = document.getElementById('rightArea');
-			if (leftBar.clientHeight < rightBar.clientHeight) {
-				leftBar.style.height = rightBar.clientHeight + "px";
+			var screenWidth = screen.width;
+			if (screenWidth > 768) {
+				if (leftBar.clientHeight < rightBar.clientHeight) {
+					leftBar.style.height = rightBar.clientHeight + "px";
+				}
 			}
 
 		}, 3000);
@@ -213,7 +216,6 @@ Recent works
 <!--TODO: add the search bar in the top of the index and article page-->
 <!--TODO: show the related articles according the tags into left side of the article page-->
 <!--TODO: show the recent articles on the left side of the page-->
-<!--TODO: show the fixed home button in the article page to go back to home-->
 <!--TODO: add google analytics code-->
 <!--TODO: add robot.txt for better seo-->
 <!--TODO: add policy page-->

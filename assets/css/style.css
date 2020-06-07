@@ -298,6 +298,12 @@ span.code{
 }
 .prettyprint {
     background-color: #BBBDC0;
+    overflow-x: auto;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
 }
 .prettyprint ul {
     list-style: none !important;
@@ -315,5 +321,6 @@ span.code{
     #rightArea {
         width:100%;
         float: left;
+        margin-left: 0px;
     }
 }

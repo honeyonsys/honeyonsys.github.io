@@ -200,8 +200,11 @@
         setTimeout(function () {
             var leftBar = document.getElementById('leftBar');
             var rightBar = document.getElementById('rightArea');
-            if (leftBar.clientHeight < rightBar.clientHeight) {
-                leftBar.style.height = rightBar.clientHeight + "px";
+            var screenWidth = screen.width;
+            if (screenWidth > 768) {
+                if (leftBar.clientHeight < rightBar.clientHeight) {
+                    leftBar.style.height = rightBar.clientHeight + "px";
+                }
             }
 
         }, 3000);
