@@ -9,8 +9,10 @@
     <meta name="author" content="Harish Kumar">
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/google-code-prettify/prettify.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="assets/google-code-prettify/prettify.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -170,6 +172,7 @@
 </body>
 <script type="text/javascript">
     (function () {
+
         loadJSONFile(function (response) {
             // Parse JSON string into object
 
@@ -206,6 +209,7 @@
                     leftBar.style.height = rightBar.clientHeight + "px";
                 }
             }
+            prettyPrint(); //to highlight the code in the <pre> tags
 
         }, 3000);
 
