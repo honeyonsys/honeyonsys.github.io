@@ -19,6 +19,7 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-27880645-1');
+
     </script>
 
 
@@ -42,23 +43,66 @@
         -->
         <div id="singleBlog">
             <div class="blog">
-                <div class="blogTitle"><a href="">How to push/add values into string[] array in c#</a></div>
+                <div class="blogTitle"><a href="">How to parse raw json object with foreach loop with c#</a></div>
                 <div class="blogBelowLine">
                     <div class="blogTags">c#</div>
                     <div class="blogTags">visual studio</div>
-                    <div class="datePublished">Published on : <span>2 June 2020</span></div>
+                    <div class="datePublished">Published on : <span>7 July 2020</span></div>
                     <div class="blogDescription">
-                        Well you can't add items to an array, since it has fixed length. What you're looking for is a
-                        List<string>, which can later be turned to an array using list.ToArray(), e.g.
-                            <pre class="prettyprint">
+                        <p>The best way to parse a json string like below is to create an entity class for it (in case
+                            if
+                            you know what is coming along in the the json object. I mean the fields)</p>
+
+                        <pre class="prettyprint">
                                 <ul>
-                                    <li>List<string> list = new List<string>();</li>
-                                    <li>list.Add("your new value");</li>
-                                    <li>list.Add("your another value");</li>
-                                    <li>String[] str = list.ToArray();</li>
-                                    <li>/*use the str with loop or directly retrive like string[0]. string[1] etc*/</li>
+                                    <li>[</li>
+                                        <li>{</li>
+                                            <li>"userName": "Harish"</li>
+                                            <li>"designation": "Full Stack Developer"</li>
+                                            <li>"skills": "c#, javascript"</li>
+                                        <li>}</li>
+                                        <li>{</li>
+                                            <li>"userName": "Rakesh"</li>
+                                            <li>"designation": "Front End Developer"</li>
+                                            <li>"skills": "HTML, CSS,javascript"</li>
+                                        <li>}</li>
+                                    <li>]</li>
+                                    
                                 </ul>
-                            </pre>
+                        </pre>
+                        <p>To parse the above json first create a entity class like below</p>
+                        <pre class="prettyprint">
+                            <ul>
+                                <li>public partial class userList</li>
+                                <li>{</li>
+                                    <li>[JsonProperty("userName")]</li>
+                                    <li>public string userName {get; set;}</li>
+                                    <li>[JsonProperty("designation")]</li>
+                                    <li>public string designation {get; set;}</li>
+                                    <li>[JsonProperty("skills")]</li>
+                                    <li>public string skills {get; set;}</li>
+                                <li>}</li>
+                            </ul>
+                        </pre>
+                        <p>Then you can create the foreach loop by deserializing the json string into <b>userList</b>
+                            object</p>
+                        <pre class="prettyprint">
+                            <ul>
+                                <li>dynamic userObj = JsonConvert.DeserializeObject<List<userList>>(yourJson);</li>
+                                <li>foreach(userList obj in userObj</li>
+                                <li>{</li>
+                                <li>var username = obj.userName; // as you defined in the entity class</li>
+                                <li>var desig = obj.designation; </li>
+                                <li>var skills = obj.skills</li>
+                                <li>}</li>
+                            </ul>
+                        </pre>
+                        <p><b>Note:</b> Here we are using the newtonsoft json package. You can install that from nugat
+                            packages on your visual studio<br> reference class:</p>
+                        <pre class="prettyprint">
+                            <li>using Newtonsoft.Json;</li>
+                        </pre>
+
                     </div>
                 </div>
             </div>
