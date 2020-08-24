@@ -7,6 +7,10 @@
     <meta name="description" itemprop="description" content="" />
     <meta name="keywords" itemprop="keywords" content="" />
     <meta name="author" content="Harish Kumar">
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/harishKumar.jpg" />
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/google-code-prettify/prettify.css" />
@@ -178,6 +182,7 @@
 
             var obj = JSON.parse(response);
             document.title = obj.title;
+            var articleID = getParameterByName('article');
             var allMetaElements = document.getElementsByTagName('meta');
             //loop through and find the element you want
             for (var i = 0; i < allMetaElements.length; i++) {
@@ -187,6 +192,18 @@
                 }
                 if (allMetaElements[i].getAttribute("name") == "keywords") {
                     allMetaElements[i].setAttribute('content', obj.keywords);
+
+                }
+                if (allMetaElements[i].getAttribute("property") == "og:title") {
+                    allMetaElements[i].setAttribute('content', obj.title);
+
+                }
+                if (allMetaElements[i].getAttribute("property") == "og:description") {
+                    allMetaElements[i].setAttribute('content', obj.title);
+
+                }
+                if (allMetaElements[i].getAttribute("property") == "og:url") {
+                    allMetaElements[i].setAttribute('content', 'http://honeyonsys.github.io/article.html?article=' + articleID);
 
                 }
 
