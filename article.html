@@ -184,7 +184,7 @@
             mergeInHead += '<meta property="og:description" content="' + obj.title + '" />';
             mergeInHead += '<meta property="og:url" content="http://honeyonsys.github.io/article.html?article=' + articleID + '" />';
             mergeInHead += '<meta property="og:image" content="https://honeyonsys.github.io/assets/img/harishKumar.jpg" />';
-            headHTML = headHTML + mergeInHead;
+            document.head.innerHTML = headHTML + mergeInHead;
 
             /*
             var allMetaElements = document.getElementsByTagName('meta');
