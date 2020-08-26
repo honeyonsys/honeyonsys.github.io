@@ -4,13 +4,7 @@
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" itemprop="description" content="" />
-    <meta name="keywords" itemprop="keywords" content="" />
     <meta name="author" content="Harish Kumar">
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/harishKumar.jpg" />
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/google-code-prettify/prettify.css" />
@@ -183,8 +177,19 @@
             var obj = JSON.parse(response);
             document.title = obj.title;
             var articleID = getParameterByName('article');
+            var headHTML = document.head.innerHTML;
+            var mergeInHead = '<meta name="description" itemprop="description" content="' + obj.title + '" />';
+            mergeInHead += '<meta name="keywords" itemprop="keywords" content="' + obj.keywords + '" />';
+            mergeInHead += '<meta property="og:title" content="' + obj.title + '" />';
+            mergeInHead += '<meta property="og:description" content="' + obj.title + '" />';
+            mergeInHead += '<meta property="og:url" content="http://honeyonsys.github.io/article.html?article=' + articleID + '" />';
+            mergeInHead += '<meta property="og:image" content="https://honeyonsys.github.io/assets/img/harishKumar.jpg" />';
+            headHTML = headHTML + mergeInHead;
+
+            /*
             var allMetaElements = document.getElementsByTagName('meta');
             //loop through and find the element you want
+
             for (var i = 0; i < allMetaElements.length; i++) {
                 if (allMetaElements[i].getAttribute("name") == "description") {
                     allMetaElements[i].setAttribute('content', obj.title);
@@ -207,7 +212,7 @@
 
                 }
 
-            }
+            }*/
             var singleBlog = document.getElementById('singleBlog');
             var tags = '';
             var tagArray = obj.keywords.split(",");
