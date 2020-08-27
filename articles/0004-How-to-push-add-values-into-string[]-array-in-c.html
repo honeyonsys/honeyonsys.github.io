@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How to push/add values into string[] array in c#</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description" content="How to push/add values into string[] array in c#" />
+    <meta name="keywords" itemprop="keywords"
+        content="c#, visual studio, array, string-array, honeyonsys, harish kumar, application developer" />
+    <meta property="og:title" content="How to push/add values into string[] array in c#" />
+    <meta property="og:description" content="How to push/add values into string[] array in c#" />
+    <meta property="og:url"
+        content="http://honeyonsys.github.io/articles/0004-How-to-push-add-values-into-string[]-array-in-c.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/harishKumar.jpg" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/google-code-prettify/prettify.js"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+
+</head>
+
+<body>
+    <div class="homeBtn"><a href="../"><img src="../assets/img/home-icon.png" width="40"></a></div>
+    <div id="leftBar">
+
+
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a href="0004-How-to-push-add-values-into-string[]-array-in-c.html">
+                            How to push/add values into string[] array in c#</a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">c#</div>
+                    <div class="blogTags">visual studio</div>
+                    <div class="blogTags">array</div>
+                    <div class="blogTags">string-array</div>
+                    <div class="datePublished">published on: 1 June 2020<span></span></div>
+                </div>
+                <div class="blogDescription">
+
+                    Well you can't add items to an array, since it has fixed length. What you're looking for is a List
+                    <string>, which can later be turned to an array using list.ToArray(), e.g.
+                        <pre class="prettyprint">
+                            <ul>
+                                <li>List<string> list = new List<string>();</li> 
+                                <li>list.Add("your new value");</li> 
+                                <li>list.Add("your another value");</li> 
+                                <li>String[] str = list.ToArray();</li> 
+                                <li>/*use the str with loop or directly retrive like string[0]. string[1] etc*/</li> 
+                            </ul>
+                        </pre>
+                        <p></p>
+                        <p></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>
