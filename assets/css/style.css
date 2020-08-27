@@ -86,17 +86,15 @@ section{
 }
 
 .profile_pic {
-    width:250px;
-    height:250px;
+    width:100%;
+    height:auto;
     float:left;
-    margin-left:20px;
-    margin-top:10px;
-    border:#5F6368 double 4px;
-    border-radius:150px;
+    background-color: #82A6A0;
     overflow: hidden;
+    text-align: center;
 }
 .profile_pic img{
-    width:100%;
+    width:250px;
 }
 .profileName{
     width:100%; 
