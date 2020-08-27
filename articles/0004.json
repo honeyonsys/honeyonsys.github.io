@@ -1,7 +1,0 @@
-{
-    "id": "0004",
-    "title": "How to push/add values into string[] array in c#",
-    "keywords": "c#, visual studio, array, string-array",
-    "content": "Well you can't add items to an array, since it has fixed length. What you're looking for is a List<string>, which can later be turned to an array using list.ToArray(), e.g. <pre class=\"prettyprint\"><ul><li>List<string> list = new List<string>();</li> <li>list.Add(\"your new value\");</li> <li>list.Add(\"your another value\");</li> <li>String[] str = list.ToArray();</li> <li>/*use the str with loop or directly retrive like string[0]. string[1] etc*/</li> </ul></pre>",
-    "publishedOn": "1 June 2020"
-}

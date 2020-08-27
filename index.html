@@ -20,13 +20,7 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'UA-27880645-1');
-	</script>
+	<script src="assets/js/g-analytics.js"></script>
 
 </head>
 
@@ -183,19 +177,12 @@
 			tagArray.forEach(tag => {
 				tags += '<div class="blogTags">' + tag + '</div>';
 			});
-			blogList.innerHTML += '<div class="blog"><div class="blogTitle"><h3><a href="article.html?article=' + element.id + '">' + element.title + '</a></h3></div><div class="blogBelowLine">' + tags + '<div class="datePublished">published on: <span>' + element.publishedOn + '</span></div></div></div>';
+			blogList.innerHTML += '<div class="blog"><div class="blogTitle"><h3><a href="articles/' + element.url + '">' + element.title + '</a></h3></div><div class="blogBelowLine">' + tags + '<div class="datePublished">published on: <span>' + element.publishedOn + '</span></div></div></div>';
 
-			/*
-			<div class="blog">
-				<div class="blogTitle"><a href="">this is a new blog post which will just for test</a></div>
-				<div class="blogBelowLine">
-					<div class="blogTags">c#</div>
-					<div class="blogTags">visual studio</div>
-					<div class="datePublished">Published on : <span>1 May 2020</span></div>
-				</div>
-			</div>
-			*/
+
 		});
+
+
 		// waiting for the content to be loaded completely then setting the height of left bar same as the height of right side area
 		setTimeout(function () {
 			var leftBar = document.getElementById('leftBar');
