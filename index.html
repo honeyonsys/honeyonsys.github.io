@@ -20,8 +20,10 @@
 	<meta property="og:image" content="https://honeyonsys.github.io/assets/img/harishKumar.jpg" />
 	<meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="icon" href="assets/img/favicon.ico" type="image/ico" sizes="16x16">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+	<script src="assets/google-code-prettify/prettify.js"></script>
 	<script src="assets/js/g-analytics.js"></script>
 
 </head>
@@ -29,7 +31,7 @@
 <body>
 	<div id="leftBar">
 
-		<div class="profile_pic"><img src="assets/img/honeyonsys_logo.png" alt="web developer in ludhiana" /></div>
+		<div class="profile_pic"><img src="assets/img/honeyonsys_logo_gray.png" alt="web developer in ludhiana" /></div>
 		<div class="profile_desc">
 			<section>
 				<div class="profileName" title="Web Application Developer in ludhiana">
@@ -169,37 +171,8 @@
 	</div>
 </body>
 <script type="text/javascript" src="articles/articleList.js"></script>
-<script type="text/javascript">
-	(function () {
-		var obj = JSON.parse(articles);
-		var blogList = document.getElementById("blogList");
-		obj.forEach(element => {
-			var tags = '';
-			var tagArray = element.keywords.split(",");
-			tagArray.forEach(tag => {
-				tags += '<div class="blogTags">' + tag + '</div>';
-			});
-			blogList.innerHTML += '<div class="blog"><div class="blogTitle"><h3><a href="articles/' + element.url + '">' + element.title + '</a></h3></div><div class="blogBelowLine">' + tags + '<div class="datePublished">published on: <span>' + element.publishedOn + '</span></div></div></div>';
+<script type="text/javascript" src="assets/js/main.js"></script>
 
-
-		});
-
-
-		// waiting for the content to be loaded completely then setting the height of left bar same as the height of right side area
-		setTimeout(function () {
-			var leftBar = document.getElementById('leftBar');
-			var rightBar = document.getElementById('rightArea');
-			var screenWidth = screen.width;
-			if (screenWidth > 768) {
-				if (leftBar.clientHeight < rightBar.clientHeight) {
-					leftBar.style.height = rightBar.clientHeight + "px";
-				}
-			}
-
-		}, 3000);
-
-	})();
-</script>
 
 </html>
 <!--
