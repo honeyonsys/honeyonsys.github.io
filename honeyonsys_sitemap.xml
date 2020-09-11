@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0007-how-to-download-windows-10-iso-file.html</loc>
+    <lastmod>2020-08-27</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0006-SQL-Cheat-Sheet.html</loc>
+    <lastmod>2020-08-16</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0005-How-to-parse-raw-json-object-with-foreach-loop-with-c.html</loc>
+    <lastmod>2020-07-07</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0004-How-to-push-add-values-into-string[]-array-in-c.html</loc>
+    <lastmod>2020-06-01</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0003-How-to-show-the-balloon-popup-notification-in-the-windows-tray-programatically-with-c.html</loc>
+    <lastmod>2020-05-27</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0002-How-to-enable-disable-ssl-for-c-project-running-on-visual-studio-IIS-To-make-it-run-on-https-http-urls.html</loc>
+    <lastmod>2020-05-03</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0001-How-to-make-your-visual-studio-c-project-live-on-the-web-from-localhost-by-using-ngrok.html</loc>
+    <lastmod>2020-05-01</lastmod>
+  </url>
+
+</urlset>
