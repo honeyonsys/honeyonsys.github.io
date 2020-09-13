@@ -1,6 +1,13 @@
 {
     "news": [
         {
+            "newsUrl": "https://www.ndtv.com/india-news/pm-modi-president-kovind-lead-tribute-to-ex-rjd-leader-raghuvansh-singh-big-blow-to-bihar-politics-2294677",
+            "newsImg": "https://c.ndtvimg.com/2020-09/fnvpak4s_raghuvansh-prasad-singh-bihar-politician-quits-rjd-pti-photo_625x300_11_September_20.jpg",
+            "newsTitle": "\"Big Blow To Bihar Politics\": PM, Others Pay Tribute To Raghuvansh Singh",
+            "keywords": "bihar politics, rakhuvansh singh",
+            "date": "13-09-2020"
+        },
+        {
             "newsUrl": "https://www.hindustantimes.com/india-news/will-face-all-political-storms-says-maharashtra-cm-thackeray-amid-kangana-ranaut-row/story-TwKRrosVDLPNzgFB27uOQP.html",
             "newsImg": "https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2020/09/13/Pictures/_379aaf44-f5a3-11ea-a202-bb30b6351b83.jpg",
             "newsTitle": "Will face all political storms, says Maharashtra CM Thackeray amid Kangana Ranaut row",
