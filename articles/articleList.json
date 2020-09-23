@@ -1,6 +1,13 @@
 {
     "articles": [
         {
+            "id": "0009",
+            "title": "Cheat sheet for Termux terminal (Android)",
+            "keywords": "cheat sheet, termux, terminal, commands, android",
+            "url": "0009-cheat-sheet-for-android-termux-terminal.html",
+            "publishedOn": "23 Sep 2020"
+        },
+        {
             "id": "0008",
             "title": "How to add multiple github pages website on your single github account and host it to the custom domain",
             "keywords": "github pages, custom domain, website host, free website",

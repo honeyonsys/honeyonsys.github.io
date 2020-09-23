@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cheat sheet for termux terminal for android</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description" content="cheat sheet for android terminal termux" />
+    <meta name="keywords" itemprop="keywords"
+        content="termux, cheatsheet, adroid terminal, terminal commands, unix shell, honeyonsys, harish kumar, application developer" />
+    <meta property="og:title" content="Cheat sheet for termux terminal for android" />
+    <meta property="og:site_name" content="https://honeyonsys.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="commands cheat sheet for termux terminal used in android phones" />
+    <meta property="og:url"
+        content="http://honeyonsys.github.io/articles/0009-cheat-sheet-for-android-termux-terminal.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/0009_ogimg.png" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/google-code-prettify/prettify.js"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+
+</head>
+
+<body>
+    <div id="pageIdentity">article</div>
+    <div class="homeBtn"><a href="../"><img src="../assets/img/home-icon.png" width="40"></a></div>
+    <div id="leftBar">
+
+
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a href="0004-cheat-sheet-for-android-termux-terminal.html">
+                            Cheat sheet for Termux terminal (Android)</a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">cheat sheet</div>
+                    <div class="blogTags">termux</div>
+                    <div class="blogTags">terminal</div>
+                    <div class="blogTags">commands</div>
+                    <div class="blogTags">android</div>
+                    <div class="datePublished">published on: 23 Sep 2020<span></span></div>
+                </div>
+                <div class="blogDescription">
+
+                    <h3>What is termux?</h3>
+                    <p>Termux is a android terminal emulator and linux environment application that works directly with
+                        no rooting or setup required. A minimal base system is installed automatically, additional
+                        packages are installed using the APT package manager</p>
+                    <p>Following are some basic usage commands for termux</p>
+                    <h3>Gives storage permissions:</h3>
+                    <pre class="prettyprint">termux-setup-storage</pre>
+                    <h3>Home directory:</h3>
+                    <pre class="prettyprint">cd</pre>
+                    <h3>Previous directory:</h3>
+                    <pre class="prettyprint">cd ..</pre>
+                    <h3>Jump to folder:</h3>
+                    <pre class="prettyprint">cd (folder)</pre>
+                    <h3>Clear the terminal:</h3>
+                    <pre class="prettyprint">clear</pre>
+                    <h3>Present working directory:</h3>
+                    <pre class="prettyprint">pwd</pre>
+                    <h3>Copy a file:</h3>
+                    <pre class="prettyprint">cp (file)</pre>
+                    <h3>Copy a folder:</h3>
+                    <pre class="prettyprint">cp -rf (folder)</pre>
+                    <h3>Move a file:</h3>
+                    <pre class="prettyprint">mv (file)</pre>
+                    <h3>Move a folder:</h3>
+                    <pre class="prettyprint">mv (folder)</pre>
+                    <h3>Remove a file:</h3>
+                    <pre class="prettyprint">rm (file)</pre>
+                    <h3>Remove a folder:</h3>
+                    <pre class="prettyprint">rm (folder)</pre>
+                    <h3>Create a file:</h3>
+                    <pre class="prettyprint">touch (file name)</pre>
+                    <h3>Create a folder:</h3>
+                    <pre class="prettyprint">mkdir (folder)</pre>
+                    <h3>Display the text of a file:</h3>
+                    <pre class="prettyprint">cat (file name)</pre>
+                    <h3>Display date/calender:</h3>
+                    <pre class="prettyprint">date/cal</pre>
+                    <h3>Install any package:</h3>
+                    <pre class="prettyprint">apt or package install</pre>
+                    <h3>Upgrade any package:</h3>
+                    <pre class="prettyprint">apt or package upgrade</pre>
+
+                    <h3>Uninstall a package:</h3>
+                    <pre class="prettyprint">apt or pkg uninstall</pre>
+                    <h3>Executable permission to a file:</h3>
+                    <pre class="prettyprint">chmod +x (file)</pre>
+                    <h3>Executable permission to all files in a folder:</h3>
+                    <pre class="prettyprint">chmod +x *</pre>
+                    <h3>Display package version: </h3>
+                    <pre class="prettyprint">(pkg name) --version</pre>
+                    <h3>List all packages:</h3>
+                    <pre class="prettyprint">apt list</pre>
+                    <h3>Edit a file with nano editor:</h3>
+                    <pre class="prettyprint">nano (file)</pre>
+                    <h3>Unzip a file:</h3>
+                    <pre class="prettyprint">unzip (file)</pre>
+                    <h3>Zip folders and files:</h3>
+                    <pre class="prettyprint">zip (folder / files)</pre>
+                    <h3>List files and folders:</h3>
+                    <pre class="prettyprint">ls</pre>
+                    <h3>List hidded files and folders too:</h3>
+                    <pre class="prettyprint">ls -a</pre>
+                    <h3>Show a package information:</h3>
+                    <pre class="prettyprint">apt or pkg show (pkg name)</pre>
+                    <h3>List all installed packages:</h3>
+                    <pre class="prettyprint">dpkg -list</pre>
+                    <h3>Remove unnecessary packages:</h3>
+                    <pre class="prettyprint">apt autoremove</pre>
+                    <h3>Show system space:</h3>
+                    <pre class="prettyprint">free</pre>
+                    <h3>Show device information:</h3>
+                    <pre class="prettyprint">screenfetch</pre>
+                    <h3>Show login name:</h3>
+                    <pre class="prettyprint">whoami</pre>
+                    <h3>Search a package:</h3>
+                    <pre class="prettyprint">apt / pkg search (pkg)</pre>
+                    <h3>Search a file with name:</h3>
+                    <pre class="prettyprint">locate (file)</pre>
+                    <h3>Install tools with wget package: </h3>
+                    <pre class="prettyprint">wget (url)</pre>
+                    <h3>Install tools by cloning the tool (need git to be install first):</h3>
+                    <pre class="prettyprint">git clone (url)</pre>
+                    <h3>Show all configuration of a network:</h3>
+                    <pre class="prettyprint">ifconfig</pre>
+                    <h3>Exit the terminal:</h3>
+                    <pre class="prettyprint">exit</pre>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>
