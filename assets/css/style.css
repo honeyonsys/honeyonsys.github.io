@@ -12,7 +12,7 @@ font-family: 'Julius Sans One', sans-serif;
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
-    background: #EEEFF0;
+    background: #BBBDC0;
     
 }
 #pageIdentity{
@@ -192,12 +192,14 @@ section{
     color:#000000;
 }
 #rightArea{
-    width: calc(100% - 380px);
+    width: calc(100% - 390px);
     float: left;
-    margin-left: 20px;
+    padding-left: 20px;
+    padding-right:20px;
     height: auto;
-    
+    background: #EEEFF0;
 }
+
 #blogList, #singleBlog{
     width:100%;
     height:auto;
@@ -326,10 +328,14 @@ span.code{
     #leftBar {
         width:100%;
         float: left;
+        min-height:250px;
     }
     #rightArea {
         width:100%;
         float: left;
-        margin-left: 0px;
+        padding-left: 0px;
+        padding-right:0px;
+
     }
+    
 }
