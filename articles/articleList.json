@@ -2,7 +2,7 @@
     "articles": [
         {
             "id": "0010",
-            "title": "How to setup virtual machine in windows 10?",
+            "title": "How to add virtual machine feature in windows 10?",
             "keywords": "virtual machine, hyper-v, windows 10",
             "url": "0010-how-to-add-virtual-machine-feature-in-windows10.html",
             "publishedOn": "19 Oct 2020"
