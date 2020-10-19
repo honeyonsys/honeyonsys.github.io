@@ -1,6 +1,13 @@
 {
     "articles": [
         {
+            "id": "0011",
+            "title": "How to create a new virtual machine in windows 10 using hyper-v?",
+            "keywords": "virtual machine, hyper-v, windows 10",
+            "url": "0011-how-to-create-a-new-virtual-machine-in-windows10-using-hyper-v.html",
+            "publishedOn": "19 Oct 2020"
+        },
+        {
             "id": "0010",
             "title": "How to add virtual machine feature in windows 10?",
             "keywords": "virtual machine, hyper-v, windows 10",

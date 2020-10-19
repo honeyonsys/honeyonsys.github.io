@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How to create a new virtual machine in windows 10 using hyper-v</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description"
+        content="How to create a new virtual machine in windows 10 using hyper-v" />
+    <meta name="keywords" itemprop="keywords"
+        content="windows10, virtualmachine, hyper-v, virtualbox, windows feature, honeyonsys, harish kumar, c#.net developer, desktop software developer" />
+    <meta property="og:title" content="How to create a new virtual machine in windows 10 using hyper-v" />
+    <meta property="og:site_name" content="https://honeyonsys.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+        content="Learn how to setup a new windows 10 virtual machine using hyper-v and windows 10 iso" />
+    <meta property="og:url"
+        content="http://honeyonsys.github.io/articles/0011-how-to-create-a-new-virtual-machine-in-windows10-using-hyper-v.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/0011_ogimg.png" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/google-code-prettify/prettify.js"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+
+</head>
+
+<body>
+    <div id="pageIdentity">article</div>
+    <div class="homeBtn"><a href="../"><img src="../assets/img/home-icon.png" width="40"></a></div>
+    <div id="leftBar">
+
+
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a href="0010-how-to-create-a-new-virtual-machine-in-windows10-using-hyper-v.html">
+                            How to create a new virtual machine in windows 10 using hyper-v</a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">windows 10</div>
+                    <div class="blogTags">virtual machine</div>
+                    <div class="blogTags">hyper-v</div>
+                    <div class="blogTags">windows features</div>
+                    <div class="datePublished">published on: 19 Oct 2020<span></span></div>
+                </div>
+                <div class="blogDescription">
+
+                    <p>You should have hyper-v feature enabled to create a new virtual machine using hyper-v. If you
+                        dont have hyper-v feature enabled please refer article: <a
+                            href="0010-how-to-add-virtual-machine-feature-in-windows10.html">How to add virtual machine
+                            feature in windows 10</a>. After enable hyper-v you need to follow the following steps to
+                        create a new virtual machine. </p>
+                    <p><b>1.</b> Launch the hyper-v from start menu button.</p>
+                    <p><img src="../assets/img/blogs/0010_4.png" /></p>
+                    <p><b>2.</b> When hyper-v manager launch, look for the <b>Actions</b> tab and navigate to <b>New</b>
+                        ->
+                        <b>Virtual Machine</b>.</p>
+                    <p><img src="../assets/img/blogs/0011_1.png" /></p>
+                    <p><b>3.</b> Click on Next on first windows</p>
+                    <p><img src="../assets/img/blogs/0011_2.png" /></p>
+                    <p><b>4.</b> On Specify Name and Location window fill up the name of your virtual machine and select
+                        the drive location of your choice where you want to save the virtual machine files. Click Next
+                    </p>
+                    <p><img src="../assets/img/blogs/0011_3.png" /></p>
+                    <p><b>5.</b> On <b>Specify Generation</b> window you need to choose the generation of the virtual
+                        machine
+                        according you hardware configurations. for more details please refer to the microsoft
+                        documentation for <a
+                            href="https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"
+                            target="_blank">selecting virtual machine generation in hyper-v</a>. But you can select the
+                        Generation 1 here to start and click on Next</p>
+                    <p><img src="../assets/img/blogs/0011_4.png" /></p>
+                    <p><b>6.</b> Further you will see the <b>Assign Memory</b> screen. Here you can assign the memory
+                        use by the virtual machine you are going to create. Note: When you the run the virtual machine
+                        this assigned memory will be from the actual RAM which is installed on your hardware device.</p>
+                    <p><img src="../assets/img/blogs/0011_5.png" /></p>
+                    <p><b>7.</b> The next screen will be <b>Configure Networking</b>. Here you can select the network
+                        switch which you can use to specify which network switch the virtual machine will use to access
+                        internet and files between virtual network(you can change this later too). Just select the
+                        Default switch and click on Next button.</p>
+                    <p><img src="../assets/img/blogs/0011_6.png" /></p>
+                    <p><b>8.</b> Next screen will be <b>Connect Virtual Hard Disk</b>.You can alot the space for using
+                        virtual machine on the hard drive of your computer. for e.g i have assigned 20GB here in below
+                        image
+                    <p><img src="../assets/img/blogs/0011_7.png" /></p>
+                    <p><b>9.</b> On <b>Installation Options</b> screen either choose "Install an operating system later"
+                        or choose "Install an operating system from a bootable CD/DVD-ROM" (here you can choose an iso
+                        file which is saved on har drive already. It could be any OS .iso). To download windows iso from
+                        web see the article <a href="0007-how-to-download-windows-10-iso-file.html">how to download
+                            windows 10 iso file</a></p>
+                    <p><img src="../assets/img/blogs/0011_8.png" /></p>
+                    <p><b>10.</b> Click on next and on summary screen click finish. Your virtual machine will setup in a
+                        few moment</p>
+                    <p><img src="../assets/img/blogs/0011_9.png" /></p>
+                    <p>Once the process finish you will see the virtual machine in the Hyper-v manager screen listing.
+                        Just click on the newly created virtual machine and hit connect button on the on select machine
+                        tab visible at the right side of the hyper-v manager</p>
+                    <p><img src="../assets/img/blogs/0011_10.png" /></p>
+                    <p>After click on connect the virtual machine screen will appear, press on the VM start button and
+                        your virual machine will start. At the very beginning it will install the windows or any choosed
+                        OS.iso like any standard OS installation. And once it will done you will be able to run a
+                        separate OS on your exising machine.</p>
+
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>
