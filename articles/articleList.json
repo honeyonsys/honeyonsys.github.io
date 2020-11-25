@@ -1,6 +1,13 @@
 {
     "articles": [
         {
+            "id": "0012",
+            "title": "Sage 200c professsional installation guide",
+            "keywords": "sage200, installation, accounting, windows10",
+            "url": "0012-sage-200c-professional-installation-guide.html",
+            "publishedOn": "25 Nov 2020"
+        },
+        {
             "id": "0011",
             "title": "How to create a new virtual machine in windows 10 using hyper-v?",
             "keywords": "virtual machine, hyper-v, windows 10",
