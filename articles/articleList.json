@@ -1,6 +1,13 @@
 {
     "articles": [
         {
+            "id": "0013",
+            "title": "How to find a specific string value inside a string array in c#",
+            "keywords": "c#, array, string, find",
+            "url": "0013-how-to-find-a-specific-string-value-inside-a-string-array-in-c-sharp.html",
+            "publishedOn": "29 Nov 2020"
+        },
+        {
             "id": "0012",
             "title": "Sage 200c professsional installation guide",
             "keywords": "sage200, installation, accounting, windows10",
