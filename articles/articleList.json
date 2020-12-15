@@ -1,6 +1,13 @@
 {
     "articles": [
         {
+            "id": "0014",
+            "title": "Search for a specific string into complete database tables in sql server",
+            "keywords": "sql server, string, find, database, query",
+            "url": "0014-search-for-a-specific-string-into-complete-database-tables-in-sql-server.html",
+            "publishedOn": "15 Dec 2020"
+        },
+        {
             "id": "0013",
             "title": "How to find a specific string value inside a string array in c#",
             "keywords": "c#, array, string, find",
