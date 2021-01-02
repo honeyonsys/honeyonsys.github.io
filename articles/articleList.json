@@ -1,6 +1,13 @@
 {
     "articles": [
         {
+            "id": "0015",
+            "title": "How to get your hyper-v virtual machine connected to internet or fix the connectivity issue?",
+            "keywords": "hyper-v, virtual machine, internet, connectivity, network",
+            "url": "0015-how-to-get-your-hyper-v-virtual-machine-connected-to-internet-or-fix-the-connectivity-issue.html",
+            "publishedOn": "2 Jan 2021"
+        },
+        {
             "id": "0014",
             "title": "Search for a specific string into complete database tables in sql server",
             "keywords": "sql server, string, find, database, query",

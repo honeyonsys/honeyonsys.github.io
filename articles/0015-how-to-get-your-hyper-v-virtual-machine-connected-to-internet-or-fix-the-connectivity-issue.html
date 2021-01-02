@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How to get your hyper-v virtual machine connected to internet or fix the connectivity issue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description"
+        content="How to get your hyper-v virtual machine connected to internet or fix the connectivity issue" />
+    <meta name="keywords" itemprop="keywords"
+        content="hyper-v, virtual machine, internet, connectivity, LAN, network, honeyonsys, harish kumar, web developer" />
+    <meta property="og:title"
+        content="How to get your hyper-v virtual machine connected to internet or fix the connectivity issue" />
+    <meta property="og:site_name" content="https://honeyonsys.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+        content="When you create virtual machine in hyper v sometimes the internet doesn't work. So to fix that this article will be helpful" />
+    <meta property="og:url"
+        content="http://honeyonsys.github.io/articles/0015-how-to-get-your-hyper-v-virtual-machine-connected-to-internet-or-fix-the-connectivity-issue.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/0010_ogimg.png" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/google-code-prettify/prettify.js"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+
+</head>
+
+<body>
+    <div id="pageIdentity">article</div>
+    <div class="homeBtn"><a href="../"><img src="../assets/img/home-icon.png" width="40"></a></div>
+    <div id="leftBar">
+
+
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a
+                            href="0015-how-to-get-your-hyper-v-virtual-machine-connected-to-internet-or-fix-the-connectivity-issue.html">
+                            How to get your hyper-v virtual machine connected to internet or fix the connectivity
+                            issue</a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">hyper-v</div>
+                    <div class="blogTags">virtual machine</div>
+                    <div class="blogTags">internet</div>
+                    <div class="blogTags">connection</div>
+                    <div class="blogTags">network</div>
+                    <div class="datePublished">published on: 2 Jan 2021<span></span></div>
+                </div>
+                <div class="blogDescription">
+                    <p>Thank you <a href="https://superuser.com/users/47225/james-mertz" target="_blank">James Mertz</a>
+                        for the very useful answer on the <a
+                            href="https://superuser.com/questions/469806/windows-8-hyper-v-how-to-give-vm-internet-access"
+                            target="_blank">stackoverflow</a></p>
+                    <p>In order to get the VM connected to the internet you have to tie it to the Ethernet/Wireless NIC
+                        Card. In order to do this you have to create a "Virtual Switch".</p>
+                    <p><b>1.</b> Open your Hyper-V Manager</p>
+                    <p><b>2.</b>Select <i>Action</i> --> <i>Virtual Switch Manager</i> </p>
+                    <p><img src="../assets/img/blogs/0015_1.png" /></p>
+                    <p><b>3.</b>Select <i>External</i> and then <i>Create Virtual Switch</i></p>
+                    <p><img src="../assets/img/blogs/0015_2.png" /></p>
+                    <p><b>4.</b>Give the Switch a Name and then select the External Controller you use to connect to the
+                        internet (Ethernet, or Wireless NIC, etc,.) <br> <br><b>Note:</b> You must select the way that
+                        you are actually connecting to the internet. IE, if your computer is set up to use Wifi or
+                        Ethernet, but is currently using Ethernet, you must use Ethernet - the Wifi connection will not
+                        work because the host machine isn't currently using it.</p>
+                    <p><img src="../assets/img/blogs/0015_3.png" /></p>
+                    <p><b>5.</b>Select <i>Apply</i> and then <i>OK</i></p>
+                    <p><b>6.</b>Right click on the Virtual Machine you want to connect and select <i>Settings</i></p>
+                    <p><img src="../assets/img/blogs/0015_4.png" /></p>
+                    <p><b>7.</b>Under the <i>Network Adapter</i> Setting select the newly created Virtual Switch</p>
+                    <p><img src="../assets/img/blogs/0015_5.png" /></p>
+                    <p>This should enable the connection you use to connect to the internet to be accessible to the VM
+                    </p>
+                    <p><b>Note:</b> you may have to do a <i>ipconfig /release</i> and <i>ipconfig /renew</i> (Windows)
+                        or a <i>sudo dhclient -v -r</i> and <i>sudo dhclient -v </i>(Linux) on the remote machine to get
+                        it to renew its DHCP settings and retrieve an IP address.</p>
+                    <p>or you can trouble shoot the network or suggested fix inside browser after go through above
+                        mentioned process (Windows)</p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>
