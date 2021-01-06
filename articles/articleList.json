@@ -1,6 +1,13 @@
 {
     "articles": [
         {
+            "id": "0016",
+            "title": "How to stop and delete a windows service from command line?",
+            "keywords": "windows-service, dos-command",
+            "url": "0016-how-to-stop-and-delete-a-windows-service-from-command-line.html",
+            "publishedOn": "6 Jan 2021"
+        },
+        {
             "id": "0015",
             "title": "How to get your hyper-v virtual machine connected to internet or fix the connectivity issue?",
             "keywords": "hyper-v, virtual machine, internet, connectivity, network",
