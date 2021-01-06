@@ -354,3 +354,8 @@ span.code{
     }
     
 }
+@media (max-width:480px) {
+    .Ad728{
+        display:none;
+    }
+}
