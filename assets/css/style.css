@@ -249,7 +249,7 @@ section{
 }
 .blogBelowLine{
     width: calc(100% - 60px);
-    height:20px;
+    height:40px;
     float: left;
     margin-top: 10px;
 }
@@ -337,7 +337,6 @@ span.code{
     height:100px;
     float: left;
     margin-top:10px;
-    margin-left:10px;
 }
 
 @media (max-width: 768px) {
