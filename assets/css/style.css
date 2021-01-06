@@ -332,6 +332,13 @@ span.code{
     margin-top:10px;
     
 }
+.Ad728{
+    width:730px;
+    height:100px;
+    float: left;
+    margin-top:10px;
+    margin-left:10px;
+}
 
 @media (max-width: 768px) {
     #leftBar {
