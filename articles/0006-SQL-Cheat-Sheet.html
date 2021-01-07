@@ -16,12 +16,11 @@
     <meta property="og:image" content="https://honeyonsys.github.io/assets/img/honeyonsys_logo.png" />
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
     <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
-    <script src="../assets/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/g-analytics.js"></script>
-
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
 </head>
 
 <body>
@@ -53,39 +52,39 @@
 
                     <h3>QUERY FROM A TABLE</h3>
                     <p>Create a new column with three column</p>
-                    <pre class="prettyprint">SELECT c1, c2 FROM t; </pre>
+                    <pre><code class="lang-sql">SELECT c1, c2 FROM t; </code></pre>
                     <p>Delete the table from the database</p>
-                    <pre class="prettyprint">DROP TABLE t;</pre>
+                    <pre><code class="lang-sql">DROP TABLE t;</code></pre>
                     <p>Add a new column to the table</p>
-                    <pre class="prettyprint">ALTER TABLE t ADD column;</pre> <br><br>
+                    <pre><code class="lang-sql">ALTER TABLE t ADD column;</code></pre> <br><br>
                     <h3>QUERYING FROM MULTIPLE TABLES</h3>
                     <p>Inner join t1 and t2</p>
-                    <pre class="prettyprint">SELECT c1, c2 FROM t1 INNER JOIN t2 on condition;</pre>
+                    <pre><code class="lang-sql">SELECT c1, c2 FROM t1 INNER JOIN t2 on condition;</code></pre>
                     <p>Left join t1 and t2</p>
-                    <pre class="prettyprint">SELECT c1, c2 FROM t1 LEFT JOIN t2 ON condition;</pre>
+                    <pre><code class="lang-sql">SELECT c1, c2 FROM t1 LEFT JOIN t2 ON condition;</code></pre>
                     <p>Produce a Cartesian product of rows in tables</p>
-                    <pre class="prettyprint">SELECT c1, c2 FROM t1 CROSS JOIN t2;</pre> <br><br>
+                    <pre><code class="lang-sql">SELECT c1, c2 FROM t1 CROSS JOIN t2;</code></pre> <br><br>
                     <h3>USING SQL OPERATORS</h3>
                     <p>Query rows between two values</p>
-                    <pre class="prettyprint">SELECT c1, c2 FROM t WHERE c1 BETWEEN low AND high</pre>
+                    <pre><code class="lang-sql">SELECT c1, c2 FROM t WHERE c1 BETWEEN low AND high</code></pre>
                     <p>Combine rows from two queries</p>
-                    <pre class="prettyprint">SELECT c1, c2 FROM t1 UNION [ALL] SELECT c1, c2 FROM t2;</pre>
+                    <pre><code class="lang-sql">SELECT c1, c2 FROM t1 UNION [ALL] SELECT c1, c2 FROM t2;</code></pre>
                     <p>Check if values in a table is NULL or not</p>
-                    <pre class="prettyprint">SELECT c1, c2 FROM t WHERE c1 IS [NOT] NULL;</pre> <br><br>
+                    <pre><code class="lang-sql">SELECT c1, c2 FROM t WHERE c1 IS [NOT] NULL;</code></pre> <br><br>
                     <h3>MODIFYING DATA</h3>
                     <p>Insert one row into a table </p>
-                    <pre class="prettyprint">INSERT INTO t(column_list) VALUES(value_list);</pre>
+                    <pre><code class="lang-sql">INSERT INTO t(column_list) VALUES(value_list);</code></pre>
                     <p>Update new value in the column c1 for all rows</p>
-                    <pre class="prettyprint">UPDATE t SET c1=new_value;</pre>
+                    <pre><code class="lang-sql">UPDATE t SET c1=new_value;</code></pre>
                     <p>Delete all data in a table</p>
-                    <pre class="prettyprint">DELETE FROM t;</pre>
+                    <pre><code class="lang-sql">DELETE FROM t;</code></pre>
                     <p>Delete subset of rows in a table</p>
-                    <pre class="prettyprint">DELETE FROM t WHERE condition;</pre> <br><br>
+                    <pre><code class="lang-sql">DELETE FROM t WHERE condition;</code></pre> <br><br>
                     <h3>MANAGING VIEWS</h3>
                     <p>Create a new view that consist of c1 and c2</p>
-                    <pre class="prettyprint">CREATE VIEW v(c1, c2) AS SELECT c1, c2 FROM t;</pre>
+                    <pre><code class="lang-sql">CREATE VIEW v(c1, c2) AS SELECT c1, c2 FROM t;</code></pre>
                     <p>Create a temporary view</p>
-                    <pre class="prettyprint">CREATE TEMPORARY VIEW v AS SELECT c1, c2 FROM t;</pre>
+                    <pre><code class="lang-sql">CREATE TEMPORARY VIEW v AS SELECT c1, c2 FROM t;</code></pre>
                     <p></p>
                     <p></p>
                 </div>
