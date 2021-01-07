@@ -17,12 +17,11 @@
     <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/0009_ogimg.png" />
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
     <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
-    <script src="../assets/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/g-analytics.js"></script>
-
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
 </head>
 
 <body>
@@ -59,86 +58,86 @@
                         packages are installed using the APT package manager</p>
                     <p>Following are some basic usage commands for termux</p>
                     <h3>Gives storage permissions:</h3>
-                    <pre class="prettyprint">termux-setup-storage</pre>
+                    <pre><code class="lang-powershell">termux-setup-storage</code></pre>
                     <h3>Home directory:</h3>
-                    <pre class="prettyprint">cd</pre>
+                    <pre><code class="lang-powershell">cd</code></pre>
                     <h3>Previous directory:</h3>
-                    <pre class="prettyprint">cd ..</pre>
+                    <pre><code class="lang-powershell">cd ..</code></pre>
                     <h3>Jump to folder:</h3>
-                    <pre class="prettyprint">cd (folder)</pre>
+                    <pre><code class="lang-powershell">cd (folder)</code></pre>
                     <h3>Clear the terminal:</h3>
-                    <pre class="prettyprint">clear</pre>
+                    <pre><code class="lang-powershell">clear</code></pre>
                     <h3>Present working directory:</h3>
-                    <pre class="prettyprint">pwd</pre>
+                    <pre><code class="lang-powershell">pwd</code></pre>
                     <h3>Copy a file:</h3>
-                    <pre class="prettyprint">cp (file)</pre>
+                    <pre><code class="lang-powershell">cp (file)</code></pre>
                     <h3>Copy a folder:</h3>
-                    <pre class="prettyprint">cp -rf (folder)</pre>
+                    <pre><code class="lang-powershell">cp -rf (folder)</code></pre>
                     <h3>Move a file:</h3>
-                    <pre class="prettyprint">mv (file)</pre>
+                    <pre><code class="lang-powershell">mv (file)</code></pre>
                     <h3>Move a folder:</h3>
-                    <pre class="prettyprint">mv (folder)</pre>
+                    <pre><code class="lang-powershell">mv (folder)</code></pre>
                     <h3>Remove a file:</h3>
-                    <pre class="prettyprint">rm (file)</pre>
+                    <pre><code class="lang-powershell">rm (file)</code></pre>
                     <h3>Remove a folder:</h3>
-                    <pre class="prettyprint">rm -rf (folder)</pre>
+                    <pre><code class="lang-powershell">rm -rf (folder)</code></pre>
                     <h3>Create a file:</h3>
-                    <pre class="prettyprint">touch (file name)</pre>
+                    <pre><code class="lang-powershell">touch (file name)</code></pre>
                     <h3>Create a folder:</h3>
-                    <pre class="prettyprint">mkdir (folder)</pre>
+                    <pre><code class="lang-powershell">mkdir (folder)</code></pre>
                     <h3>Display the text of a file:</h3>
-                    <pre class="prettyprint">cat (file name)</pre>
+                    <pre><code class="lang-powershell">cat (file name)</code></pre>
                     <h3>Display date/calender:</h3>
-                    <pre class="prettyprint">date/cal</pre>
+                    <pre><code class="lang-powershell">date/cal</code></pre>
                     <h3>Install any package:</h3>
-                    <pre class="prettyprint">apt or package install</pre>
+                    <pre><code class="lang-powershell">apt or package install</code></pre>
                     <h3>Upgrade any package:</h3>
-                    <pre class="prettyprint">apt or package upgrade</pre>
+                    <pre><code class="lang-powershell">apt or package upgrade</code></pre>
 
                     <h3>Uninstall a package:</h3>
-                    <pre class="prettyprint">apt or pkg uninstall</pre>
+                    <pre><code class="lang-powershell">apt or pkg uninstall</code></pre>
                     <h3>Executable permission to a file:</h3>
-                    <pre class="prettyprint">chmod +x (file)</pre>
+                    <pre><code class="lang-powershell">chmod +x (file)</code></pre>
                     <h3>Executable permission to all files in a folder:</h3>
-                    <pre class="prettyprint">chmod +x *</pre>
+                    <pre><code class="lang-powershell">chmod +x *</code></pre>
                     <h3>Display package version: </h3>
-                    <pre class="prettyprint">(pkg name) --version</pre>
+                    <pre><code class="lang-powershell">(pkg name) --version</code></pre>
                     <h3>List all packages:</h3>
-                    <pre class="prettyprint">apt list</pre>
+                    <pre><code class="lang-powershell">apt list</code></pre>
                     <h3>Edit a file with nano editor:</h3>
-                    <pre class="prettyprint">nano (file)</pre>
+                    <pre><code class="lang-powershell">nano (file)</code></pre>
                     <h3>Unzip a file:</h3>
-                    <pre class="prettyprint">unzip (file)</pre>
+                    <pre><code class="lang-powershell">unzip (file)</code></pre>
                     <h3>Zip folders and files:</h3>
-                    <pre class="prettyprint">zip (folder / files)</pre>
+                    <pre><code class="lang-powershell">zip (folder / files)</code></pre>
                     <h3>List files and folders:</h3>
-                    <pre class="prettyprint">ls</pre>
+                    <pre><code class="lang-powershell">ls</code></pre>
                     <h3>List hidded files and folders too:</h3>
-                    <pre class="prettyprint">ls -a</pre>
+                    <pre><code class="lang-powershell">ls -a</code></pre>
                     <h3>Show a package information:</h3>
-                    <pre class="prettyprint">apt or pkg show (pkg name)</pre>
+                    <pre><code class="lang-powershell">apt or pkg show (pkg name)</code></pre>
                     <h3>List all installed packages:</h3>
-                    <pre class="prettyprint">dpkg -list</pre>
+                    <pre><code class="lang-powershell">dpkg -list</code></pre>
                     <h3>Remove unnecessary packages:</h3>
-                    <pre class="prettyprint">apt autoremove</pre>
+                    <pre><code class="lang-powershell">apt autoremove</code></pre>
                     <h3>Show system space:</h3>
-                    <pre class="prettyprint">free</pre>
+                    <pre><code class="lang-powershell">free</code></pre>
                     <h3>Show device information:</h3>
-                    <pre class="prettyprint">screenfetch</pre>
+                    <pre><code class="lang-powershell">screenfetch</code></pre>
                     <h3>Show login name:</h3>
-                    <pre class="prettyprint">whoami</pre>
+                    <pre><code class="lang-powershell">whoami</code></pre>
                     <h3>Search a package:</h3>
-                    <pre class="prettyprint">apt / pkg search (pkg)</pre>
+                    <pre><code class="lang-powershell">apt / pkg search (pkg)</code></pre>
                     <h3>Search a file with name:</h3>
-                    <pre class="prettyprint">locate (file)</pre>
+                    <pre><code class="lang-powershell">locate (file)</code></pre>
                     <h3>Install tools with wget package: </h3>
-                    <pre class="prettyprint">wget (url)</pre>
+                    <pre><code class="lang-powershell">wget (url)</code></pre>
                     <h3>Install tools by cloning the tool (need git to be install first):</h3>
-                    <pre class="prettyprint">git clone (url)</pre>
+                    <pre><code class="lang-powershell">git clone (url)</code></pre>
                     <h3>Show all configuration of a network:</h3>
-                    <pre class="prettyprint">ifconfig</pre>
+                    <pre><code class="lang-powershell">ifconfig</code></pre>
                     <h3>Exit the terminal:</h3>
-                    <pre class="prettyprint">exit</pre>
+                    <pre><code class="lang-powershell">exit</code></pre>
                     <p></p>
                     <p></p>
                 </div>
