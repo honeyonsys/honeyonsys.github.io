@@ -28,24 +28,6 @@
 
 
     }
-
-
-    // waiting for the content to be loaded completely then setting the height of left bar same as the height of right side area
-    setTimeout(function () {
-        /*
-        var leftBar = document.getElementById('leftBar');
-        var rightBar = document.getElementById('rightArea');
-        var screenWidth = screen.width;
-        if (screenWidth > 768) {
-            if (leftBar.clientHeight < rightBar.clientHeight) {
-                leftBar.style.height = rightBar.clientHeight + "px";
-            }
-        }*/
-        prettyPrint(); //to highlight the code in the <pre> tags
-
-    }, 3000);
-
-
 })();
 
 function loadJSON(callback) {
