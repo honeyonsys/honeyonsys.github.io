@@ -19,12 +19,11 @@
     <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/ogimg.png" />
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
     <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
-    <script src="../assets/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/g-analytics.js"></script>
-
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
 </head>
 
 <body>
@@ -63,56 +62,56 @@
                     <p>You just need to replace the <b>DATABASE_NAME</b> with your database name and
                         <b>'SEARCH_TEXT'</b> with your search text
                     </p>
-                    <pre class="prettyprint">
-                            <ul>
-                                <li>USE DATABASE_NAME</li> 
-                                <li>DECLARE @SearchStr nvarchar(100) = 'SEARCH_TEXT'</li> 
-                                <li>DECLARE @Results TABLE (ColumnName nvarchar(370), ColumnValue nvarchar(3630))</li> 
-                                <li>SET NOCOUNT ON</li> 
-                                <li>DECLARE @TableName nvarchar(256), @ColumnName nvarchar(128), @SearchStr2 nvarchar(110)</li>
-                                <li>SET  @TableName = ''</li>
-                                <li>SET @SearchStr2 = QUOTENAME('%' + @SearchStr + '%','''')</li>
-                                <li>WHILE @TableName IS NOT NULL</li>
-                                <li>BEGIN</li>
-                                <li>SET @ColumnName = ''</li>
-                                <li>SET @TableName = </li>
-                                <li>(</li>
-                                <li>SELECT MIN(QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME))</li> 
-                                <li>FROM INFORMATION_SCHEMA.TABLES</li>
-                                <li>WHERE TABLE_TYPE = 'BASE TABLE'</li>
-                                <li>AND QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME) > @TableName</li>
-                                <li>AND OBJECTPROPERTY(</li>
-                                <li>OBJECT_ID(</li>
-                                <li>QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME)</li>
-                                <li>), 'IsMSShipped'</li>
-                                <li>) = 0</li>
-                                <li>)</li>
-                                <li>WHILE (@TableName IS NOT NULL) AND (@ColumnName IS NOT NULL)</li>
-                                <li>BEGIN</li>
-                                <li>SET @ColumnName =</li>
-                                <li>(</li>
-                                <li>SELECT MIN(QUOTENAME(COLUMN_NAME))</li>
-                                <li>FROM     INFORMATION_SCHEMA.COLUMNS</li>
-                                <li>WHERE         TABLE_SCHEMA    = PARSENAME(@TableName, 2)</li>
-                                <li>AND    TABLE_NAME    = PARSENAME(@TableName, 1)</li>
-                                <li>AND    DATA_TYPE IN ('char', 'varchar', 'nchar', 'nvarchar', 'int', 'decimal')</li>
-                                <li>AND    QUOTENAME(COLUMN_NAME) > @ColumnName</li>
-                                <li>)</li>
-                                <li>IF @ColumnName IS NOT NULL</li>
-                                <li>BEGIN</li>
-                                <li>INSERT INTO @Results</li>
-                                <li>EXEC</li>
-                                <li>(</li>
-                                <li>'SELECT ''' + @TableName + '.' + @ColumnName + ''', LEFT(' + @ColumnName + ', 3630)</li>
-                                <li>FROM ' + @TableName + ' (NOLOCK) ' +</li>
-                                <li>' WHERE ' + @ColumnName + ' LIKE ' + @SearchStr2</li>
-                                <li>)</li>
-                                <li>END</li>
-                                <li>END</li>
-                                <li>END</li>
-                                <li>SELECT ColumnName, ColumnValue FROM @Results</li>
-                            </ul>
-                        </pre>
+                    <pre>
+    <code class="language-sql">
+    USE DATABASE_NAME 
+    DECLARE @SearchStr nvarchar(100) = 'SEARCH_TEXT' 
+    DECLARE @Results TABLE (ColumnName nvarchar(370), ColumnValue nvarchar(3630)) 
+    SET NOCOUNT ON 
+    DECLARE @TableName nvarchar(256), @ColumnName nvarchar(128), @SearchStr2 nvarchar(110)
+    SET  @TableName = ''
+    SET @SearchStr2 = QUOTENAME('%' + @SearchStr + '%','''')
+    WHILE @TableName IS NOT NULL
+    BEGIN
+    SET @ColumnName = ''
+    SET @TableName = 
+    (
+    SELECT MIN(QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME)) 
+    FROM INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_TYPE = 'BASE TABLE'
+    AND QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME) > @TableName
+    AND OBJECTPROPERTY(
+    OBJECT_ID(
+    QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME)
+    ), 'IsMSShipped'
+    ) = 0
+    )
+    WHILE (@TableName IS NOT NULL) AND (@ColumnName IS NOT NULL)
+    BEGIN
+    SET @ColumnName =
+    (
+    SELECT MIN(QUOTENAME(COLUMN_NAME))
+    FROM     INFORMATION_SCHEMA.COLUMNS
+    WHERE         TABLE_SCHEMA    = PARSENAME(@TableName, 2)
+    AND    TABLE_NAME    = PARSENAME(@TableName, 1)
+    AND    DATA_TYPE IN ('char', 'varchar', 'nchar', 'nvarchar', 'int', 'decimal')
+    AND    QUOTENAME(COLUMN_NAME) > @ColumnName
+    )
+    IF @ColumnName IS NOT NULL
+    BEGIN
+    INSERT INTO @Results
+    EXEC
+    (
+    'SELECT ''' + @TableName + '.' + @ColumnName + ''', LEFT(' + @ColumnName + ', 3630)
+    FROM ' + @TableName + ' (NOLOCK) ' +
+    ' WHERE ' + @ColumnName + ' LIKE ' + @SearchStr2
+    )
+    END
+    END
+    END
+    SELECT ColumnName, ColumnValue FROM @Results
+    </code>
+    </pre>
                     <p></p>
                     <p></p>
 
