@@ -17,12 +17,11 @@
     <meta property="og:image" content="https://honeyonsys.github.io/assets/img/honeyonsys_logo.png" />
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
     <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
-    <script src="../assets/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/g-analytics.js"></script>
-
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
 </head>
 
 <body>
@@ -54,15 +53,15 @@
 
                     Well you can't add items to an array, since it has fixed length. What you're looking for is a List
                     <string>, which can later be turned to an array using list.ToArray(), e.g.
-                        <pre class="prettyprint">
-                            <ul>
-                                <li>List<string> list = new List<string>();</li> 
-                                <li>list.Add("your new value");</li> 
-                                <li>list.Add("your another value");</li> 
-                                <li>String[] str = list.ToArray();</li> 
-                                <li>/*use the str with loop or directly retrive like string[0]. string[1] etc*/</li> 
-                            </ul>
-                        </pre>
+                        <pre>
+<code class="lang-csharp">
+List<string> list = new List<string>(); 
+list.Add("your new value"); 
+list.Add("your another value"); 
+String[] str = list.ToArray(); 
+/*use the str with loop or directly retrive like string[0]. string[1] etc*/ 
+</code>
+</pre>
                         <p></p>
                         <p></p>
                 </div>
