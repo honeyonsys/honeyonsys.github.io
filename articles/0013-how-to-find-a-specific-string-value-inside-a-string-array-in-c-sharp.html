@@ -18,12 +18,11 @@
     <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/ogimg.png" />
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
     <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
-    <script src="../assets/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/g-analytics.js"></script>
-
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
 </head>
 
 <body>
@@ -54,18 +53,18 @@
                 <div class="blogDescription">
                     <p>To find a specific text or string inside an array of string you can use this simple trick with
                         following code.</p>
-                    <pre class="prettyprint">
-                            <ul>
-                                <li>string[] stringArray = { "text1", "text2", "text3", "text4" };</li> 
-                                <li>string value = "text3";</li> 
-                                <li>int pos = Array.IndexOf(stringArray, value);</li> 
-                                <li>if (pos > -1)</li> 
-                                <li>{</li>
-                                    <li>// the array contains the string and the pos variable</li>
-                                    <li>// will have its position in the array</li>
-                                <li>}</li> 
-                            </ul>
-                        </pre>
+                    <pre>
+<code class="lang-csharp">
+string[] stringArray = { "text1", "text2", "text3", "text4" }; 
+string value = "text3"; 
+int pos = Array.IndexOf(stringArray, value); 
+if (pos > -1) 
+{
+    // the array contains the string and the pos variable
+    // will have its position in the array
+} 
+</code>
+</pre>
                     <p></p>
                     <p></p>
 
