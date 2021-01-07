@@ -16,11 +16,13 @@
     <meta property="og:image" content="https://honeyonsys.github.io/assets/img/honeyonsys_logo.png" />
     <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" />
+    <!-- <link rel="stylesheet" href="../assets/google-code-prettify/prettify.css" /> -->
     <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
-    <script src="../assets/google-code-prettify/prettify.js"></script>
+    <!-- <script src="../assets/google-code-prettify/prettify.js"></script> -->
     <script src="../assets/js/g-analytics.js"></script>
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
 
 </head>
 
@@ -54,18 +56,54 @@
 
                     <p>The best way to parse a json string like below is to create an entity class for it (in case if
                         you know what is coming along in the the json object. I mean the fields)</p>
-                    <pre
-                        class="prettyprint"> <ul> <li>[</li><li>{</li><li>"userName": "Harish"</li><li>"designation": "Full Stack Developer"</li><li>"skills": "c#, javascript"</li><li>}</li><li>{</li><li>"userName": "Rakesh"</li><li>"designation": "Front End Developer"</li><li>"skills": "HTML, CSS,javascript"</li><li>}</li><li>]</li></ul> </pre>
+                    <pre>
+<code class="lang-json">
+[
+    {
+        "userName": "Harish",
+        "designation": "Full Stack Developer",
+        "skills": "c#, javascript"
+    }
+    {
+        "userName": "Rakesh",
+        "designation": "Front End Developer",
+        "skills": "HTML, CSS,javascript"
+    }
+]
+</code>
+                </pre>
                     <p>To parse the above json first create a entity class like below</p>
-                    <pre
-                        class="prettyprint"> <ul> <li>public partial class userList</li><li>{</li><li>[JsonProperty("userName")]</li><li>public string userName{get; set;}</li><li>[JsonProperty("designation")]</li><li>public string designation{get; set;}</li><li>[JsonProperty("skills")]</li><li>public string skills{get; set;}</li><li>}</li></ul> </pre>
+                    <pre>
+<code class="lang-csharp">
+    public partial class userList
+    {
+        [JsonProperty("userName")]
+        public string userName{get; set;}
+        
+        [JsonProperty("designation")]
+        public string designation{get; set;}
+        
+        [JsonProperty("skills")]
+        public string skills{get; set;}
+    }
+</code>
+</pre>
                     <p>Then you can create the foreach loop by deserializing the json string into <b>userList</b> object
                     </p>
-                    <pre
-                        class="prettyprint"> <ul> <li>dynamic userObj=JsonConvert.DeserializeObject&lt;List&lt;userList&gt;&gt;(yourJson);</li><li>foreach(userList obj in userObj)</li><li>{</li><li>var username=obj.userName; // as you defined in the entity class</li><li>var desig=obj.designation; </li><li>var skills=obj.skills</li><li>}</li></ul> </pre>
+                    <pre>
+<code class="lang-csharp">
+dynamic userObj=JsonConvert.DeserializeObject<List<userList>>(yourJson);
+foreach(userList obj in userObj)
+{
+    var username=obj.userName; // as you defined in the entity class
+    var desig=obj.designation; 
+    var skills=obj.skills
+}
+</code>
+</pre>
                     <p><b>Note:</b> Here we are using the newtonsoft json package. You can install that from nugat
                         packages on your visual studio<br>reference class:</p>
-                    <pre class="prettyprint"> <li>using Newtonsoft.Json;</li></pre>
+                    <pre> <code class="lang-csharp">using Newtonsoft.Json;</code></pre>
                     <p></p>
                     <p></p>
                 </div>
