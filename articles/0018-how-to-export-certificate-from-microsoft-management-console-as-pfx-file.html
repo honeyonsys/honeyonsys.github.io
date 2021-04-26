@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How to export certificate from microsoft management console as .pfx file?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description"
+        content="How to export certificate from microsoft management console as .pfx file?" />
+    <meta name="keywords" itemprop="keywords"
+        content="inno-setup, signing, signature-certificate, trusted-application, pfx, mmc, microsoft management console, honeyonsys, harish kumar, web developer" />
+    <meta property="og:title" content="How to export certificate from microsoft management console as .pfx file?" />
+    <meta property="og:site_name" content="https://honeyonsys.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+        content="Export the signing certificate from microsoft management console as pfx file" />
+    <meta property="og:url"
+        content="http://honeyonsys.github.io/articles/0018-how-to-export-certificate-from-microsoft-management-console-as-pfx-file.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/ogimg.png" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
+</head>
+
+<body>
+    <div id="pageIdentity">article</div>
+    <div class="homeBtn"><a href="../"><img src="../assets/img/home-icon.png" width="40"></a></div>
+    <div id="leftBar">
+
+
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a href="0018-how-to-export-certificate-from-microsoft-management-console-as-pfx-file.html">
+                        How to export certificate from microsoft management console as pfx file?</a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">signature-certificate</div>
+                    <div class="blogTags">pfx</div>
+                    <div class="blogTags">cer</div>
+                    <div class="datePublished">published on: 24 April 2021<span></span></div>
+                </div>
+                <div class="Ad728">
+                    <script type="text/javascript" src="../assets/js/728adcode.js"></script>
+                </div>
+                <div class="blogDescription">
+                    <p>The signing certificate could be used as add publisher info into the desktop application created by c#/vb.net or anything else. In this article we will see how can we export a already added certificate into windows certificate authority(CA). To create a new self signed certificate refer our article: <a href="0017-how-to-create-self-signed-signature-certificate-in-windows.html">how to create self signed signature certificate in windows</a></p>
+                    <p>First you have to click on start button and type "run". When the Run prompt appear type "mmc" in it and hit enter.</p>
+                    <p><img src="../assets/img/blogs/0017_2.png"></p>
+                    
+                    <p></p> When the microsoft management console window will appear you might see only Console Root folder at left panel of the console. To show the installed certificates click on File menu -> Add/Remove Snap in...</p>
+                    <p>In the Add / Remove window select the "Certificates" from available snaps-in and click on "Add" button</p>
+                    <p><img src="../assets/img/blogs/0017_3.png"></p>
+                    <p>After click "Ok" select the "Computer account" from Certificates snap in window and click "Next"</p>
+                    <p><img src="../assets/img/blogs/0017_4.png"></p>
+                    <br><br>
+                    <p>Select "Local Computer" from select computer window and "Finish" the process</p>
+                    <p><img src="../assets/img/blogs/0017_5.png"></p>
+                    <p>You will see the "Certificates" folder in Console root. Expand Personal folder and click on certificates, in the right panel you will see the created certificate.</p>
+                    <p><img src="../assets/img/blogs/0017_6.png"></p>
+                    <p>Right click on the certificate you want to export, All tasks -> export.</p>
+                    <p>In the export wizard select <b>Yes export the private key</b></p>
+                    <p>On next screen select <b>"Personal Information Exchange -PKCS #12 (.PFX)"</b></p>
+                    <p>In the security screen check the Password check box and fill password and confirm password field. For the encryption choose <b>AES256-SHA256</b></p>
+                    <p>In the next screen browse the location from your machine where you want to save the .pfx file -> click Next and Finish.</p>
+                    <p>You will get the certificate.pfx file in the location you selected</p>
+                    <p></p>
+                </div>
+                <div class="Ad728">
+                    <script type="text/javascript" src="../assets/js/728adcode.js"></script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>

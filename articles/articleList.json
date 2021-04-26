@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "id": "0018",
+      "title": "How to export certificate from microsoft managment console(mmc) as .pfx file?",
+      "keywords": "signature-certificate, signing, pfx, cer, mmc",
+      "url": "0018-how-to-export-certificate-from-microsoft-management-console-as-pfx-file.html",
+      "publishedOn": "24 April 2021"
+    },
+    {
       "id": "0017",
       "title": "How to create self signed signature certificate in windows?",
       "keywords": "signature-certificate, signing, pfx, cer",
