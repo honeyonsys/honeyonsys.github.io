@@ -56,7 +56,7 @@
                     <p>To create your own cetficate you have to open the windows Power Shell (As Administrator) and type the following command in it</p>
                     <pre><code class="lang-powershell">New-SelfSignedCertificate -Type Custom -Subject "CN=YOUR_CUSTOM_NAME, O=YOUR_ORGANIZATION_NAME, C=COUNTRY_CODE_TWO_CHARACTERS_ONLY" -KeyUsage DigitalSignature -FriendlyName "FRIENDLY_NAME_WHICH_APPEAR" -CertStoreLocation "Cert:\LocalMachine\My" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
                     </code></pre>
-                    <b>Cert</b> parameter could be change to \LocalMachine\Root also <br>
+                    <b>Cert</b> parameter could be change to \LocalMachine\Root also if you want to save it in Trusted root certification authority (power shell should be run as administrator for this)<br>
                     <b>C</b> will be the country code e.g: US<br>
                     <b>O</b> will be the organization name for which the certificate is creating<br/>
                     <b>CN</b> will be the custom name of the certificate
