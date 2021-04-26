@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How to create self signed signature certificate (.pfx, .cer) in windows?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description"
+        content="How to create self signed signature certificate (.pfx, .cer) in windows?" />
+    <meta name="keywords" itemprop="keywords"
+        content="inno-setup, signing, signature-certificate, trusted-application, honeyonsys, harish kumar, web developer" />
+    <meta property="og:title" content="How to create self signed signature certificate (.pfx, .cer) in windows?" />
+    <meta property="og:site_name" content="https://honeyonsys.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+        content="Adding a self signed digital certificate into the installer build by inno setup so that UAC will show it as a trusted publisher" />
+    <meta property="og:url"
+        content="http://honeyonsys.github.io/articles/0017-how-to-create-self-signed-signature-certificate-in-windows.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/ogimg.png" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
+</head>
+
+<body>
+    <div id="pageIdentity">article</div>
+    <div class="homeBtn"><a href="../"><img src="../assets/img/home-icon.png" width="40"></a></div>
+    <div id="leftBar">
+
+
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a href="0017-how-to-create-self-signed-signature-certificate-in-windows.html">
+                        How to create self signed signature certificate in windows?</a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">signature-certificate</div>
+                    <div class="blogTags">pfx</div>
+                    <div class="blogTags">cer</div>
+                    <div class="datePublished">published on: 23 April 2021<span></span></div>
+                </div>
+                <div class="Ad728">
+                    <script type="text/javascript" src="../assets/js/728adcode.js"></script>
+                </div>
+                <div class="blogDescription">
+                    <p>A self signed certificate is a digital certificate thats not signed by a publicly trusted certificate authority (CA). The reason why they are considered different from traditional certificate-authority signed certificates is that they are created, issued, and signed by the company or developer who is responsible for the website or software being signed. This is why self signed certificates are considered unsafe for public-facing websites and applications.</p>
+                    <p>The purpose of this article is to create a self-signed certificate to sign the desktop application developed in visual studio and packaged with inno setup which prompts Unknown publisher info while launching the installer exe build by inno setup. Basically its for testing purpose only</p>
+                    <p>To create your own cetficate you have to open the windows Power Shell (As Administrator) and type the following command in it</p>
+                    <pre><code class="lang-powershell">New-SelfSignedCertificate -Type Custom -Subject "CN=YOUR_CUSTOM_NAME, O=YOUR_ORGANIZATION_NAME, C=COUNTRY_CODE_TWO_CHARACTERS_ONLY" -KeyUsage DigitalSignature -FriendlyName "FRIENDLY_NAME_WHICH_APPEAR" -CertStoreLocation "Cert:\LocalMachine\My" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
+                    </code></pre>
+                    <b>Cert</b> parameter could be change to \LocalMachine\Root also <br>
+                    <b>C</b> will be the country code e.g: US<br>
+                    <b>O</b> will be the organization name for which the certificate is creating<br/>
+                    <b>CN</b> will be the custom name of the certificate
+                    <p>for more parameter details you can refere microsoft documentation for <a href="https://docs.microsoft.com/en-us/powershell/module/pki/new-selfsignedcertificate?view=windowsserver2019-ps" target="_blank">New-SelfSignedCertificate</a></p>
+                    <p>After execute above command successfully you will the message in power shell something like below</p>
+                    <p><img src="../assets/img/blogs/0017_1.png"></p>
+                    <br>
+                    <p>Next is to retreive this certificate (.pfx) file you need to hit windows <b>start button</b> -> and type <b>RUN</b>. Then type mmc in the prompt and hit enter</p>
+                    <p><img src="../assets/img/blogs/0017_2.png"></p>
+                    <br><br>
+                    <p>When Microsoft Management Console appear click on file menu -> Add/Remove snap in...</p>
+                    <p>In the Add / Remove window select the "Certificates" from available snaps-in and click on "Add" button</p>
+                    <p><img src="../assets/img/blogs/0017_3.png"></p>
+                    <br><br>
+                    <p>After click "Ok" select the "Computer account" from Certificates snap in window and click "Next"</p>
+                    <p><img src="../assets/img/blogs/0017_4.png"></p>
+                    <br><br>
+                    <p>Select "Local Computer" from select computer window and "Finish" the process</p>
+                    <p><img src="../assets/img/blogs/0017_5.png"></p>
+                    <p>You will see the "Certificates" folder in Console root. Expand Personal folder and click on certificates, in the right panel you will see the created certificate.</p>
+                    <p><img src="../assets/img/blogs/0017_6.png"></p>
+                    <p></p>
+                </div>
+                <div class="Ad728">
+                    <script type="text/javascript" src="../assets/js/728adcode.js"></script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>
