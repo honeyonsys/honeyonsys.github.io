@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How to inject signing certificate (.pfx) into c# build executable file?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description"
+        content="How to inject signing certificate (.pfx) into c# build executable file?" />
+    <meta name="keywords" itemprop="keywords"
+        content="inno-setup, signing, signature-certificate, trusted-application, pfx, mmc, batch file, honeyonsys, harish kumar, web developer" />
+    <meta property="og:title" content="How to inject signing certificate (.pfx) into c# build executable file?" />
+    <meta property="og:site_name" content="https://honeyonsys.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description"
+        content="How to inject signing certificate (.pfx) into c# build executable file?" />
+    <meta property="og:url"
+        content="http://honeyonsys.github.io/articles/0019-how-to-inject-signing-certificate-into-csharp-build-executable-file.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/ogimg.png" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
+</head>
+
+<body>
+    <div id="pageIdentity">article</div>
+    <div class="homeBtn"><a href="../"><img src="../assets/img/home-icon.png" width="40"></a></div>
+    <div id="leftBar">
+
+
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a href="0019-how-to-inject-signing-certificate-into-csharp-build-executable-file.html">
+                        How to inject signing certificate (.pfx) into c# build executable file?</a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">signature-certificate</div>
+                    <div class="blogTags">pfx</div>
+                    <div class="blogTags">.bat</div>
+                    <div class="datePublished">published on: 30 April 2021<span></span></div>
+                </div>
+                <div class="Ad728">
+                    <script type="text/javascript" src="../assets/js/728adcode.js"></script>
+                </div>
+                <div class="blogDescription">
+                    <P>The purpose of injecting the signing certificate into your build executable file is to prevent it from showing unknown publisher error. If your application will have a valid signing certificate and that certificate will install into the Microsoft certificate authority then you will not be prompt with unknown publisher error while launching your application like below:</P>
+                    <p><img src="../assets/img/blogs/0019_1.png"></p>
+                    <p><br> To get rid of this you need a sigining certificate (preferred .pfx file) and you executable file. Both must be on same directory.</p>
+                    <p>Now create a new .txt file into same directory where your signingcertificate.pfx and application.exe is exist. after create that file put the following batch script into it</p>
+                    <pre><code class="lang-powershell">"C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe" sign /f "signingcertificate.pfx" /p Abcd@123 /t http://timestamp.digicert.com application.exe
+                    </code></pre>
+                    <p>First paramter will be the location of signtool.exe from your computer. The path which i set above is a default one but it could be different in your case. signtool.exe is a part of windows sdk for more details visit <a href="https://docs.microsoft.com/en-us/dotnet/framework/tools/signtool-exe" target="_blank">microsoft SignTool.exe page</a></p>
+                    <p>/f parameter will be the signing certificate name including extension</p>
+                    <p>/p will be the password of the signing certificate.</p>
+                    <p>/t will be the time stamp, here we are grabbing the time stamp from digicert.com but you can use other services too</p>
+                    <p>and last would be your application exe name</p>
+
+                    <p>after creating this .txt file rename the file to .bat extension at the end. When you run that script by double click, it will inject the certificate into the exe. To verify that certificate is injected successfully right click on the exe and you will see an additional tab "Digital Signatures" in the properties of the exe</p>
+                    <p><img src="../assets/img/blogs/0019_2.png"></p>
+                    <p></p>
+                </div>
+                <div class="Ad728">
+                    <script type="text/javascript" src="../assets/js/728adcode.js"></script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>
