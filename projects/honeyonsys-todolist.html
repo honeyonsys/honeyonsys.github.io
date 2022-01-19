@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>honeyonsys - TODO LIST</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+<style>
+    body {margin: 0px; color: #292D38; background-color: #FAFBFD;  font-family: 'Open Sans', sans-serif;}
+    .main{ width:100%; height: auto; float: left; }
+    .heading{width: 97%; height:30px; float: left; font-size:20px; font-weight: bold; background-color: #ffffff; background-image: url('todo-list.png'); background-repeat: no-repeat; background-size: contain; padding-left:40px; box-shadow: #292D38 0px 0px 10px;} 
+    #taskList{width: 97%; height: auto; float:left; margin-top:30px; margin-left: 20px; }
+    .task{width:98%; height: auto; float: left; background-color: #EBECF0; padding:10px; margin-top:5px;}
+    .complete {background-color: #B2F6D3; color:#2D543F; }
+    .lineThrough {text-decoration: line-through;}
+    .checkbox{width:20px; height:20px; float: left;}
+    .taskText{width:94%; height: auto; float: left; font-size:14px; margin-left:10px; color: #0B1932;}
+    .taskText i {font-size:10px; color:#20468E;}
+    .deleteTask{width:20px; height:20px; float: left; margin-left: 10px; cursor: pointer; }
+    .deleteTask img{width:20px; height: 20px;}
+    .taskInputCont{width: 97%; height: 40px; float: left; margin-top:30px; margin-left:20px;}
+    .taskInputCont input {width:calc(99% - 160px); height:34px; border:#E2E4E7 solid 1px;}
+    .taskInputCont input:active {border:#B3D4FF solid 1px;}
+    .taskInputCont button {width:150px; height: 36px; background-color: #6CECB3; color:#2D543F; font-size:18px; cursor: pointer;}
+
+</style>
+<script src="jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        fetchTasks();
+    });
+    $('input[type=checkbox]').change(function(){
+        alert('bhature0');
+    })
+    function addTask(){
+        try {
+            var task = document.getElementById('task').value;
+            var localTasks = localStorage.getItem('honeyonsys-tasks');
+            if(localTasks == null) {
+                localStorage.setItem('honeyonsys-tasks', '[]');
+            }
+            
+            if(task == "") {
+                alert("There is no task added in the task input, please put one and try again");
+            } else {
+                var jsonData = Array.from(JSON.parse(localTasks));
+                
+                jsonData.push({"id": Date.now(), "task": task, "status": "pending"})
+                localStorage.setItem('honeyonsys-tasks', JSON.stringify(jsonData));
+                document.getElementById('task').value = "";
+                fetchTasks();
+            }
+            
+            
+        }
+        catch(err) {
+            console.log("Error: " + err.message);
+        }
+    }
+    function fetchTasks(){
+        try {
+            var localTasks = Array.from(JSON.parse(localStorage.getItem('honeyonsys-tasks')));
+            var tasksHTML = "";
+            localTasks.forEach(task => {
+                tasksHTML += task.status == 'complete' ? '<div class="task complete">' : '<div class="task">';
+                tasksHTML += task.status == 'complete' ? '<div class="checkbox"><input type="checkbox" checked /></div>' : '<div class="checkbox"><input type="checkbox" /></div>';
+                if(task.status == "complete") {
+                    tasksHTML += '<div class="taskText lineThrough">'+task.task+' <i>[Added on: 22 Dec 2021]</i></div>';
+                } else {
+                    tasksHTML += '<div class="taskText">'+task.task+' <i>[Added on: 22 Dec 2021]</i></div>';
+                }
+                
+                tasksHTML += '<div class="deleteTask"><img src="delete.png" title="Delete Task"> <input type="hidden" value="'+task.id+'" /></div>';
+                tasksHTML += '</div>';
+
+                
+            });
+            document.getElementById('taskList').innerHTML = tasksHTML;
+        }
+        catch(err) {
+            console.log("Error: " + err.message);
+        }
+    }
+    function checkBoxCheckUncheck(status) {
+        console.log(status);
+        /*
+        if (this.checked) {
+            console.log("Checkbox is checked..");
+        } else {
+            console.log("Checkbox is not checked..");
+        }*/
+        
+    }
+    function setStatus(id, status, jsonData){
+        try {
+            for (var i = 0; i < jsonData.length; i++) {
+                if (jsonData[i].id === id) {
+                    jsonData[i].status = status;
+                    break;
+                }
+            }
+            return jsonData;
+        }
+        catch(err) {
+            console.log("Error: " + err.message);
+        }
+    }
+</script>
+</head>
+<body>
+    <div class="main">
+        <div class="heading">
+            Tasks to do
+        </div>
+        <div class="taskInputCont">
+            <input type="text" id="task"/> <button onclick="addTask()">Add Task</button>
+        </div>
+        <div id="taskList">
+            
+            <!-- <div class="task">
+                <div class="checkbox"><input type="checkbox" /></div>
+                <div class="taskText">This will be the description<i>[Added on: 22 Dec 2021]</i></div>
+                <div class="deleteTask"><img src="delete.png" title="Delete Task"></div>
+            </div> -->
+            
+        </div>
+    </div>
+</body>
+</html>
