@@ -10,6 +10,7 @@
     .main{ width:100%; height: auto; float: left; }
     .heading{width: 97%; height:30px; float: left; font-size:20px; font-weight: bold; background-color: #ffffff; background-image: url('todo-list.png'); background-repeat: no-repeat; background-size: contain; padding-left:40px; box-shadow: #292D38 0px 0px 10px;} 
     #taskList{width: 97%; height: auto; float:left; margin-top:30px; margin-left: 20px; }
+    .heading span{float: right; font-size:14px; margin-right:10px;} 
     .task{width:98%; height: auto; float: left; background-color: #EBECF0; padding:10px; margin-top:5px;}
     .complete {background-color: #B2F6D3; color:#2D543F; }
     .lineThrough {text-decoration: line-through;}
@@ -29,19 +30,45 @@
     $(document).ready(function(){
         fetchTasks();
         $('input[type=checkbox]').click(function(){
-            var taskid = $(this).attr('alt');
-            var localTasks = localStorage.getItem('honeyonsys-tasks');
-            if(this.checked) {
-                setStatus(taskid, 'complete', localTasks)
-                //alert('check ho gaya : ' + taskid);
-            } else {
-                setStatus(taskid, 'pending', localTasks)
-                //alert('uncheck ho gaya : ' + taskid);
+            try {
+                var taskid = $(this).attr('alt');
+                var localTasks = localStorage.getItem('honeyonsys-tasks');
+                if(this.checked) {
+                    setStatus(taskid, 'complete', localTasks);
+                } else {
+                    setStatus(taskid, 'pending', localTasks);
+                }
+                fetchTasks();
+            } 
+            catch(err) {
+                console.log("Error: " + err.message);    
             }
-            fetchTasks();
-            
         });
+        
+        
     });
+
+    $(document).on('click', '.deleteTask', function() {
+            try {
+                if(confirm("Do you really want to remove this task?")) {
+                    var taskid = $(this).parent('.task').children('.checkbox').children('input[type=checkbox]').attr('alt');
+                    var localTasks = localStorage.getItem('honeyonsys-tasks');
+                    var jsonArray = Array.from(JSON.parse(localTasks));
+                    for (var i = 0; i < jsonArray.length; i++) {
+                        if (jsonArray[i].id == taskid) {
+                            jsonArray.splice(i, 1); 
+                            break;
+                        }
+                    }
+                    localTasks = JSON.stringify(jsonArray);
+                    localStorage.setItem('honeyonsys-tasks', localTasks);    
+                    fetchTasks();    
+                }
+            }
+            catch(err) {
+                console.log("Error: " + err.message);
+            }
+        });
     
     function addTask(){
         try {
@@ -56,7 +83,7 @@
             } else {
                 var jsonData = Array.from(JSON.parse(localTasks));
                 
-                jsonData.push({"id": Date.now(), "task": task, "status": "pending"})
+                jsonData.push({"id": Date.now(), "task": task, "status": "pending"});
                 localStorage.setItem('honeyonsys-tasks', JSON.stringify(jsonData));
                 document.getElementById('task').value = "";
                 fetchTasks();
@@ -82,12 +109,13 @@
                     tasksHTML += '<div class="taskText">'+task.task+' <i>[Added on: 22 Dec 2021]</i></div>';
                 }
                 
-                tasksHTML += '<div class="deleteTask"><img src="delete.png" title="Delete Task"> <input type="hidden" value="'+task.id+'" /></div>';
+                tasksHTML += '<div class="deleteTask"><img src="delete.png" title="Delete Task"></div>';
                 tasksHTML += '</div>';
 
                 
             });
-            document.getElementById('taskList').innerHTML = tasksHTML;
+            $('#taskList').html(tasksHTML);
+            
         }
         catch(err) {
             console.log("Error: " + err.message);
@@ -119,6 +147,7 @@
     <div class="main">
         <div class="heading">
             Tasks to do
+            <span><a href="../">BACK TO HOME</a></span>
         </div>
         <div class="taskInputCont">
             <input type="text" id="task"/> <button onclick="addTask()">Add Task</button>
