@@ -28,10 +28,21 @@
 <script type="text/javascript">
     $(document).ready(function(){
         fetchTasks();
+        $('input[type=checkbox]').click(function(){
+            var taskid = $(this).attr('alt');
+            var localTasks = localStorage.getItem('honeyonsys-tasks');
+            if(this.checked) {
+                setStatus(taskid, 'complete', localTasks)
+                //alert('check ho gaya : ' + taskid);
+            } else {
+                setStatus(taskid, 'pending', localTasks)
+                //alert('uncheck ho gaya : ' + taskid);
+            }
+            fetchTasks();
+            
+        });
     });
-    $('input[type=checkbox]').change(function(){
-        alert('bhature0');
-    })
+    
     function addTask(){
         try {
             var task = document.getElementById('task').value;
@@ -57,13 +68,14 @@
             console.log("Error: " + err.message);
         }
     }
+
     function fetchTasks(){
         try {
             var localTasks = Array.from(JSON.parse(localStorage.getItem('honeyonsys-tasks')));
             var tasksHTML = "";
             localTasks.forEach(task => {
                 tasksHTML += task.status == 'complete' ? '<div class="task complete">' : '<div class="task">';
-                tasksHTML += task.status == 'complete' ? '<div class="checkbox"><input type="checkbox" checked /></div>' : '<div class="checkbox"><input type="checkbox" /></div>';
+                tasksHTML += task.status == 'complete' ? '<div class="checkbox"><input type="checkbox" alt="'+task.id+'" checked /></div>' : '<div class="checkbox"><input type="checkbox" alt="'+task.id+'" /></div>';
                 if(task.status == "complete") {
                     tasksHTML += '<div class="taskText lineThrough">'+task.task+' <i>[Added on: 22 Dec 2021]</i></div>';
                 } else {
@@ -81,29 +93,25 @@
             console.log("Error: " + err.message);
         }
     }
-    function checkBoxCheckUncheck(status) {
-        console.log(status);
-        /*
-        if (this.checked) {
-            console.log("Checkbox is checked..");
-        } else {
-            console.log("Checkbox is not checked..");
-        }*/
-        
-    }
+
+    //setting up status as complete and pending
     function setStatus(id, status, jsonData){
         try {
-            for (var i = 0; i < jsonData.length; i++) {
-                if (jsonData[i].id === id) {
-                    jsonData[i].status = status;
+            var jsonArray = Array.from(JSON.parse(jsonData));
+            for (var i = 0; i < jsonArray.length; i++) {
+                if (jsonArray[i].id == id) {
+                    jsonArray[i].status = status;
                     break;
                 }
             }
-            return jsonData;
+            jsonData = JSON.stringify(jsonArray);
+            
         }
         catch(err) {
             console.log("Error: " + err.message);
         }
+        localStorage.setItem('honeyonsys-tasks', jsonData);
+        
     }
 </script>
 </head>
