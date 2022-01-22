@@ -104,9 +104,9 @@
                 tasksHTML += task.status == 'complete' ? '<div class="task complete">' : '<div class="task">';
                 tasksHTML += task.status == 'complete' ? '<div class="checkbox"><input type="checkbox" alt="'+task.id+'" checked /></div>' : '<div class="checkbox"><input type="checkbox" alt="'+task.id+'" /></div>';
                 if(task.status == "complete") {
-                    tasksHTML += '<div class="taskText lineThrough">'+task.task+' <i>[Added on: 22 Dec 2021]</i></div>';
+                    tasksHTML += '<div class="taskText lineThrough">'+task.task+' <i>[Added on: '+getTimeWithTimeStamp(task.id)+']</i></div>';
                 } else {
-                    tasksHTML += '<div class="taskText">'+task.task+' <i>[Added on: 22 Dec 2021]</i></div>';
+                    tasksHTML += '<div class="taskText">'+task.task+' <i>[Added on:  '+getTimeWithTimeStamp(task.id)+']</i></div>';
                 }
                 
                 tasksHTML += '<div class="deleteTask"><img src="delete.png" title="Delete Task"></div>';
@@ -120,6 +120,10 @@
         catch(err) {
             console.log("Error: " + err.message);
         }
+    }
+    function getTimeWithTimeStamp(timestamp) {
+        var date = new Date(timestamp);
+        return date.getDate()+ "/"+(date.getMonth()+1)+ "/"+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes()+ ":"+date.getSeconds();
     }
 
     //setting up status as complete and pending
