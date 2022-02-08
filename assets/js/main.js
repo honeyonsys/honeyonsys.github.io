@@ -24,17 +24,27 @@
         loadJSON(function (response) {
             // Parse JSON string into object
             var news_JSON = JSON.parse(response);
-            //console.log(news_JSON["articles"]);
             var blogList = document.getElementById("blogList");
-            news_JSON["articles"].forEach(element => {
+            const html = news_JSON['articles'].map( item =>{
                 var tags = '';
-                var tagArray = element.keywords.split(",");
+                var tagArray = item['keywords'].split(",");
                 tagArray.forEach(tag => {
                     tags += '<div class="blogTags">' + tag + '</div>';
                 });
-                blogList.innerHTML += '<div class="blog"><div class="blogTitle"><h3><a href="articles/' + element.url + '">' + element.title + '</a></h3></div><div class="blogBelowLine">' + tags + '<div class="datePublished">published on: <span>' + element.publishedOn + '</span></div></div></div>';
+                return `<div class="blog">
+                            <div class="blogTitle">
+                                <h3><a href="articles/${item['url']}">${item['title']}</a></h3>
+                            </div>
+                            <div class="blogBelowLine">
+                                ${tags} 
+                                <div class="datePublished">published on: ${item['publishedOn']}<span></span></div>
+                            </div>
+                        </div>`;
 
-            });
+                
+               });
+               
+               blogList.innerHTML = html.join('');
         });
 
 
