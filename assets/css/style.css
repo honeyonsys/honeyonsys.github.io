@@ -36,7 +36,10 @@ body {
     min-height: 600px;
     float: left;
     background: #BBBDC0;
+    -moz-transition: left 0.5s ease;
+    transition: left 0.5s ease;
 }
+
 .footer{
     width:calc(100% - 20px); 
     height: auto;
@@ -98,10 +101,11 @@ section{
     float:left;
     background-color: #3B3B3B;
     overflow: hidden;
-    text-align: center;
+    
 }
 .profile_pic img{
     width:250px;
+    float: left;
 }
 .profileName{
     width:100%; 
@@ -339,18 +343,41 @@ span.code{
     margin-top:10px;
 }
 
+#toggleButton {
+    width:30px;
+    height: 30px;
+    left: 360px;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    -moz-transition: left 0.5s ease;
+    transition: left 0.5s ease;
+    display: none;
+}
+#toggleButton span{
+    width:30px;
+    height: 5px;
+    float: left;
+    margin-top:5px;
+    background-color: #797C82;
+
+}
+
+
 @media (max-width: 768px) {
+    #toggleButton{
+        display:block;
+    }
     #leftBar {
-        width:100%;
-        float: left;
-        min-height:250px;
+        margin-left: -350px;
+        position: absolute;
+        z-index: 1;
     }
     #rightArea {
         width:100%;
         float: left;
         padding-left: 0px;
         padding-right:0px;
-
     }
     
 }

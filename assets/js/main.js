@@ -49,8 +49,23 @@
 
 
     }
-})();
 
+    
+})();
+document.addEventListener('click',function(e){
+    if(e.target && e.target.id== 'toggleButton'){
+        var leftBar = document.querySelector('#leftBar');
+        if(leftBar.style.marginLeft == '0px')
+        {
+            leftBar.style.marginLeft = '-350px';
+            leftBar.style.position = 'absolute';
+        } else {
+            leftBar.style.marginLeft = '0px';
+            leftBar.style.removeProperty('position')
+            
+        }
+     }
+});
 function loadJSON(callback) {
 
     var xobj = new XMLHttpRequest();
@@ -64,3 +79,4 @@ function loadJSON(callback) {
     };
     xobj.send(null);
 }
+
