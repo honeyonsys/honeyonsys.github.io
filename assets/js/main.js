@@ -59,10 +59,11 @@ document.addEventListener('click',function(e){
         {
             leftBar.style.marginLeft = '-350px';
             leftBar.style.position = 'absolute';
+            document.querySelector('#toggleButton').style.left = '360px';
         } else {
             leftBar.style.marginLeft = '0px';
             leftBar.style.removeProperty('position')
-            
+            document.querySelector('#toggleButton').style.left = '300px';
         }
      }
 });
