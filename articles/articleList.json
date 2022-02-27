@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "id": "0020",
+      "title": "Setting up rest api project with python(django)",
+      "keywords": "rest-api, python, django",
+      "url": "0020-setting-up-rest-api-project-with-python-django.html",
+      "publishedOn": "26 Feb 2022"
+    },
+    {
       "id": "0019",
       "title": "How to inject signing certificate (.pfx) into c# build executable file?",
       "keywords": "signature-certificate, signing, pfx, cer, mmc, batch-script",
