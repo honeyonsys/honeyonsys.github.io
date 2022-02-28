@@ -372,6 +372,7 @@ span.code{
         margin-left: -350px;
         position: absolute;
         z-index: 1;
+        transition: margin 2s;
     }
     #rightArea {
         width:100%;
@@ -384,5 +385,8 @@ span.code{
 @media (max-width:480px) {
     .Ad728{
         display:none;
+    }
+    .homeBtn {
+        margin-right:40px;
     }
 }
