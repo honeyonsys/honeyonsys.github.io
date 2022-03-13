@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "id": "0021",
+      "title": "Cheat sheet for vanilla js as alternative to jQuery",
+      "keywords": "cheat-sheet, vanilla-js, jquery, javascript, core-js",
+      "url": "0021-jquery-alternatives-in-vanilla-js.html",
+      "publishedOn": "13 Mar 2022"
+    },
+    {
       "id": "0020",
       "title": "Setting up rest api project with python(django)",
       "keywords": "rest-api, python, django",
@@ -38,14 +45,14 @@
     {
       "id": "0015",
       "title": "How to get your hyper-v virtual machine connected to internet or fix the connectivity issue?",
-      "keywords": "hyper-v, virtual machine, internet, connectivity, network",
+      "keywords": "hyper-v, virtual-machine, internet, connectivity, network",
       "url": "0015-how-to-get-your-hyper-v-virtual-machine-connected-to-internet-or-fix-the-connectivity-issue.html",
       "publishedOn": "2 Jan 2021"
     },
     {
       "id": "0014",
       "title": "Search for a specific string into complete database tables in sql server",
-      "keywords": "sql server, string, find, database, query",
+      "keywords": "sql-server, string, find, database, query",
       "url": "0014-search-for-a-specific-string-into-complete-database-tables-in-sql-server.html",
       "publishedOn": "15 Dec 2020"
     },
@@ -66,21 +73,21 @@
     {
       "id": "0011",
       "title": "How to create a new virtual machine in windows 10 using hyper-v?",
-      "keywords": "virtual machine, hyper-v, windows 10",
+      "keywords": "virtual-machine, hyper-v, windows 10",
       "url": "0011-how-to-create-a-new-virtual-machine-in-windows10-using-hyper-v.html",
       "publishedOn": "19 Oct 2020"
     },
     {
       "id": "0010",
       "title": "How to add virtual machine feature in windows 10?",
-      "keywords": "virtual machine, hyper-v, windows 10",
+      "keywords": "virtual-machine, hyper-v, windows 10",
       "url": "0010-how-to-add-virtual-machine-feature-in-windows10.html",
       "publishedOn": "19 Oct 2020"
     },
     {
       "id": "0009",
       "title": "Cheat sheet for Termux terminal (Android)",
-      "keywords": "cheat sheet, termux, terminal, commands, android",
+      "keywords": "cheat-sheet, termux, terminal, commands, android",
       "url": "0009-cheat-sheet-for-android-termux-terminal.html",
       "publishedOn": "23 Sep 2020"
     },
