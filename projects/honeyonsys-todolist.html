@@ -43,50 +43,58 @@
     .taskInputCont button {width:150px; height: 36px; background-color: #6CECB3; color:#2D543F; font-size:18px; cursor: pointer;}
 
 </style>
-<script src="jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
+    var ready = (callback) => {
+        if (document.readyState != "loading") callback();
+        else document.addEventListener("DOMContentLoaded", callback);
+    }
+    ready(() => { 
         fetchTasks();
-        $('input[type=checkbox]').click(function(){
-            try {
-                var taskid = $(this).attr('alt');
-                var localTasks = localStorage.getItem('honeyonsys-tasks');
-                if(this.checked) {
-                    setStatus(taskid, 'complete', localTasks);
-                } else {
-                    setStatus(taskid, 'pending', localTasks);
+        document.querySelectorAll("input[type=checkbox]").forEach(el => {
+            el.addEventListener('click',function (e) {
+                try {
+                    var taskid = this.getAttribute('alt'); 
+                    var localTasks = localStorage.getItem('honeyonsys-tasks');
+                    if(this.checked) {
+                        setStatus(taskid, 'complete', localTasks);
+                    } else {
+                        setStatus(taskid, 'pending', localTasks);
+                    }
+                    fetchTasks();
+                } 
+                catch(err) {
+                    console.log("Error: " + err.message);    
                 }
-                fetchTasks();
-            } 
-            catch(err) {
-                console.log("Error: " + err.message);    
-            }
+            });
         });
-        
-        
+
+        //delete task function
+        document.querySelectorAll(".deleteTask").forEach(el => {
+            el.addEventListener('click',function (e) {
+                try {
+                    if(confirm("Do you really want to remove this task?")) {
+                        var taskid = this.getAttribute('alt'); 
+                        var localTasks = localStorage.getItem('honeyonsys-tasks');
+                        var jsonArray = Array.from(JSON.parse(localTasks));
+                        for (var i = 0; i < jsonArray.length; i++) {
+                            if (jsonArray[i].id == taskid) {
+                                jsonArray.splice(i, 1); 
+                                break;
+                            }
+                        }
+                        localTasks = JSON.stringify(jsonArray);
+                        localStorage.setItem('honeyonsys-tasks', localTasks);    
+                        fetchTasks();    
+                    }
+                }
+                catch(err) {
+                    console.log("Error: " + err.message);
+                }
+            });
+        });        
+
     });
 
-    $(document).on('click', '.deleteTask', function() {
-            try {
-                if(confirm("Do you really want to remove this task?")) {
-                    var taskid = $(this).parent('.task').children('.checkbox').children('input[type=checkbox]').attr('alt');
-                    var localTasks = localStorage.getItem('honeyonsys-tasks');
-                    var jsonArray = Array.from(JSON.parse(localTasks));
-                    for (var i = 0; i < jsonArray.length; i++) {
-                        if (jsonArray[i].id == taskid) {
-                            jsonArray.splice(i, 1); 
-                            break;
-                        }
-                    }
-                    localTasks = JSON.stringify(jsonArray);
-                    localStorage.setItem('honeyonsys-tasks', localTasks);    
-                    fetchTasks();    
-                }
-            }
-            catch(err) {
-                console.log("Error: " + err.message);
-            }
-        });
     
     function addTask(){
         try {
@@ -120,20 +128,19 @@
             var tasksHTML = "";
             localTasks.forEach(task => {
                 tasksHTML += task.status == 'complete' ? '<div class="task complete">' : '<div class="task">';
-                tasksHTML += task.status == 'complete' ? '<div class="checkbox"><input type="checkbox" alt="'+task.id+'" checked /></div>' : '<div class="checkbox"><input type="checkbox" alt="'+task.id+'" /></div>';
+                tasksHTML += task.status == 'complete' ? '<div class="checkbox"><input type="checkbox" alt="'+task.id+'" checked /></div>' : '<div class="checkbox"><input type="checkbox" alt="'+task.id+'"  /></div>';
                 if(task.status == "complete") {
                     tasksHTML += '<div class="taskText lineThrough">'+task.task+' <i>[Added on: '+getTimeWithTimeStamp(task.id)+']</i></div>';
                 } else {
                     tasksHTML += '<div class="taskText">'+task.task+' <i>[Added on:  '+getTimeWithTimeStamp(task.id)+']</i></div>';
                 }
                 
-                tasksHTML += '<div class="deleteTask"><img src="delete.png" title="Delete Task"></div>';
+                tasksHTML += '<div class="deleteTask" alt="'+task.id+'"><img src="delete.png" title="Delete Task"></div>';
                 tasksHTML += '</div>';
 
                 
             });
-            $('#taskList').html(tasksHTML);
-            
+            document.querySelector('#taskList').innerHTML = tasksHTML;            
         }
         catch(err) {
             console.log("Error: " + err.message);
