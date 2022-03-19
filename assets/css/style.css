@@ -22,16 +22,9 @@ body {
     overflow: hidden;
     position: fixed;
 }
-.homeBtn{
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    right: 20px;
-    margin-top:10px;
-    
-}
+
 #leftBar{
-    width: 350px;
+    width: 100%;
     height:auto;
     min-height: 600px;
     float: left;
@@ -196,7 +189,7 @@ section{
     color:#000000;
 }
 #rightArea{
-    width: calc(100% - 390px);
+    width: calc(100% - 40px);
     float: left;
     padding-left: 20px;
     padding-right:20px;
@@ -343,37 +336,9 @@ span.code{
     margin-top:10px;
 }
 
-#toggleButton {
-    width:30px;
-    height: 30px;
-    left: 360px;
-    position: absolute;
-    z-index: 2;
-    cursor: pointer;
-    -moz-transition: left 0.5s ease;
-    transition: left 0.5s ease;
-    display: none;
-}
-#toggleButton span{
-    width:30px;
-    height: 5px;
-    float: left;
-    margin-top:5px;
-    background-color: #797C82;
-
-}
-
 
 @media (max-width: 768px) {
-    #toggleButton{
-        display:block;
-    }
-    #leftBar {
-        margin-left: -350px;
-        position: absolute;
-        z-index: 1;
-        transition: margin 2s;
-    }
+    
     #rightArea {
         width:100%;
         float: left;
@@ -386,7 +351,5 @@ span.code{
     .Ad728{
         display:none;
     }
-    .homeBtn {
-        margin-right:40px;
-    }
+    
 }

@@ -12,7 +12,7 @@
     request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
         var resp = request.responseText;
-        document.querySelector('#leftBar').innerHTML = resp;
+        document.querySelector('#footerArea').innerHTML = resp;
         }
     };
     request.send();
