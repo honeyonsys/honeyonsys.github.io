@@ -223,7 +223,8 @@ section{
 }
 .blogBelowLine{
     width: calc(100% - 60px);
-    height:40px;
+    height: auto;
+    min-height:40px;
     float: left;
     margin-top: 10px;
 }

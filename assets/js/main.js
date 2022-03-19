@@ -37,8 +37,9 @@
                             </div>
                             <div class="blogBelowLine">
                                 ${tags} 
-                                <div class="datePublished">published on: ${item['publishedOn']}<span></span></div>
+                                
                             </div>
+                            <div class="datePublished">published on: ${item['publishedOn']}<span></span></div>
                         </div>`;
 
                 
