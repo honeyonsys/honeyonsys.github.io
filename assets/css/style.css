@@ -43,14 +43,14 @@ body {
     background:#CDCDCD;
 }
 section{
-    width: -moz-calc(100% - 40px);
+    width: -moz-calc(100% - 20px);
     /* WebKit */
-    width: -webkit-calc(100% - 40px);
+    width: -webkit-calc(100% - 20px);
     /* Opera */
-    width: -o-calc(100% - 40px);
+    width: -o-calc(100% - 20px);
     /* Standard */
-    width: calc(100% - 40px);
-    padding:20px;
+    width: calc(100% - 20px);
+    padding:0px;
     float:left;
 }
     
@@ -112,7 +112,7 @@ section{
     width:100%;
     height:30px;
     float: left;
-    margin-bottom: 20px;;
+    margin-bottom: 10px;;
     font-size:15px;
     font-weight: bold;;
 }
@@ -121,6 +121,7 @@ section{
     height: auto;
     float: left;
     margin-left: 20px;
+    margin-top: 10px;
     font-size: 15px;
 }
 
@@ -163,31 +164,7 @@ section{
     
 }
 
-.contact{
-    width:300px;
-    height:40px;
-    float:left;
-    margin-top: 10px;
-    margin-right:20px;
-}
-.contactIcon{
-    width:40px;
-    height:40px;
-    float:left;
-    border-radius:5px;
-    overflow: hidden;
-}
 
-.contactDetail{
-    width:250px;
-    height:40px;
-    float: right;
-    font-size:14px;
-    line-height: 40px;
-}
-.contactDetail a{
-    color:#000000;
-}
 #rightArea{
     width: calc(100% - 40px);
     float: left;
