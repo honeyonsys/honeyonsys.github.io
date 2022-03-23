@@ -307,12 +307,16 @@ span.code{
     margin-top:10px;
     
 }
-.Ad728{
-    width:730px;
+.Ad300, .Ad728{
+    width:100%;
     height:auto;
     float: left;
     margin-top:10px;
 }
+.Ad300 {
+    display: none;
+}
+
 
 
 @media (max-width: 768px) {
@@ -328,6 +332,9 @@ span.code{
 @media (max-width:480px) {
     .Ad728{
         display:none;
+    }
+    .Ad300 {
+        display:  block;
     }
     
 }
