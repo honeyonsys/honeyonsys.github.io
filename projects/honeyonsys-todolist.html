@@ -27,9 +27,9 @@
     body {margin: 0px; color: #292D38; background-color: #FAFBFD;  font-family: 'Open Sans', sans-serif;}
     .main{ width:100%; height: auto; float: left; }
     .heading{width: 97%; height:30px; float: left; font-size:20px; font-weight: bold; background-color: #ffffff; background-image: url('todo-list.png'); background-repeat: no-repeat; background-size: contain; padding-left:40px; box-shadow: #292D38 0px 0px 10px;} 
-    #taskList{width: 97%; height: auto; float:left; margin-top:30px; margin-left: 20px; padding-bottom:50px; }
+    .taskList, #taskList{width: 97%; height: auto; float:left; margin-top:30px; margin-left: 20px; padding-bottom:50px; }
     .heading span{float: right; font-size:14px; margin-right:10px;} 
-    .task{width:98%; height: auto; float: left; background-color: #EBECF0; padding:10px; margin-top:5px;}
+    .task{width:96%; height: auto; float: left; background-color: #EBECF0; padding:10px; margin-top:5px; margin-left: 10px}
     .complete {background-color: #B2F6D3; color:#2D543F; }
     .lineThrough {text-decoration: line-through;}
     .checkbox{width:20px; height:20px; float: left;}
@@ -37,11 +37,21 @@
     .taskText i {font-size:10px; color:#020094;}
     .deleteTask{width:20px; height:20px; float: left; margin-left: 10px; cursor: pointer; }
     .deleteTask img{width:20px; height: 20px;}
-    .taskInputCont{width: 97%; height: 40px; float: left; margin-top:30px; margin-left:20px;}
+    .projectInputCont, .taskInputCont{width: 97%; height: 40px; float: left; margin-top:20px; margin-left:20px;}
     .taskInputCont input {width:calc(99% - 160px); height:34px; border:#E2E4E7 solid 1px;}
-    .taskInputCont input:active {border:#B3D4FF solid 1px;}
+    .projectInputCont input {width:calc(99% - 160px); height:34px; border:#1C4A49 solid 1px;}
+    .projectInputCont input:active, .taskInputCont input:active {border:#B3D4FF solid 1px;}
     .taskInputCont button {width:150px; height: 36px; background-color: #6CECB3; color:#2D543F; font-size:18px; cursor: pointer;}
-
+    .projectInputCont button {width:150px; height: 36px; background-color: #4EBEBB; color:#1C4A49; font-size:18px; cursor: pointer;}
+    .projectCont{width: 97%; height: auto; float:left; margin-top:30px; margin-left: 20px; }
+    .project{width: 100%; height: auto; float: left; margin: 10px 0; border: #1C4A49 solid 1px; }
+    .projectTitle{width: 100%; height: 40px; float: left; background-color: #4EBEBB;}
+    .projectTitle span{font-size: 20px; font-weight: bold; float: left;  color: #1C4A49; margin-top:6px; margin-left: 10px;}
+    .projectTitle button{background-color: #6CECB3; color:#2D543F; border: #1C4A49 solid 1px; border-radius: 5px; padding: 6px 20px; margin-top:5px; margin-right: 10px; float: right; cursor: pointer; }
+    .deleteProject {background-color: #FF2828 !important; color: #fff !important; }
+    .addTaskPopup {width: 100%; height: auto; float: left; padding: 20px 0; background-color: #E4E4E4; position: fixed; border-bottom: #666666 solid 10px; box-shadow: #000 0px 0px 10px; display: none;}
+    .addTaskPopup h3{margin-left: 20px;}
+    .addTaskPopup h3 b{float:right; margin-right: 30px; font-size: 30px; cursor: pointer;}
 </style>
 <script type="text/javascript">
     var ready = (callback) => {
@@ -49,18 +59,21 @@
         else document.addEventListener("DOMContentLoaded", callback);
     }
     ready(() => { 
-        fetchTasks();
+        fetchProjects();
+
+        //trigger checkbox event
         document.querySelectorAll("input[type=checkbox]").forEach(el => {
             el.addEventListener('click',function (e) {
                 try {
+                    var project = this.closest('.project').firstElementChild.firstElementChild.innerText;
                     var taskid = this.getAttribute('alt'); 
                     var localTasks = localStorage.getItem('honeyonsys-tasks');
                     if(this.checked) {
-                        setStatus(taskid, 'complete', localTasks);
+                        setStatus(project, taskid, 'complete', localTasks);
                     } else {
-                        setStatus(taskid, 'pending', localTasks);
+                        setStatus(project, taskid, 'pending', localTasks);
                     }
-                    fetchTasks();
+                    fetchProjects();
                 } 
                 catch(err) {
                     console.log("Error: " + err.message);    
@@ -68,108 +81,188 @@
             });
         });
 
-        //delete task function
-        document.querySelectorAll(".deleteTask").forEach(el => {
-            el.addEventListener('click',function (e) {
+        document.querySelectorAll(".deleteProject").forEach(el => {
+            el.addEventListener('click', function(e) {
                 try {
-                    if(confirm("Do you really want to remove this task?")) {
-                        var taskid = this.getAttribute('alt'); 
+                    if(confirm("Do you want to remove entire project? It will remove all the tasks also.")) {
+                        var project = this.closest('.project').firstElementChild.firstElementChild.innerText;
                         var localTasks = localStorage.getItem('honeyonsys-tasks');
                         var jsonArray = Array.from(JSON.parse(localTasks));
                         for (var i = 0; i < jsonArray.length; i++) {
-                            if (jsonArray[i].id == taskid) {
+                            if(jsonArray[i].id == project) {
                                 jsonArray.splice(i, 1); 
                                 break;
                             }
                         }
                         localTasks = JSON.stringify(jsonArray);
                         localStorage.setItem('honeyonsys-tasks', localTasks);    
-                        fetchTasks();    
+                        fetchProjects();    
+                    }
+                }
+                catch(err)
+                {
+                    console.log("Error: " + err.message);       
+                }
+            });
+        });
+
+        //delete task under specific project
+        document.querySelectorAll(".deleteTask").forEach(el => {
+            el.addEventListener('click',function (e) {
+                try {
+                    if(confirm("Do you really want to remove this task?")) {
+                        var project = this.closest('.project').firstElementChild.firstElementChild.innerText;
+                        var taskid = this.getAttribute('alt'); 
+                        var localTasks = localStorage.getItem('honeyonsys-tasks');
+                        var jsonArray = Array.from(JSON.parse(localTasks));
+                        for (var i = 0; i < jsonArray.length; i++) {
+                            if(jsonArray[i].id == project) {
+                                for(var j = 0; j < jsonArray[i].tasks.length; j++) {
+                                    if (jsonArray[i].tasks[j].id == taskid) {
+                                        jsonArray[i].tasks.splice(j, 1); 
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        localTasks = JSON.stringify(jsonArray);
+                        localStorage.setItem('honeyonsys-tasks', localTasks);    
+                        fetchProjects();    
                     }
                 }
                 catch(err) {
                     console.log("Error: " + err.message);
                 }
             });
-        });        
+        });
+
+        document.querySelector(".addTaskPopup h3 b").addEventListener("click", () => {
+            document.querySelector(".addTaskPopup").style.display = "none";
+        });
+
+        document.querySelectorAll(".projectTitle button").forEach(el => {
+            el.addEventListener('click', function (e) {
+                var taskid = this.getAttribute('alt');
+                document.querySelector(".addTaskPopup h3 span").innerText = taskid;
+                document.querySelector(".addTaskPopup").style.display = "block";
+            });
+        });     
 
     });
 
-    
+    //Adding task under specific project
     function addTask(){
         try {
             var task = document.getElementById('task').value;
-            var localTasks = localStorage.getItem('honeyonsys-tasks');
-            if(localTasks == null) {
+            var selectedProject = document.querySelector(".addTaskPopup h3 span").innerText;
+            var projects = localStorage.getItem('honeyonsys-tasks');
+            if(projects == null) {
                 localStorage.setItem('honeyonsys-tasks', '[]');
             }
             
             if(task == "") {
                 alert("There is no task added in the task input, please put one and try again");
             } else {
-                var jsonData = Array.from(JSON.parse(localTasks));
-                
-                jsonData.push({"id": Date.now(), "task": task, "status": "pending"});
-                localStorage.setItem('honeyonsys-tasks', JSON.stringify(jsonData));
+                var jsonArray = Array.from(JSON.parse(projects));
+                for (var i = 0; i < jsonArray.length; i++) {
+                    if (jsonArray[i].id == selectedProject) {
+                        jsonArray[i].tasks.push({"id": Date.now(), "task": task, "status": "pending"});
+                        break;
+                    }
+                }
+                localStorage.setItem('honeyonsys-tasks', JSON.stringify(jsonArray));
                 document.getElementById('task').value = "";
-                fetchTasks();
+                fetchProjects();
             }
-            
-            
         }
         catch(err) {
             console.log("Error: " + err.message);
         }
     }
 
-    function fetchTasks(){
+    function addProject(){
+        try {
+            var task = document.getElementById('project').value;
+            var localTasks = localStorage.getItem('honeyonsys-tasks');
+            if(localTasks == null) {
+                localStorage.setItem('honeyonsys-tasks', '[]');
+            }
+            if(task == "") {
+                alert("There is no project name added in the project input, please put one and try again");
+            } else {
+                var jsonData = Array.from(JSON.parse(localTasks));
+                jsonData.push({"id": task, "tasks": []});
+                localStorage.setItem('honeyonsys-tasks', JSON.stringify(jsonData));
+                document.getElementById('project').value = "";
+                fetchProjects();
+            }
+        }
+        catch(err) {
+            console.log("Error: " + err.message);
+        }
+    }
+
+    function generateTaskHtml(taskJSON) {
+        var localTasks = Array.from(JSON.parse(taskJSON));
+        const tasks = localTasks.map(task => {
+                return `
+                    <div class="task ${task['status'] == 'complete' ? 'complete' : ''}">
+                        <div class="checkbox"><input type="checkbox" alt="${task['id']}" ${task['status'] == 'complete' ? 'checked' : ''} ></div>
+                        <div class="taskText ${task['status'] == 'complete' ? 'lineThrough' : ''}">${task['task']} <i>[Added on:  ${getTimeWithTimeStamp(task['id'])}]</i></div>
+                        <div class="deleteTask" alt="${task['id']}"><img src="delete.png" title="Delete Task"></div>
+                    </div>
+                `
+                });
+        return '<div id="taskList">' + tasks.join('') + '</div>';
+    }
+
+    function fetchProjects(){
         try {
             var localTasks = Array.from(JSON.parse(localStorage.getItem('honeyonsys-tasks')));
-            var tasksHTML = "";
-            localTasks.forEach(task => {
-                tasksHTML += task.status == 'complete' ? '<div class="task complete">' : '<div class="task">';
-                tasksHTML += task.status == 'complete' ? '<div class="checkbox"><input type="checkbox" alt="'+task.id+'" checked /></div>' : '<div class="checkbox"><input type="checkbox" alt="'+task.id+'"  /></div>';
-                if(task.status == "complete") {
-                    tasksHTML += '<div class="taskText lineThrough">'+task.task+' <i>[Added on: '+getTimeWithTimeStamp(task.id)+']</i></div>';
-                } else {
-                    tasksHTML += '<div class="taskText">'+task.task+' <i>[Added on:  '+getTimeWithTimeStamp(task.id)+']</i></div>';
-                }
-                
-                tasksHTML += '<div class="deleteTask" alt="'+task.id+'"><img src="delete.png" title="Delete Task"></div>';
-                tasksHTML += '</div>';
-
-                
-            });
-            document.querySelector('#taskList').innerHTML = tasksHTML;            
+            const projectsHTML = localTasks.map( project => {
+            return `
+            <div class="project">
+                <div class="projectTitle"><span>${project['id']}</span> <button alt="${project['id']}">Add Task</button> <button class="deleteProject">Delete Project</button></div>
+                ${generateTaskHtml(JSON.stringify(project['tasks']))}
+            </div>`;
+            });    
+                        
+            document.querySelector('.projectCont').innerHTML = projectsHTML.join('');            
         }
         catch(err) {
             console.log("Error: " + err.message);
         }
-    }
+    }    
+
+    
     function getTimeWithTimeStamp(timestamp) {
         var date = new Date(timestamp);
         return date.getDate()+ "/"+(date.getMonth()+1)+ "/"+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes()+ ":"+date.getSeconds();
     }
 
-    //setting up status as complete and pending
-    function setStatus(id, status, jsonData){
+    //setting the status of task as complete or pending
+    function setStatus(projectId, id, status, jsonData){
         try {
             var jsonArray = Array.from(JSON.parse(jsonData));
             for (var i = 0; i < jsonArray.length; i++) {
-                if (jsonArray[i].id == id) {
-                    jsonArray[i].status = status;
+                if (jsonArray[i].id == projectId) {
+                    for(var j = 0; j < jsonArray[i].tasks.length; j++) {
+                        if(jsonArray[i].tasks[j].id == id) {
+                            jsonArray[i].tasks[j].status = status;
+                        }
+                    }
                     break;
                 }
             }
             jsonData = JSON.stringify(jsonArray);
-            
         }
         catch(err) {
             console.log("Error: " + err.message);
         }
         localStorage.setItem('honeyonsys-tasks', jsonData);
-        
     }
+
+
 </script>
 </head>
 <body>
@@ -178,17 +271,28 @@
             Tasks to do
             <span><a href="../">BACK TO HOME</a></span>
         </div>
-        <div class="taskInputCont">
-            <input type="text" id="task"/> <button onclick="addTask()">Add Task</button>
+        <div class="addTaskPopup">
+            <h3>Add task for <span>Project</span> <b>X</b></h3>
+            <div class="taskInputCont">
+                <input type="text" id="task"/> <button onclick="addTask()">Add Task</button>
+            </div>
         </div>
-        <div id="taskList">
-            
-            <!-- <div class="task">
-                <div class="checkbox"><input type="checkbox" /></div>
-                <div class="taskText">This will be the description<i>[Added on: 22 Dec 2021]</i></div>
-                <div class="deleteTask"><img src="delete.png" title="Delete Task"></div>
+        
+
+        <div class="projectInputCont">
+            <input type="text" id="project"/> <button onclick="addProject()">Add Project</button>
+        </div>
+        <div class="projectCont">
+            <!-- <div class="project">
+                <div class="projectTitle"><span>Project 1</span> <button>Add Task</button></div>
+                <div id="taskList">
+                    <div class="task">
+                        <div class="checkbox"><input type="checkbox" /></div>
+                        <div class="taskText">This will be the description<i>[Added on: 22 Dec 2021]</i></div>
+                        <div class="deleteTask"><img src="delete.png" title="Delete Task"></div>
+                    </div>
+                </div>
             </div> -->
-            
         </div>
     </div>
 </body>
