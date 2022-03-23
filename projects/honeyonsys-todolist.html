@@ -53,103 +53,57 @@
     .addTaskPopup h3{margin-left: 20px;}
     .addTaskPopup h3 b{float:right; margin-right: 30px; font-size: 30px; cursor: pointer;}
 </style>
-<script type="text/javascript">
+
+</head>
+<body>
+    <div class="main">
+        <div class="heading">
+            Tasks to do
+            <span><a href="../">BACK TO HOME</a></span>
+        </div>
+        <div class="addTaskPopup">
+            <h3>Add task for <span>Project</span> <b>X</b></h3>
+            <div class="taskInputCont">
+                <input type="text" id="task"/> <button onclick="addTask()">Add Task</button>
+            </div>
+        </div>
+        
+
+        <div class="projectInputCont">
+            <input type="text" id="project"/> <button onclick="addProject()">Add Project</button>
+        </div>
+        <div class="projectCont">
+            <!-- <div class="project">
+                <div class="projectTitle"><span>Project 1</span> <button>Add Task</button></div>
+                <div id="taskList">
+                    <div class="task">
+                        <div class="checkbox"><input type="checkbox" /></div>
+                        <div class="taskText">This will be the description<i>[Added on: 22 Dec 2021]</i></div>
+                        <div class="deleteTask"><img src="delete.png" title="Delete Task"></div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <script type="text/javascript">
+    /*
     var ready = (callback) => {
+        
         if (document.readyState != "loading") callback();
         else document.addEventListener("DOMContentLoaded", callback);
-    }
+    };
     ready(() => { 
+        
+    });*/
+
+
+    (function() {
         fetchProjects();
+    })();
 
-        //trigger checkbox event
-        document.querySelectorAll("input[type=checkbox]").forEach(el => {
-            el.addEventListener('click',function (e) {
-                try {
-                    var project = this.closest('.project').firstElementChild.firstElementChild.innerText;
-                    var taskid = this.getAttribute('alt'); 
-                    var localTasks = localStorage.getItem('honeyonsys-tasks');
-                    if(this.checked) {
-                        setStatus(project, taskid, 'complete', localTasks);
-                    } else {
-                        setStatus(project, taskid, 'pending', localTasks);
-                    }
-                    fetchProjects();
-                } 
-                catch(err) {
-                    console.log("Error: " + err.message);    
-                }
-            });
-        });
+    
 
-        document.querySelectorAll(".deleteProject").forEach(el => {
-            el.addEventListener('click', function(e) {
-                try {
-                    if(confirm("Do you want to remove entire project? It will remove all the tasks also.")) {
-                        var project = this.closest('.project').firstElementChild.firstElementChild.innerText;
-                        var localTasks = localStorage.getItem('honeyonsys-tasks');
-                        var jsonArray = Array.from(JSON.parse(localTasks));
-                        for (var i = 0; i < jsonArray.length; i++) {
-                            if(jsonArray[i].id == project) {
-                                jsonArray.splice(i, 1); 
-                                break;
-                            }
-                        }
-                        localTasks = JSON.stringify(jsonArray);
-                        localStorage.setItem('honeyonsys-tasks', localTasks);    
-                        fetchProjects();    
-                    }
-                }
-                catch(err)
-                {
-                    console.log("Error: " + err.message);       
-                }
-            });
-        });
-
-        //delete task under specific project
-        document.querySelectorAll(".deleteTask").forEach(el => {
-            el.addEventListener('click',function (e) {
-                try {
-                    if(confirm("Do you really want to remove this task?")) {
-                        var project = this.closest('.project').firstElementChild.firstElementChild.innerText;
-                        var taskid = this.getAttribute('alt'); 
-                        var localTasks = localStorage.getItem('honeyonsys-tasks');
-                        var jsonArray = Array.from(JSON.parse(localTasks));
-                        for (var i = 0; i < jsonArray.length; i++) {
-                            if(jsonArray[i].id == project) {
-                                for(var j = 0; j < jsonArray[i].tasks.length; j++) {
-                                    if (jsonArray[i].tasks[j].id == taskid) {
-                                        jsonArray[i].tasks.splice(j, 1); 
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        localTasks = JSON.stringify(jsonArray);
-                        localStorage.setItem('honeyonsys-tasks', localTasks);    
-                        fetchProjects();    
-                    }
-                }
-                catch(err) {
-                    console.log("Error: " + err.message);
-                }
-            });
-        });
-
-        document.querySelector(".addTaskPopup h3 b").addEventListener("click", () => {
-            document.querySelector(".addTaskPopup").style.display = "none";
-        });
-
-        document.querySelectorAll(".projectTitle button").forEach(el => {
-            el.addEventListener('click', function (e) {
-                var taskid = this.getAttribute('alt');
-                document.querySelector(".addTaskPopup h3 span").innerText = taskid;
-                document.querySelector(".addTaskPopup").style.display = "block";
-            });
-        });     
-
-    });
-
+    
     //Adding task under specific project
     function addTask(){
         try {
@@ -218,21 +172,119 @@
 
     function fetchProjects(){
         try {
+            document.querySelector('.projectCont').innerHTML = "";
             var localTasks = Array.from(JSON.parse(localStorage.getItem('honeyonsys-tasks')));
             const projectsHTML = localTasks.map( project => {
             return `
             <div class="project">
-                <div class="projectTitle"><span>${project['id']}</span> <button alt="${project['id']}">Add Task</button> <button class="deleteProject">Delete Project</button></div>
+                <div class="projectTitle"><span>${project['id']}</span> <button class="addTaskButton" alt="${project['id']}">Add Task</button> <button class="deleteProject">Delete Project</button></div>
                 ${generateTaskHtml(JSON.stringify(project['tasks']))}
             </div>`;
             });    
                         
-            document.querySelector('.projectCont').innerHTML = projectsHTML.join('');            
+            document.querySelector('.projectCont').innerHTML = projectsHTML.join('');
+
+            // Below triggered methods are for the dynamically create elements which created after calling fetchProjects
+            // Every time these method will call then the elements will call dynamically and if these methods will outside 
+            // fetchProjects then will trigger only once
+            
+
+            //trigger checkbox event
+            document.querySelectorAll("input[type=checkbox]").forEach(el => {
+                el.addEventListener('click',function (e) {
+                    try {
+                        var project = this.closest('.project').firstElementChild.firstElementChild.innerText;
+                        var taskid = this.getAttribute('alt'); 
+                        var localTasks = localStorage.getItem('honeyonsys-tasks');
+                        if(this.checked) {
+                            setStatus(project, taskid, 'complete', localTasks);
+                        } else {
+                            setStatus(project, taskid, 'pending', localTasks);
+                        }
+                        fetchProjects();
+                    } 
+                    catch(err) {
+                        console.log("Error: " + err.message);    
+                    }
+                });
+            });
+
+            //delete project method
+            document.querySelectorAll(".deleteProject").forEach(el => {
+                el.addEventListener('click', function(e) {
+                    try {
+                        if(confirm("Do you want to remove entire project? It will remove all the tasks also.")) {
+                            var project = this.closest('.project').firstElementChild.firstElementChild.innerText;
+                            var localTasks = localStorage.getItem('honeyonsys-tasks');
+                            var jsonArray = Array.from(JSON.parse(localTasks));
+                            for (var i = 0; i < jsonArray.length; i++) {
+                                if(jsonArray[i].id == project) {
+                                    jsonArray.splice(i, 1); 
+                                    break;
+                                }
+                            }
+                            localTasks = JSON.stringify(jsonArray);
+                            localStorage.setItem('honeyonsys-tasks', localTasks);    
+                            fetchProjects();    
+                        }
+                    }
+                    catch(err)
+                    {
+                        console.log("Error: " + err.message);       
+                    }
+                });
+            });
+
+            //delete task under specific project
+            document.querySelectorAll(".deleteTask").forEach(el => {
+                el.addEventListener('click',function (e) {
+                    try {
+                        if(confirm("Do you really want to remove this task?")) {
+                            var project = this.closest('.project').firstElementChild.firstElementChild.innerText;
+                            var taskid = this.getAttribute('alt'); 
+                            var localTasks = localStorage.getItem('honeyonsys-tasks');
+                            var jsonArray = Array.from(JSON.parse(localTasks));
+                            for (var i = 0; i < jsonArray.length; i++) {
+                                if(jsonArray[i].id == project) {
+                                    for(var j = 0; j < jsonArray[i].tasks.length; j++) {
+                                        if (jsonArray[i].tasks[j].id == taskid) {
+                                            jsonArray[i].tasks.splice(j, 1); 
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            localTasks = JSON.stringify(jsonArray);
+                            localStorage.setItem('honeyonsys-tasks', localTasks);    
+                            fetchProjects();    
+                        }
+                    }
+                    catch(err) {
+                        console.log("Error: " + err.message);
+                    }
+                });
+            });
+
+            // opening up task popup
+            document.querySelector(".addTaskPopup h3 b").addEventListener("click", () => {
+                document.querySelector(".addTaskPopup").style.display = "none";
+            });
+
+            document.querySelectorAll(".projectTitle .addTaskButton").forEach(el => {
+                el.addEventListener('click', function (e) {
+                    var taskid = this.getAttribute('alt');
+                    document.querySelector(".addTaskPopup h3 span").innerText = taskid;
+                    document.querySelector(".addTaskPopup").style.display = "block";
+                });
+            });
+
+
+
         }
         catch(err) {
             console.log("Error: " + err.message);
         }
-    }    
+    }  // fetchProjects() ends here  
 
     
     function getTimeWithTimeStamp(timestamp) {
@@ -264,36 +316,6 @@
 
 
 </script>
-</head>
-<body>
-    <div class="main">
-        <div class="heading">
-            Tasks to do
-            <span><a href="../">BACK TO HOME</a></span>
-        </div>
-        <div class="addTaskPopup">
-            <h3>Add task for <span>Project</span> <b>X</b></h3>
-            <div class="taskInputCont">
-                <input type="text" id="task"/> <button onclick="addTask()">Add Task</button>
-            </div>
-        </div>
-        
-
-        <div class="projectInputCont">
-            <input type="text" id="project"/> <button onclick="addProject()">Add Project</button>
-        </div>
-        <div class="projectCont">
-            <!-- <div class="project">
-                <div class="projectTitle"><span>Project 1</span> <button>Add Task</button></div>
-                <div id="taskList">
-                    <div class="task">
-                        <div class="checkbox"><input type="checkbox" /></div>
-                        <div class="taskText">This will be the description<i>[Added on: 22 Dec 2021]</i></div>
-                        <div class="deleteTask"><img src="delete.png" title="Delete Task"></div>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-    </div>
 </body>
+
 </html>
