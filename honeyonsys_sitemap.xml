@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
   <url>
+    <loc>http://honeyonsys.github.io/articles/0008-How-to-add-multiple-github-pages-website-on-your-single-github-account-and-host-it-to-the-custom-domain.html</loc>
+    <lastmod>2020-09-11</lastmod>
+  </url>
+  <url>
     <loc>http://honeyonsys.github.io/articles/0007-how-to-download-windows-10-iso-file.html</loc>
     <lastmod>2020-08-27</lastmod>
   </url>
