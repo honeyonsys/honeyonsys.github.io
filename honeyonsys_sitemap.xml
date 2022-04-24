@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
   <url>
+    <loc>http://honeyonsys.github.io/articles/0010-how-to-add-virtual-machine-feature-in-windows10.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0009-cheat-sheet-for-android-termux-terminal.html</loc>
+    <lastmod>2020-09-23</lastmod>
+  </url>
+  <url>
     <loc>http://honeyonsys.github.io/articles/0008-How-to-add-multiple-github-pages-website-on-your-single-github-account-and-host-it-to-the-custom-domain.html</loc>
     <lastmod>2020-09-11</lastmod>
   </url>
