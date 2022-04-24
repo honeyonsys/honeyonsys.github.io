@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "id": "0022",
+      "title": "Javascript async and await",
+      "keywords": "async, await, vanilla-js, javascript, core-js",
+      "url": "0022-javascript-async-and-await.html",
+      "publishedOn": "24 April 2022"
+    },
+    {
       "id": "0021",
       "title": "Cheat sheet for vanilla js as alternative to jQuery",
       "keywords": "cheat-sheet, vanilla-js, jquery, javascript, core-js",
