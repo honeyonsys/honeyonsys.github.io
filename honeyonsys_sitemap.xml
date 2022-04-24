@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
   <url>
+    <loc>http://honeyonsys.github.io/articles/0014-search-for-a-specific-string-into-complete-database-tables-in-sql-server.html</loc>
+    <lastmod>2020-12-15</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0013-how-to-find-a-specific-string-value-inside-a-string-array-in-c-sharp.html</loc>
+    <lastmod>2020-11-29</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0012-sage-200c-professional-installation-guide.html</loc>
+    <lastmod>2020-11-25</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0011-how-to-create-a-new-virtual-machine-in-windows10-using-hyper-v.html</loc>
+    <lastmod>2020-10-19</lastmod>
+  </url>
+  <url>
     <loc>http://honeyonsys.github.io/articles/0010-how-to-add-virtual-machine-feature-in-windows10.html</loc>
     <lastmod>2020-10-19</lastmod>
   </url>
