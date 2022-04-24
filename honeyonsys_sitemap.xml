@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
   <url>
+    <loc>http://honeyonsys.github.io/articles/0021-jquery-alternatives-in-vanilla-js.html</loc>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0020-setting-up-rest-api-project-with-python-django.html</loc>
+    <lastmod>2022-02-26</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0019-how-to-inject-signing-certificate-into-csharp-build-executable-file.html</loc>
+    <lastmod>2021-04-30</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0018-how-to-export-certificate-from-microsoft-management-console-as-pfx-file.html</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0017-how-to-create-self-signed-signature-certificate-in-windows.html</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0016-how-to-stop-and-delete-a-windows-service-from-command-line.html</loc>
+    <lastmod>2021-01-06</lastmod>
+  </url>
+  <url>
+    <loc>http://honeyonsys.github.io/articles/0015-how-to-get-your-hyper-v-virtual-machine-connected-to-internet-or-fix-the-connectivity-issue.html</loc>
+    <lastmod>2021-01-02</lastmod>
+  </url>
+  <url>
     <loc>http://honeyonsys.github.io/articles/0014-search-for-a-specific-string-into-complete-database-tables-in-sql-server.html</loc>
     <lastmod>2020-12-15</lastmod>
   </url>
