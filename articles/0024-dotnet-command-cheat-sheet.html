@@ -1,0 +1,153 @@
+<!--https://www.instagram.com/p/CJbOIEzAVzJ/-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dotnet Commands Cheat Sheet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description" content="cheats on hand for some basic dotnet commands to work in visual studio code" />
+    <meta name="keywords" itemprop="keywords"
+        content="dotnet, .net. dotnet commands, cheats, honeyonsys, backend developer, core php developer " />
+    <meta property="og:title" content="Dotnet Cheat Sheet" />
+    <meta property="og:site_name" content="https://honeyonsys.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="dot net commands cheat sheet to work in visual studio code" />
+    <meta property="og:url" content="http://honeyonsys.github.io/articles/0024-dotnet-command-cheat-sheet.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/0024_ogimg.png" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
+</head>
+
+<body>
+    <div id="pageIdentity">article</div>
+    <div class="profile_pic">
+        <a href="https://honeyonsys.github.io"><img src="https://honeyonsys.github.io/assets/img/honeyonsys_logo_vertical.png" alt="web developer in ludhiana" /></a>        
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a href="0023-dotnet-command-cheat-sheet.html">
+                            Dotnet Commands Cheat Sheet</a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">dotnet</div>
+                    <div class="blogTags">cheat-sheet</div>
+                    <div class="blogTags">dotnet-command</div>
+                    <div class="blogTags">terminal</div>
+                    <div class="datePublished">published on: 03 May 2022<span></span></div>
+                </div>
+                <div class="Ad728"><script type="text/javascript" src="../assets/js/728adcode.js"></script></div>
+                <div class="Ad300"><script type="text/javascript" src="../assets/js/300adcode.js"></script></div>
+                <div class="blogDescription">
+
+                    <h3>Dotnet New</h3>
+                    
+                    <pre><code class="lang-sql">dotnet new sln //New solution file</code></pre>
+                    <pre><code class="lang-sql">dotnet new console //New console application</code></pre>
+                    <pre><code class="lang-sql">dotnet new classlib //New class library</code></pre>
+                    <pre><code class="lang-sql">dotnet new mvc //ASP.NET Core Web App (Model-View-Controller)</code></pre>
+                    <pre><code class="lang-sql">dotnew new xunit //xunit test project</code></pre>
+                    <pre><code class="lang-sql">dotnet new -l //Get the list of available templates</code></pre>
+                    
+                    
+                    <h3>Dotnet sln</h3>
+                    <pre><code class="lang-sql">dotnet sln list //List all projects in a solution file</code></pre>
+                    <pre><code class="lang-sql">dotnet sln todo.sln add todo-app/todo-app.csproj //Add a c# project to a solution</code></pre>
+                    <pre><code class="lang-sql">dotnet sln todo.sln remove todo-app/todo-app.csproj //Remove a C# project from a solution </code></pre>
+                    <pre><code class="lang-sql">dotnet sln todo.sln add **/*.csproj //Add multiple C# projects to a solution using a globbing pattern </code></pre>
+                    
+                    <h3>Dotnet add</h3>
+                    <pre><code class="lang-sql">dotnet add package Newtonsoft.Json //Add Newtonsoft.Json NuGet package to a project </code></pre>
+                    <pre><code class="lang-sql">dotnet add reference lib1/lib1.csproj lib2/lib2.csproj //Add multiple project references to the project in the current directory </code></pre>
+                    <pre><code class="lang-sql">dotnet add app/app.csproj reference **/*.csproj //Add multiple project references using a globbing pattern on Linux/Unix </code></pre>
+                    
+                    <h3>Dotnet build</h3>
+                    <pre><code class="lang-sql">dotnet build //Build a project and all of its dependencies </code></pre>
+                    <pre><code class="lang-sql">dotnet build --configuration Release //Build a project and its dependencies using Release configuration </code></pre>
+                    <pre><code class="lang-sql">dotnet build --runtime ubuntu.16.04-x64 //Build a project and its dependencies for a specific runtime (in this example, Ubuntu 16.04) </code></pre>
+                    
+                    <h3>Dotnet run</h3>
+                    <pre><code class="lang-sql">dotnet run //Run the project in the current directory </code></pre>
+                    <pre><code class="lang-sql">dotnet run --project ./projects/proj1/proj1.csproj //Run the specified project </code></pre>
+                    <pre><code class="lang-sql">dotnet myapp.dll //Run a framework-dependent app named myapp.dll </code></pre>
+                    
+                    <h3>Dotnet clean</h3>
+                    <pre><code class="lang-sql">dotnet clean //Clean the output of a project </code></pre>
+                    <pre><code class="lang-sql">dotnet clean --configuration Release //Clean a project built using the Release configuration </code></pre>
+                    <i>Only the outputs created during the build are cleaned. Both intermediate (obj) and final output (bin) folders are cleaned.</i>
+                    
+                    <h3>Dotnet publish</h3>
+                    <pre><code class="lang-sql">dotnet publish //Publish the project in the current directory </code></pre>
+                    <pre><code class="lang-sql">dotnet publish ~/projects/app1/app1.csproj //Publish the application using the specified project file </code></pre>
+                    <i>The dotnet publish command's output is ready for deployment to a hosting system (for example, a server, PC, Mac, laptop) for execution.</i>
+
+                    <h3>Dotnet ef</h3>
+                    <pre><code class="lang-sql">dotnet ef migrations add //Add a new migration </code></pre>
+                    <pre><code class="lang-sql">dotnet ef migrations list //List available migrations </code></pre>
+                    <pre><code class="lang-sql">dotnet ef migrations remove //Remove the last migration </code></pre>
+                    <pre><code class="lang-sql">dotnet ef migrations script //Generate a SQL script from migrations </code></pre>
+                    <pre><code class="lang-sql">dotnet ef database update //Update the database to a specified migration </code></pre>
+                    <pre><code class="lang-sql">dotnet ef database drop //Drop the database </code></pre>
+                    <pre><code class="lang-sql">dotnet ef dbcontext list //List available DbContext types </code></pre>
+                    <pre><code class="lang-sql">dotnet ef dbcontext info //Get information about a DbContext type </code></pre>
+                    <pre><code class="lang-sql">dotnet ef dbcontext scaffold //Scaffolds a DbContext and entity types for a database </code></pre>
+                    
+                    <h3>Dotnet pack</h3>
+                    <pre><code class="lang-sql">dotnet pack //Build the project and create NuGet packages </code></pre>
+                    <pre><code class="lang-sql">dotnet pack --no-build --output nupkgs //Pack the project in the current directory into the nupkgs folder and skip the build step </code></pre>
+                    <pre><code class="lang-sql">dotnet pack /p:PackageVersion=2.1.0 //Set the package version to 2.1.0 with the PackageVersion MSBuild property
+                    </code></pre>
+
+                    <h3>Dotnet nuget</h3>
+                    <pre><code class="lang-sql">dotnet nuget locals -l all //Display the paths of all the local cache directories </code></pre>
+                    <pre><code class="lang-sql">dotnet nuget push foo.nupkg -k 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a //Push foo.nupkg to the default push source, specifying an API key </code></pre>
+                    <pre><code class="lang-sql">dotnet nuget delete Microsoft.AspNetCore.Mvc 1.0 --non-interactive //Delete version 1.0 of package Microsoft.AspNetCore.Mvc, not prompting user for credentials or other input </code></pre>
+                    
+                    <h3>Dotnet remove</h3>
+                    <pre><code class="lang-sql">dotnet remove package Newtonsoft.Json //Remove Newtonsoft.Json NuGet package from a project in the current directory </code></pre>
+                    <pre><code class="lang-sql">dotnet remove reference lib/lib.csproj //Remove a project reference from the current project </code></pre>
+                    <pre><code class="lang-sql">dotnet remove app/app.csproj reference **/*.csproj //Remove multiple project references using a glob pattern on Unix/Linux </code></pre>
+                    
+                    <h3>etc.</h3>
+                    <pre><code class="lang-sql">dotnet help //Show more detailed documentation online for the command </code></pre>
+                    <pre><code class="lang-sql">dotnet migrate //Migrate a Preview 2 .NET Core project to a .NET Core SDK 1.0 project </code></pre>
+                    <pre><code class="lang-sql">dotnet msbuild //Provides access to a fully functional MSBuild </code></pre>
+                    <pre><code class="lang-sql">dotnet test //Run the tests in the project in the current directory </code></pre>
+                    <pre><code class="lang-sql">dotnet list reference //List the project references for the project in the current directory </code></pre>
+                    
+                    
+                    <h3>Environment Variables</h3>
+                    <pre><code class="lang-sql">DOTNET_PACKAGES </code></pre>
+                    <i>The primary package cache.</i>
+                    <pre><code class="lang-sql">DOTNET_SERVICING </code></pre>
+                    <i>Specifies the location of the servicing index to use by the shared host when loading the runtime.</i>
+                    <pre><code class="lang-sql">DOTNET_CLI_TELEMETRY_OPTOUT </code></pre>
+                    <i>Specifies whether data about the .NET Core tools usage is collected and sent to Microsoft.</i>
+                    <pre><code class="lang-sql">DOTNET_MULTILEVEL_LOOKUP </code></pre>
+                    <i>Specifies whether .NET Core runtime, shared framework, or SDK are resolved from the global location.</i>
+                    <pre><code class="lang-sql">DOTNET_ROLL_FORWARD_ON_NO_CANDIDATE_FX </code></pre>
+                    <pre><code class="lang-sql">Disables minor version roll forward. For more information, see Roll forward. </code></pre>
+                    
+                    
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="Ad728"><script type="text/javascript" src="../assets/js/728adcode.js"></script></div>
+                <div class="Ad300"><script type="text/javascript" src="../assets/js/300adcode.js"></script></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="footerArea"></div>
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>

@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "id": "0024",
+      "title": "Dotnet commands cheat sheet",
+      "keywords": "dotnet, cheat-sheet, dotnet-commands, terminal",
+      "url": "0024-dotnet-command-cheat-sheet.html",
+      "publishedOn": "3 May 2022"
+    },
+    {
       "id": "0023",
       "title": "Git cheat sheet",
       "keywords": "git, cheat-sheet, git-commands, terminal",
