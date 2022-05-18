@@ -37,7 +37,8 @@
     .taskText i {font-size:10px; color:#020094;}
     .deleteTask{width:20px; height:20px; float: left; margin-left: 10px; cursor: pointer; }
     .deleteTask img{width:20px; height: 20px;}
-    .projectInputCont, .taskInputCont{width: 97%; height: 40px; float: left; margin-top:20px; margin-left:20px;}
+    .projectInputCont {display: none;}
+    .projectInputCont, .taskInputCont{width: 97%; height: auto; float: left; margin-top:20px; margin-left:20px;}
     .taskInputCont input {width:calc(99% - 160px); height:34px; border:#E2E4E7 solid 1px;}
     .projectInputCont input {width:calc(99% - 160px); height:34px; border:#1C4A49 solid 1px;}
     .projectInputCont input:active, .taskInputCont input:active {border:#B3D4FF solid 1px;}
@@ -51,7 +52,7 @@
     .deleteProject {background-color: #FF2828 !important; color: #fff !important; }
     .addTaskPopup {width: 100%; height: auto; float: left; padding: 20px 0; background-color: #E4E4E4; position: fixed; border-bottom: #666666 solid 10px; box-shadow: #000 0px 0px 10px; display: none;}
     .addTaskPopup h3{margin-left: 20px;}
-    .addTaskPopup h3 b{float:right; margin-right: 30px; font-size: 30px; cursor: pointer;}
+    .addTaskPopup h3 b, .projectInputCont h3 b{float:right; margin-right: 30px; font-size: 30px; cursor: pointer;}
 </style>
 
 </head>
@@ -60,6 +61,7 @@
         <div class="heading">
             Tasks to do
             <span><a href="../">BACK TO HOME</a></span>
+            <span><a href="javascript:;" onclick="document.querySelector('.projectInputCont').style.display = 'block';">Add Project</a></span>
         </div>
         <div class="addTaskPopup">
             <h3>Add task for <span>Project</span> <b>X</b></h3>
@@ -70,6 +72,7 @@
         
 
         <div class="projectInputCont">
+            <h3>Add New <span>Project</span> <b>X</b></h3>
             <input type="text" id="project"/> <button onclick="addProject()">Add Project</button>
         </div>
         <div class="projectCont">
@@ -149,6 +152,7 @@
                 localStorage.setItem('honeyonsys-tasks', JSON.stringify(jsonData));
                 document.getElementById('project').value = "";
                 fetchProjects();
+                document.querySelector(".projectInputCont").style.display = "none";
             }
         }
         catch(err) {
@@ -269,6 +273,11 @@
             document.querySelector(".addTaskPopup h3 b").addEventListener("click", () => {
                 document.querySelector(".addTaskPopup").style.display = "none";
             });
+
+            document.querySelector(".projectInputCont h3 b").addEventListener("click", () => {
+                document.querySelector(".projectInputCont").style.display = "none";
+            });
+            
 
             document.querySelectorAll(".projectTitle .addTaskButton").forEach(el => {
                 el.addEventListener('click', function (e) {
