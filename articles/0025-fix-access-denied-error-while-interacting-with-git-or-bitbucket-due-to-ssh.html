@@ -1,0 +1,74 @@
+<!--https://www.instagram.com/p/CJbOIEzAVzJ/-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fix access denied error whie interacting with git or bitbucket due to ssh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description" content="access denied error fix while pushing or pulling code from github or bitbucket." />
+    <meta name="keywords" itemprop="keywords"
+        content="ssh, git, push, pull, bitbucket, access denied, honeyonsys, backend developer, core php developer " />
+    <meta property="og:title" content="Fix access denied error while interacting with git or bitbucket due to ssh" />
+    <meta property="og:site_name" content="https://honeyonsys.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="if there is error arrive (access denied) while pushing or pulling code from either git or bitbucket then use this solution" />
+    <meta property="og:url" content="http://honeyonsys.github.io/articles/0025-fix-access-denied-error-while-interacting-with-git-or-bitbucket-due-to-ssh.html.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/ogimg.png" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
+</head>
+
+<body>
+    <div id="pageIdentity">article</div>
+    <div class="profile_pic">
+        <a href="https://honeyonsys.github.io"><img src="https://honeyonsys.github.io/assets/img/honeyonsys_logo_vertical.png" alt="web developer in ludhiana" /></a>        
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a href="0025-fix-access-denied-error-while-interacting-with-git-or-bitbucket-due-to-ssh.html">
+                            Fix access denied error while interacting with git or bitbucket due to ssh</a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">git</div>
+                    <div class="blogTags">bitbucket</div>
+                    <div class="blogTags">access-denied</div>
+                    <div class="blogTags">ssh</div>
+                    <div class="blogTags">terminal</div>
+                    <div class="datePublished">published on: 22 May 2022<span></span></div>
+                </div>
+                <div class="Ad728"><script type="text/javascript" src="../assets/js/728adcode.js"></script></div>
+                <div class="Ad300"><script type="text/javascript" src="../assets/js/300adcode.js"></script></div>
+                <div class="blogDescription">
+
+                    <p>Sometimes you will face issue while pushing or pulling code to git or bitbucket via your code editor or might be from terminal intself, and if the error says "access denied" then it could be due to ssh service is disabled or ssh is removed from agent. In that case you can try the following command to resolve that issue</p>
+                    
+                    <pre><code class="lang-sql">Get-Service -Name ssh-agent | Set-Service -StartupType Manual</code></pre>
+                    <pre><code class="lang-sql">ssh-agent</code></pre>
+                    <pre><code class="lang-sql">ssh-add</code></pre>
+                    <pre><code class="lang-sql">git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe</code></pre>
+                                 
+                    <p></p>
+                    <p>If you dont have ssh key setup already for git then you can follow this article for <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account" target="_blank">adding ssh key in github</a>.</p>
+                    <p>For bitbucket follow this article to <a href="https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/" target="_blank">add ssh key</a></p>
+                    <p></p>
+                </div>
+                <div class="Ad728"><script type="text/javascript" src="../assets/js/728adcode.js"></script></div>
+                <div class="Ad300"><script type="text/javascript" src="../assets/js/300adcode.js"></script></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="footerArea"></div>
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>

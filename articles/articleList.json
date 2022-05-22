@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "id": "0025",
+      "title": "Fix access denied error while interacting with git/bitbucket due to ssh",
+      "keywords": "git, bitbucket, access-denied, ssh, error",
+      "url": "0025-fix-access-denied-error-while-interacting-with-git-or-bitbucket-due-to-ssh.html",
+      "publishedOn": "22 May 2022"
+    },
+    {
       "id": "0024",
       "title": "Dotnet commands cheat sheet",
       "keywords": "dotnet, cheat-sheet, dotnet-commands, terminal",
