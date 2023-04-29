@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "id": "0026",
+      "title": "How to host a static website on github pages",
+      "keywords": "GitHub Pages, Static Website, Hosting, Domain Settings, Tutorial",
+      "url": "0026-how to-host-a-static-website-on-GitHub-pages.html",
+      "publishedOn": "29 Apr 2023"
+    },
+    {
       "id": "0025",
       "title": "Fix access denied error while interacting with git/bitbucket due to ssh",
       "keywords": "git, bitbucket, access-denied, ssh, error",
