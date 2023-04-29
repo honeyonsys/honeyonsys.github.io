@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "id": "0027",
+      "title": "How to Set Up Nginx in a New Linux Server Instance",
+      "keywords": "Nginx, Linux, Server, Configuration, Web Server, HTTP, Website, Web Application, Cloud Hosting, AWS, Linode, SSH, Terminal, Text Editor, Nano, Server Blocks, Upstream Servers, HTTP Settings, Port, Domain, Root, Index ",
+      "url": "0027-how-to-set-up-nginx-in-a-new-linux-server-instance.html",
+      "publishedOn": "29 Apr 2023"
+    },
+    {
       "id": "0026",
       "title": "How to host a static website on github pages",
       "keywords": "GitHub Pages, Static Website, Hosting, Domain Settings, Tutorial",
