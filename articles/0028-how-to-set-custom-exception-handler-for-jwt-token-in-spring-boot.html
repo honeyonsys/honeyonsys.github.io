@@ -1,0 +1,148 @@
+<!--https://www.instagram.com/p/CJbOIEzAVzJ/-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> How to set custom exception handler for jwt token in spring boot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Harish Kumar">
+    <meta name="description" itemprop="description" content="Custom exception handler for throwing error for invalid or expired jwt token." />
+    <meta name="keywords" itemprop="keywords"
+        content="Server, Configuration, Web Server, Spring Boot, Java, JWT Token, Exception Handling" />
+    <meta property="og:title" content="How to set custom exception handler for jwt token in spring boot" />
+    <meta property="og:site_name" content="https://honeyonsys.github.io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Custom exception handler for throwing error for invalid or expired jwt token." />
+    <meta property="og:url" content="http://honeyonsys.github.io/articles/0028-how-to-set-custom-exception-handler-for-jwt-token-in-spring-boot.html" />
+    <meta property="og:image" content="https://honeyonsys.github.io/assets/img/blogs/ogimg.png" />
+    <meta name="google-site-verification" content="i5nQMNLum8SfICqLyuLLrFe19CDl31K07aHRLpcuqlI" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/ico" sizes="16x16">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27880645-1"></script>
+    <script src="../assets/js/g-analytics.js"></script>
+    <link href="../assets/css/prism.css" rel="stylesheet" />
+    <script src="../assets/js/prism.js"></script>
+</head>
+
+<body>
+    <div id="pageIdentity">article</div>
+    <div class="profile_pic">
+        <a href="https://honeyonsys.github.io"><img src="https://honeyonsys.github.io/assets/img/honeyonsys_logo_vertical.png" alt="web developer in ludhiana" /></a>        
+    </div>
+    <div id="rightArea">
+        <div id="singleBlog">
+            <div class="blog">
+                <div class="blogTitle">
+                    <h1><a href="0028-how-to-set-custom-exception-handler-for-jwt-token-in-spring-boot.html">
+                        How to set custom exception handler for jwt token in spring boot
+                            </a>
+                    </h1>
+                </div>
+                <div class="blogBelowLine">
+                    <div class="blogTags">Server</div>
+                    <div class="blogTags">Configuration</div>
+                    <div class="blogTags">Web Server</div>
+                    <div class="blogTags">Spring Boot</div>
+                    <div class="blogTags">Java</div>
+                    <div class="blogTags">JWT Token</div>
+                    <div class="blogTags">Exception</div>
+                    <div class="datePublished">published on: 22 Sep 2023<span></span></div>
+                </div>
+                <div class="Ad728"><script type="text/javascript" src="../assets/js/728adcode.js"></script></div>
+                <div class="Ad300"><script type="text/javascript" src="../assets/js/300adcode.js"></script></div>
+                <div class="blogDescription">
+                    <p>Handling exceptions gracefully is crucial in any web application, especially when it comes to security. In a Spring Boot application that uses JWT (JSON Web Tokens) for authentication, you might encounter various exceptions related to token validation. In this guide, we'll show you how to set up a custom exception handler to manage JWT-related exceptions effectively.</p>
+
+                    <h3>Creating the Custom Exception Handler</h3>
+                    <p>We'll begin by creating a custom exception handler class called <b>`CustomExceptionHandler`</b>. This class will handle exceptions such as expired tokens or invalid signatures.</p>
+<pre>
+<code class="lang-js">
+package com.ypss.advice;
+
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import com.ypss.dto.ApiResponseDTO;
+import com.ypss.dto.ResponseSadhnaDTO;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.security.SignatureException;
+
+@RestControllerAdvice
+@Order(Ordered.HIGHEST_PRECEDENCE)
+public class CustomExceptionHandler {
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> handleSecurityException(Exception ex) {
+        System.out.println("Exception class: " + ex.getClass().getName());
+
+        ApiResponseDTO<ResponseSadhnaDTO> apiResponse = new ApiResponseDTO<ResponseSadhnaDTO>();
+        HttpStatus statusCode = HttpStatus.FORBIDDEN;
+        
+        if(ex instanceof ExpiredJwtException) {
+            apiResponse.setStatus(0);
+            apiResponse.setMessage("JWT Token is expired");
+            apiResponse.setResCode(HttpStatus.FORBIDDEN.value());
+            statusCode = HttpStatus.FORBIDDEN;
+        } 
+
+        if(ex instanceof SignatureException) {
+            apiResponse.setStatus(0);
+            apiResponse.setMessage("Invalid JWT Token");
+            apiResponse.setResCode(HttpStatus.FORBIDDEN.value());
+            statusCode = HttpStatus.FORBIDDEN;
+        }
+        
+        return new ResponseEntity<>(apiResponse, statusCode);
+    }
+}
+    
+</code>
+</pre>
+                <p>In this code, we've defined a class annotated with <b>`@RestControllerAdvice`</b> to handle exceptions globally. The <b>`handleSecurityException`</b> method within this class handles various exceptions, including <b>`ExpiredJwtException`</b> and <b>`SignatureException`</b>, which are common JWT-related issues.</p>
+                <h3>Integrating the Custom Exception Handler</h3>
+                <p>To make use of our custom exception handler, we need to integrate it into our Spring Boot application. Here are the steps to follow:</p>
+                <h3>Step 1: Autowire the Exception Resolver</h3>
+                <p>In your <b>`WebSecurityConfiguration.java`</b> file, autowire the <b>`HandlerExceptionResolver`</b>. Add the following code to your configuration class:</p>
+<pre>
+<code class="lang-js">
+@Autowired
+@Qualifier("handlerExceptionResolver")
+private HandlerExceptionResolver exceptionResolver;    
+</code>
+</pre>
+                <h3>Step 2: Create the JWT Request Filter</h3>
+                <p>Create a JWT request filter, typically named <b>`JwtRequestFilter`</b>. This filter will be responsible for intercepting requests and validating JWT tokens. Pass the <b>`exceptionResolver`</b> as a parameter to the filter.</p>
+                <h3>Step 3: Modify the Security Filter Chain</h3>
+                <p>In the <b>`SecurityFilterChain`</b> configuration method, modify the <b>`addFilterBefore`</b> method to include your <b>`JwtRequestFilter`</b>. Here's an example of how to do it:</p>
+<pre>
+<code class="lang-js">
+.addFilterBefore(jwtRequestFilter(), UsernamePasswordAuthenticationFilter.class)
+</code>
+</pre>
+                <h3>Step 4: Implement Token Validation</h3>
+                <p>Inside the <b>`doFilterInternal`</b> method of your <b>`JwtRequestFilter`</b>, include token validation logic. If an exception occurs during token validation, it will be caught and handled by our custom exception handler.</p>
+<pre>
+<code class="lang-js">
+try {
+    // Token validation logic here
+} catch (Exception ex) {
+    exceptionResolver.resolveException(request, response, null, ex);
+}
+</code>
+</pre>
+                <p>With these steps, you've successfully integrated a custom exception handler for JWT token-related issues in your Spring Boot application.</p>
+                <p>Now, when JWT-related exceptions occur, your application will respond with informative error messages, enhancing the security and user experience.</p>
+                </div> <!--blogDescription ends here-->
+                <div class="Ad728"><script type="text/javascript" src="../assets/js/728adcode.js"></script></div>
+                <div class="Ad300"><script type="text/javascript" src="../assets/js/300adcode.js"></script></div>
+            </div><!--blog ends here-->
+        </div><!--singleBlog ends here-->
+
+    </div>
+    <div id="footerArea"></div>
+</body>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+
+</html>

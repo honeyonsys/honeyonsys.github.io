@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "id": "0028",
+      "title": "How to set custom exception handler for jwt token in spring boot",
+      "keywords": "Server, Configuration, Web Server, Spring Boot, Java, JWT Token, Exception",
+      "url": "0028-how-to-set-custom-exception-handler-for-jwt-token-in-spring-boot.html",
+      "publishedOn": "22 Sep 2023"
+    },
+    {
       "id": "0027",
       "title": "How to Set Up Nginx in a New Linux Server Instance",
       "keywords": "Nginx, Linux, Server, Configuration, Web Server, HTTP, Website, Web Application, Cloud Hosting, AWS, Linode, SSH, Terminal, Text Editor, Nano, Server Blocks, Upstream Servers, HTTP Settings, Port, Domain, Root, Index ",
