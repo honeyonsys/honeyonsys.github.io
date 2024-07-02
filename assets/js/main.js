@@ -2,7 +2,7 @@
     var currentFile = document.getElementById("pageIdentity");
     console.log(currentFile.innerHTML);
     var imgPathPrepend = "../";
-    if ((currentFile.innerHTML == "home")) {
+    if ((currentFile.innerHTML == "home" || currentFile.innerHTML == "blog")) {
         imgPathPrepend = "";
     }
     
@@ -19,8 +19,7 @@
     // sidebar loading ends here
     
     // fetching the home page blog list
-    if ((currentFile.innerHTML == "home")) {
-
+    if ((currentFile.innerHTML == "blog")) {
         loadJSON(function (response) {
             // Parse JSON string into object
             var news_JSON = JSON.parse(response);
