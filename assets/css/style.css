@@ -40,7 +40,7 @@ body {
     float: left;
     padding:10px;
     font-size:12px;
-    background:#CDCDCD;
+    background: #EEEFF0;
 }
 section{
     width: -moz-calc(100% - 20px);
@@ -144,6 +144,24 @@ section{
 	border-bottom: 10px solid transparent;
     float:left;
 }
+.skillSquare {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 5px;
+    padding:5px;
+    border-radius: 5px;
+    border: #bde3ff solid 1px;
+    cursor: pointer;
+    
+}
+.skillSquare:hover {
+    box-shadow:#358FCD 0px 0px 10px;
+}
+.skillSquare img {
+    width: 40px;
+    height: 40px;
+}
 .skill{
 	width:auto;
     height:20px;
@@ -181,7 +199,7 @@ section{
     padding-left: 20px;
     padding-right:20px;
     height: auto;
-    background: #EEEFF0;
+    
 }
 
 #blogList, #singleBlog{
