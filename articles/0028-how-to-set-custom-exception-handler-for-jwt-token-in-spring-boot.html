@@ -1,49 +1,78 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How to set custom exception handler for jwt token in spring boot | Harish Kumar</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-  <script>
-    document.documentElement.classList.add('dark');
-  </script>
-  <style>
-    article img {
-      @apply rounded-lg my-6;
-    }
-    article pre {
-      @apply my-6 rounded-lg overflow-x-auto;
-    }
-    article code {
-      font-family: "Fira Code", monospace;
-      font-size: 0.95rem;
-    }
-  </style>
-</head>
-<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            How to set custom exception handler for jwt token in spring boot |
+            Harish Kumar
+        </title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+            rel="stylesheet"
+        />
+        <script>
+            document.documentElement.classList.add("dark");
+        </script>
+        <style>
+            article img {
+                @apply rounded-lg my-6;
+            }
+            article pre {
+                @apply my-6 rounded-lg overflow-x-auto;
+            }
+            article code {
+                font-family: "Fira Code", monospace;
+                font-size: 0.95rem;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+        <header class="py-6 border-b border-gray-800">
+            <div
+                class="container mx-auto px-6 flex justify-between items-center"
+            >
+                <a
+                    href="index.html"
+                    class="text-2xl font-bold text-blue-400 hover:text-blue-300"
+                    >Harish Kumar</a
+                >
+                <nav class="space-x-6">
+                    <a href="../blog.html" class="text-blue-400 font-semibold"
+                        >Blog</a
+                    >
+                </nav>
+            </div>
+        </header>
 
-  <header class="py-6 border-b border-gray-800">
-    <div class="container mx-auto px-6 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
-      <nav class="space-x-6">
-        <a href="index.html" class="hover:text-blue-400">Home</a>
-        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
-        <a href="contact.html" class="hover:text-blue-400">Contact</a>
-      </nav>
-    </div>
-  </header>
+        <main class="container mx-auto px-6 py-12 max-w-4xl">
+            <h1 class="text-4xl font-bold mb-4">
+                How to set custom exception handler for jwt token in spring boot
+            </h1>
+            <p class="text-gray-400 mb-10">Published on 22 Sep 2023 · Server</p>
 
-  <main class="container mx-auto px-6 py-12 max-w-4xl">
-    <h1 class="text-4xl font-bold mb-4">How to set custom exception handler for jwt token in spring boot</h1>
-    <p class="text-gray-400 mb-10">Published on 22 Sep 2023 · Server</p>
-
-    <article class="prose prose-invert prose-lg max-w-none">
-<p>Handling exceptions gracefully is crucial in any web application, especially when it comes to security. In a Spring Boot application that uses JWT (JSON Web Tokens) for authentication, you might encounter various exceptions related to token validation. In this guide, we'll show you how to set up a custom exception handler to manage JWT-related exceptions effectively.</p>
-<h3>Creating the Custom Exception Handler</h3>
-<p>We'll begin by creating a custom exception handler class called <b>`CustomExceptionHandler`</b>. This class will handle exceptions such as expired tokens or invalid signatures.</p>
-<pre>
+            <article class="prose prose-invert prose-lg max-w-none">
+                <p>
+                    Handling exceptions gracefully is crucial in any web
+                    application, especially when it comes to security. In a
+                    Spring Boot application that uses JWT (JSON Web Tokens) for
+                    authentication, you might encounter various exceptions
+                    related to token validation. In this guide, we'll show you
+                    how to set up a custom exception handler to manage
+                    JWT-related exceptions effectively.
+                </p>
+                <h3>Creating the Custom Exception Handler</h3>
+                <p>
+                    We'll begin by creating a custom exception handler class
+                    called <b>`CustomExceptionHandler`</b>. This class will
+                    handle exceptions such as expired tokens or invalid
+                    signatures.
+                </p>
+                <pre>
 <code class="lang-js">
 package com.ypss.advice;
 
@@ -88,30 +117,61 @@ public class CustomExceptionHandler {
     
 </responsesadhnadto></responsesadhnadto></code>
 </pre>
-<p>In this code, we've defined a class annotated with <b>`@RestControllerAdvice`</b> to handle exceptions globally. The <b>`handleSecurityException`</b> method within this class handles various exceptions, including <b>`ExpiredJwtException`</b> and <b>`SignatureException`</b>, which are common JWT-related issues.</p>
-<h3>Integrating the Custom Exception Handler</h3>
-<p>To make use of our custom exception handler, we need to integrate it into our Spring Boot application. Here are the steps to follow:</p>
-<h3>Step 1: Autowire the Exception Resolver</h3>
-<p>In your <b>`WebSecurityConfiguration.java`</b> file, autowire the <b>`HandlerExceptionResolver`</b>. Add the following code to your configuration class:</p>
-<pre>
+                <p>
+                    In this code, we've defined a class annotated with
+                    <b>`@RestControllerAdvice`</b> to handle exceptions
+                    globally. The <b>`handleSecurityException`</b> method within
+                    this class handles various exceptions, including
+                    <b>`ExpiredJwtException`</b> and
+                    <b>`SignatureException`</b>, which are common JWT-related
+                    issues.
+                </p>
+                <h3>Integrating the Custom Exception Handler</h3>
+                <p>
+                    To make use of our custom exception handler, we need to
+                    integrate it into our Spring Boot application. Here are the
+                    steps to follow:
+                </p>
+                <h3>Step 1: Autowire the Exception Resolver</h3>
+                <p>
+                    In your <b>`WebSecurityConfiguration.java`</b> file,
+                    autowire the <b>`HandlerExceptionResolver`</b>. Add the
+                    following code to your configuration class:
+                </p>
+                <pre>
 <code class="lang-js">
 @Autowired
 @Qualifier("handlerExceptionResolver")
 private HandlerExceptionResolver exceptionResolver;    
 </code>
 </pre>
-<h3>Step 2: Create the JWT Request Filter</h3>
-<p>Create a JWT request filter, typically named <b>`JwtRequestFilter`</b>. This filter will be responsible for intercepting requests and validating JWT tokens. Pass the <b>`exceptionResolver`</b> as a parameter to the filter.</p>
-<h3>Step 3: Modify the Security Filter Chain</h3>
-<p>In the <b>`SecurityFilterChain`</b> configuration method, modify the <b>`addFilterBefore`</b> method to include your <b>`JwtRequestFilter`</b>. Here's an example of how to do it:</p>
-<pre>
+                <h3>Step 2: Create the JWT Request Filter</h3>
+                <p>
+                    Create a JWT request filter, typically named
+                    <b>`JwtRequestFilter`</b>. This filter will be responsible
+                    for intercepting requests and validating JWT tokens. Pass
+                    the <b>`exceptionResolver`</b> as a parameter to the filter.
+                </p>
+                <h3>Step 3: Modify the Security Filter Chain</h3>
+                <p>
+                    In the <b>`SecurityFilterChain`</b> configuration method,
+                    modify the <b>`addFilterBefore`</b> method to include your
+                    <b>`JwtRequestFilter`</b>. Here's an example of how to do
+                    it:
+                </p>
+                <pre>
 <code class="lang-js">
 .addFilterBefore(jwtRequestFilter(), UsernamePasswordAuthenticationFilter.class)
 </code>
 </pre>
-<h3>Step 4: Implement Token Validation</h3>
-<p>Inside the <b>`doFilterInternal`</b> method of your <b>`JwtRequestFilter`</b>, include token validation logic. If an exception occurs during token validation, it will be caught and handled by our custom exception handler.</p>
-<pre>
+                <h3>Step 4: Implement Token Validation</h3>
+                <p>
+                    Inside the <b>`doFilterInternal`</b> method of your
+                    <b>`JwtRequestFilter`</b>, include token validation logic.
+                    If an exception occurs during token validation, it will be
+                    caught and handled by our custom exception handler.
+                </p>
+                <pre>
 <code class="lang-js">
 try {
     // Token validation logic here
@@ -120,17 +180,25 @@ try {
 }
 </code>
 </pre>
-<p>With these steps, you've successfully integrated a custom exception handler for JWT token-related issues in your Spring Boot application.</p>
-<p>Now, when JWT-related exceptions occur, your application will respond with informative error messages, enhancing the security and user experience.</p>
-    </article>
-  </main>
+                <p>
+                    With these steps, you've successfully integrated a custom
+                    exception handler for JWT token-related issues in your
+                    Spring Boot application.
+                </p>
+                <p>
+                    Now, when JWT-related exceptions occur, your application
+                    will respond with informative error messages, enhancing the
+                    security and user experience.
+                </p>
+            </article>
+        </main>
 
-  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
-    <p>© 2025 Harish Kumar. All rights reserved.</p>
-  </footer>
+        <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+            <p>© 2025 Harish Kumar. All rights reserved.</p>
+        </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    </body>
 </html>
