@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to parse raw json object with foreach loop with c# | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">How to parse raw json object with foreach loop with c#</h1>
+    <p class="text-gray-400 mb-10">Published on 7 July 2020 · c#</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<p>The best way to parse a json string like below is to create an entity class for it (in case if
+                        you know what is coming along in the the json object. I mean the fields)</p>
+<pre>
+<code class="lang-json">
+[
+    {
+        "userName": "Harish",
+        "designation": "Full Stack Developer",
+        "skills": "c#, javascript"
+    }
+    {
+        "userName": "Rakesh",
+        "designation": "Front End Developer",
+        "skills": "HTML, CSS,javascript"
+    }
+]
+</code>
+                </pre>
+<p>To parse the above json first create a entity class like below</p>
+<pre>
+<code class="lang-csharp">
+    public partial class userList
+    {
+        [JsonProperty("userName")]
+        public string userName{get; set;}
+        
+        [JsonProperty("designation")]
+        public string designation{get; set;}
+        
+        [JsonProperty("skills")]
+        public string skills{get; set;}
+    }
+</code>
+</pre>
+<p>Then you can create the foreach loop by deserializing the json string into <b>userList</b> object
+                    </p>
+<pre>
+<code class="lang-csharp">
+dynamic userObj=JsonConvert.DeserializeObject<list<userlist>&gt;(yourJson);
+foreach(userList obj in userObj)
+{
+    var username=obj.userName; // as you defined in the entity class
+    var desig=obj.designation; 
+    var skills=obj.skills
+}
+</list<userlist></code>
+</pre>
+<p><b>Note:</b> Here we are using the newtonsoft json package. You can install that from nugat
+                        packages on your visual studio<br/>reference class:</p>
+<pre> <code class="lang-csharp">using Newtonsoft.Json;</code></pre>
+<p></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

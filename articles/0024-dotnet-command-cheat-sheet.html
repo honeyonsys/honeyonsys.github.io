@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dotnet Commands Cheat Sheet | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">Dotnet Commands Cheat Sheet</h1>
+    <p class="text-gray-400 mb-10">Published on 03 May 2022 · dotnet</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<h3>Dotnet New</h3>
+<pre><code class="lang-sql">dotnet new sln //New solution file</code></pre>
+<pre><code class="lang-sql">dotnet new console //New console application</code></pre>
+<pre><code class="lang-sql">dotnet new classlib //New class library</code></pre>
+<pre><code class="lang-sql">dotnet new mvc //ASP.NET Core Web App (Model-View-Controller)</code></pre>
+<pre><code class="lang-sql">dotnew new xunit //xunit test project</code></pre>
+<pre><code class="lang-sql">dotnet new -l //Get the list of available templates</code></pre>
+<h3>Dotnet sln</h3>
+<pre><code class="lang-sql">dotnet sln list //List all projects in a solution file</code></pre>
+<pre><code class="lang-sql">dotnet sln todo.sln add todo-app/todo-app.csproj //Add a c# project to a solution</code></pre>
+<pre><code class="lang-sql">dotnet sln todo.sln remove todo-app/todo-app.csproj //Remove a C# project from a solution </code></pre>
+<pre><code class="lang-sql">dotnet sln todo.sln add **/*.csproj //Add multiple C# projects to a solution using a globbing pattern </code></pre>
+<h3>Dotnet add</h3>
+<pre><code class="lang-sql">dotnet add package Newtonsoft.Json //Add Newtonsoft.Json NuGet package to a project </code></pre>
+<pre><code class="lang-sql">dotnet add reference lib1/lib1.csproj lib2/lib2.csproj //Add multiple project references to the project in the current directory </code></pre>
+<pre><code class="lang-sql">dotnet add app/app.csproj reference **/*.csproj //Add multiple project references using a globbing pattern on Linux/Unix </code></pre>
+<h3>Dotnet build</h3>
+<pre><code class="lang-sql">dotnet build //Build a project and all of its dependencies </code></pre>
+<pre><code class="lang-sql">dotnet build --configuration Release //Build a project and its dependencies using Release configuration </code></pre>
+<pre><code class="lang-sql">dotnet build --runtime ubuntu.16.04-x64 //Build a project and its dependencies for a specific runtime (in this example, Ubuntu 16.04) </code></pre>
+<h3>Dotnet run</h3>
+<pre><code class="lang-sql">dotnet run //Run the project in the current directory </code></pre>
+<pre><code class="lang-sql">dotnet run --project ./projects/proj1/proj1.csproj //Run the specified project </code></pre>
+<pre><code class="lang-sql">dotnet myapp.dll //Run a framework-dependent app named myapp.dll </code></pre>
+<h3>Dotnet clean</h3>
+<pre><code class="lang-sql">dotnet clean //Clean the output of a project </code></pre>
+<pre><code class="lang-sql">dotnet clean --configuration Release //Clean a project built using the Release configuration </code></pre>
+<i>Only the outputs created during the build are cleaned. Both intermediate (obj) and final output (bin) folders are cleaned.</i>
+<h3>Dotnet publish</h3>
+<pre><code class="lang-sql">dotnet publish //Publish the project in the current directory </code></pre>
+<pre><code class="lang-sql">dotnet publish ~/projects/app1/app1.csproj //Publish the application using the specified project file </code></pre>
+<i>The dotnet publish command's output is ready for deployment to a hosting system (for example, a server, PC, Mac, laptop) for execution.</i>
+<h3>Dotnet ef</h3>
+<pre><code class="lang-sql">dotnet ef migrations add //Add a new migration </code></pre>
+<pre><code class="lang-sql">dotnet ef migrations list //List available migrations </code></pre>
+<pre><code class="lang-sql">dotnet ef migrations remove //Remove the last migration </code></pre>
+<pre><code class="lang-sql">dotnet ef migrations script //Generate a SQL script from migrations </code></pre>
+<pre><code class="lang-sql">dotnet ef database update //Update the database to a specified migration </code></pre>
+<pre><code class="lang-sql">dotnet ef database drop //Drop the database </code></pre>
+<pre><code class="lang-sql">dotnet ef dbcontext list //List available DbContext types </code></pre>
+<pre><code class="lang-sql">dotnet ef dbcontext info //Get information about a DbContext type </code></pre>
+<pre><code class="lang-sql">dotnet ef dbcontext scaffold //Scaffolds a DbContext and entity types for a database </code></pre>
+<h3>Dotnet pack</h3>
+<pre><code class="lang-sql">dotnet pack //Build the project and create NuGet packages </code></pre>
+<pre><code class="lang-sql">dotnet pack --no-build --output nupkgs //Pack the project in the current directory into the nupkgs folder and skip the build step </code></pre>
+<pre><code class="lang-sql">dotnet pack /p:PackageVersion=2.1.0 //Set the package version to 2.1.0 with the PackageVersion MSBuild property
+                    </code></pre>
+<h3>Dotnet nuget</h3>
+<pre><code class="lang-sql">dotnet nuget locals -l all //Display the paths of all the local cache directories </code></pre>
+<pre><code class="lang-sql">dotnet nuget push foo.nupkg -k 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a //Push foo.nupkg to the default push source, specifying an API key </code></pre>
+<pre><code class="lang-sql">dotnet nuget delete Microsoft.AspNetCore.Mvc 1.0 --non-interactive //Delete version 1.0 of package Microsoft.AspNetCore.Mvc, not prompting user for credentials or other input </code></pre>
+<h3>Dotnet remove</h3>
+<pre><code class="lang-sql">dotnet remove package Newtonsoft.Json //Remove Newtonsoft.Json NuGet package from a project in the current directory </code></pre>
+<pre><code class="lang-sql">dotnet remove reference lib/lib.csproj //Remove a project reference from the current project </code></pre>
+<pre><code class="lang-sql">dotnet remove app/app.csproj reference **/*.csproj //Remove multiple project references using a glob pattern on Unix/Linux </code></pre>
+<h3>etc.</h3>
+<pre><code class="lang-sql">dotnet help //Show more detailed documentation online for the command </code></pre>
+<pre><code class="lang-sql">dotnet migrate //Migrate a Preview 2 .NET Core project to a .NET Core SDK 1.0 project </code></pre>
+<pre><code class="lang-sql">dotnet msbuild //Provides access to a fully functional MSBuild </code></pre>
+<pre><code class="lang-sql">dotnet test //Run the tests in the project in the current directory </code></pre>
+<pre><code class="lang-sql">dotnet list reference //List the project references for the project in the current directory </code></pre>
+<h3>Environment Variables</h3>
+<pre><code class="lang-sql">DOTNET_PACKAGES </code></pre>
+<i>The primary package cache.</i>
+<pre><code class="lang-sql">DOTNET_SERVICING </code></pre>
+<i>Specifies the location of the servicing index to use by the shared host when loading the runtime.</i>
+<pre><code class="lang-sql">DOTNET_CLI_TELEMETRY_OPTOUT </code></pre>
+<i>Specifies whether data about the .NET Core tools usage is collected and sent to Microsoft.</i>
+<pre><code class="lang-sql">DOTNET_MULTILEVEL_LOOKUP </code></pre>
+<i>Specifies whether .NET Core runtime, shared framework, or SDK are resolved from the global location.</i>
+<pre><code class="lang-sql">DOTNET_ROLL_FORWARD_ON_NO_CANDIDATE_FX </code></pre>
+<pre><code class="lang-sql">Disables minor version roll forward. For more information, see Roll forward. </code></pre>
+<p></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

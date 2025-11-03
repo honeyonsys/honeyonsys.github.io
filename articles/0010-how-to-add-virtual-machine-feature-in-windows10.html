@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to add virtual machine feature in windows 10 | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">How to add virtual machine feature in windows 10</h1>
+    <p class="text-gray-400 mb-10">Published on 19 Oct 2020 · windows 10</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<h3>What is a virtual machine?</h3>
+<p>A virtual machine (VM) is a virtual environment that functions as a virtual computer system with
+                        its own CPU, memory, network interface, and storage, created on a physical hardware system.</p>
+<h3>What is the use of virtual machine?</h3>
+<p>Setting up virtual machine will allow you to setup an another operating system with different
+                        settings into your main or working operating system, It could be any new OS you can install it
+                        on your virtual machine like windows falovours, linux etc.</p>
+<p>To achive this there are lots of third party software available on web, some are paid, some free
+                        and open source. Few of most popular are: <a href="https://www.virtualbox.org/" target="_blank">virtual box</a>, <a href="https://www.vmware.com/" target="_blank">VM
+                            Ware</a>, <a href="https://www.parallels.com/" target="_blank">parallels</a> etc. </p>
+<p>But in the article i am going to detail about the in built feature of windows 10 through which
+                        you can enable that feature of virtual machine without install any other software into the
+                        operating system, i.e <a href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/" target="_blank">Hyper-v</a></p>
+<h3>How do i setup virtual machine?</h3>
+<p>First of all your physical machine or hardware has a virtualization feature should enabled, That
+                        can be acheive by go to the BIOS of the system at the start up. On start up of the machine there
+                        different keys for different hardware, generally <b>F10</b> or <b>F8</b>. After click on that on
+                        startup a blue screen of BIOS will appear and you need to enable the virtualization option in it
+                        which looks lie below image</p>
+<p><img src="../assets/img/blogs/0010_1.png"/></p>
+<p>After enable this when the system start up, click on the start button and search for windows
+                        features</p>
+<p><img src="../assets/img/blogs/0010_2.png"/></p>
+<p>When the windwos features windwos appear, search for the Hyper-v option in it and check the
+                        checkbox for hyper-v and click on Ok button. It will take a few moment to enable that feature
+                    </p>
+<p><img src="../assets/img/blogs/0010_3.png"/></p>
+<p>When the feature will enable completely, you will see the hyper-v application on the start
+                        programs</p>
+<p><img src="../assets/img/blogs/0010_4.png"/></p>
+<p>check out next article to see <a href="0011-how-to-create-a-new-virtual-machine-in-windows10-using-hyper-v.html" target="_blank">how to setup a new virtual machine in windows 10 using hyper-v</a></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

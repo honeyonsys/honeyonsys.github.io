@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Cheat Sheet | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">Git Cheat Sheet</h1>
+    <p class="text-gray-400 mb-10">Published on 25 April 2022 · git</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<h3>Git Basic Commands</h3>
+<pre><code class="lang-sql">git init &lt;directory&gt; //Create empty git repo in the specific directory</code></pre>
+<pre><code class="lang-sql">git clone &lt;repo&gt; //Clone repo located at the &lt;repo&gt; defined. Can be either local or remote via HTTP or SSH</code></pre>
+<pre><code class="lang-sql">git config user.name &lt;name&gt; //Author name that would be used for all commits in current repo</code></pre>
+<pre><code class="lang-sql">git add &lt;directory&gt;/&lt;file&gt; //Adds the directory/file on your next commit</code></pre>
+<pre><code class="lang-sql">git commit -m "&lt;message&gt;" //Commits your staged content as the new commit snapshot with a message</code></pre>
+<pre><code class="lang-sql">git status //Shows modified files in the working directory</code></pre>
+<pre><code class="lang-sql">git log //Shows all commit in the current branch's history</code></pre>
+<pre><code class="lang-sql">git diff //Shows the difference of what changed but not staged</code></pre>
+<h3>Undo the changes</h3>
+<pre><code class="lang-sql">git revert &lt;commit&gt; //Undoes all the changes made in the &lt;commit&gt; by creating a new commit and applies to the current branch</code></pre>
+<pre><code class="lang-sql">git reset &lt;file&gt; //Removes the file from the staging area, but leaves the working directory unchanged. Unstages  a file without overwriting any changes</code></pre>
+<pre><code class="lang-sql">git clean //Used to remove the unwanted files from your working directory. Many options to remove the unwanted files: -f, -n, -d etc</code></pre>
+<h3>Rewrite, reset, rebase</h3>
+<pre><code class="lang-sql">git rebase &lt;branch&gt; //Applies any commits of current branch ahead of the specified one</code></pre>
+<pre><code class="lang-sql">git reflog //Show a log of changes to the local repository's HEAD</code></pre>
+<pre><code class="lang-sql">git reset //Reset staging area to match the most recent commit but leaves the working directory unchanged</code></pre>
+<pre><code class="lang-sql">git reset --hard //same as above except overwrites all changes in the working directory</code></pre>
+<pre><code class="lang-sql">git reset &lt;commit&gt; //Move the current branch tip backward to &lt;commit&gt;, reset the staging area to match, but leaves the working directrory alone</code></pre>
+<pre><code class="lang-sql">git reset --hard &lt;commit&gt; //Same as above but resets both staging area &amp; woking directory to match. Deletes uncommited changes, and all commits after &lt;commit&gt;</code></pre>
+<h3>Branch &amp; Merge</h3>
+<pre><code class="lang-sql">git branch //Lists all your branches</code></pre>
+<pre><code class="lang-sql">git branch &lt;branch-name&gt; //Create a new branch at the current commit</code></pre>
+<pre><code class="lang-sql">git checkout //Switch to another branch and check it out into your working directotry</code></pre>
+<pre><code class="lang-sql">git merge &lt;branch&gt; //Merge the specified branch's history into the current one</code></pre>
+<h3>Push &amp; Pull</h3>
+<pre><code class="lang-sql">git remote add &lt;alias&gt; &lt;url&gt; //Adds a git URL with a name as the alias</code></pre>
+<pre><code class="lang-sql">git fetch &lt;alias&gt; //Fetches all the branches from the git remote</code></pre>
+<pre><code class="lang-sql">git merge &lt;alias&gt;/&lt;branch&gt; //Push the branch commits to the repository. Creates the named branch if it doesn't exist.</code></pre>
+<pre><code class="lang-sql">git pull //Fetch and merge any commits from the tracking remote branch</code></pre>
+<h3>Temporary commits</h3>
+<pre><code class="lang-sql">git stash //Saves modified and staged changes</code></pre>
+<pre><code class="lang-sql">git stash list //List stack-order of stashed file changes</code></pre>
+<pre><code class="lang-sql">git stash drop //Discard changes from the stash stack</code></pre>
+<h3>Inspect &amp; compare</h3>
+<pre><code class="lang-sql">git log //Shows all commits in the current branch's history</code></pre>
+<pre><code class="lang-sql">git log branchB..branchA //Shows the commits on branchA that are not on branchB</code></pre>
+<pre><code class="lang-sql">git log --follow &lt;file&gt; //Shows the commits that changed file. Including file renames</code></pre>
+<pre><code class="lang-sql">git diff branchB...branchA //Show the diff of what's in branchA compared to branchB</code></pre>
+<h3>Tracking path</h3>
+<pre><code class="lang-sql">git rm &lt;file&gt; //Deletes the file from project and stages the removal for commit</code></pre>
+<pre><code class="lang-sql">git mv &lt;current-path&gt; &lt;new-path&gt; //Changes the current file path and stages the move for commit</code></pre>
+<pre><code class="lang-sql">git log --stat -M //Show all commit logs with indication of paths that have been moved</code></pre>
+<p></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

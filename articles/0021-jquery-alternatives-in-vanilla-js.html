@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheat sheet for vanilla js as alternative to jQuery | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">Cheat sheet for vanilla js as alternative to jQuery</h1>
+    <p class="text-gray-400 mb-10">Published on 13 Mar 2022 · cheat-sheet</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<p>Here are some of the basic javascript methods which we can use as alternate to jquery.</p>
+<h3>Selecting Elements</h3>
+<p>Equivalent to $() or jQuery() in JavaScript is <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank">querySelector()</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll" target="_blank">querySelectorAll()</a>, which, just like with jQuery, you can call with a CSS selector.</p>
+<pre>
+<code class="lang-js">
+// jQuery, select all instances of .box
+$(".box");
+
+// Instead, select the first instance of .box
+document.querySelector(".box");
+
+// …or select all instances of .box  
+document.querySelectorAll(".box");    
+</code>
+</pre>
+<h3>Running a function on all elements in a selection</h3>
+<pre>
+<code class="lang-js">
+// with jQuery
+// Hide all instances of .box
+$(".box").hide();
+
+// Without jQuery
+// Iterate over the nodelist of elements to hide all instances of .box
+document.querySelectorAll(".box").forEach(box =&gt; { box.style.display = "none" })
+</code>
+</pre>
+<h3>Finding one element within another</h3>
+<p>Alternative of jquery <b>find()</b> with <b>querySelector</b> or <b>querySelectorAll</b></p>
+<pre>
+<code class="lang-js">
+// With jQuery
+// Select the first instance of .box within .container
+var container = $(".container");
+// Later...
+container.find(".box");
+
+// Without jQuery
+// Select the first instance of .box within .container
+var container = document.querySelector(".container");
+// Later...
+container.querySelector(".box");
+
+</code>
+</pre>
+<h3>Traversing the tree with parent(), next(), and prev()</h3>
+<p>If you wish to traverse the DOM to select a subling or a parent element relative to another element, you can access them through <b>nextElementSibling</b>, <b>previousElementSibling</b> and <b>parentElement</b> on that element:</p>
+<pre>
+<code class="lang-js">
+// with jQuery
+// Return the next, previous, and parent element of .box
+$(".box").next();
+$(".box").prev();
+$(".box").parent();
+
+// Without jQuery
+// Return the next, previous, and parent element of .box
+var box = document.querySelector(".box");
+box.nextElementSibling;
+box.previousElementSibling;
+box.parentElement;
+</code>
+</pre>
+<h3>Working with events</h3>
+<p>Jquery <b>.on()</b>, <b>.bind()</b>, <b>.live</b> or <b>.click()</b> in vanilla JS with <b>.addEventListener</b>:</p>
+<pre>
+<code class="lang-js">
+// With jQuery
+$(".button").click(function(e) { /* handle click event */ });
+$(".button").mouseenter(function(e) {  /* handle click event */ });
+$(document).keyup(function(e) {  /* handle key up event */  });
+
+// Without jQuery
+document.querySelector(".button").addEventListener("click", (e) =&gt; { /* ... */ });
+document.querySelector(".button").addEventListener("mouseenter", (e) =&gt; { /* ... */ });
+document.addEventListener("keyup", (e) =&gt; { /* ... */ });
+</code> 
+</pre>
+<h3>Event listening for dynamically added elements</h3>
+<pre>
+<code class="lang-js">
+// With jQuery
+// Handle click events .search-result elements, 
+// even when they're added to the DOM programmatically
+$(".search-container").on("click", ".search-result", handleClick);
+
+// Without jQuery
+// Create and add an element to the DOM
+var searchElement = document.createElement("div");
+document.querySelector(".search-container").appendChild(searchElement);
+// Add an event listener to the element
+searchElement.addEventListener("click", handleClick);
+</code>
+</pre>
+<h3>Triggering and creating events</h3>
+<p>Jquery's <b>trigger()</b> alternate in vanilla js with <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent" target="_blank">dispatchEvent()</a></p>
+<pre>
+<code class="lang-js">
+// With jQuery
+// Trigger myEvent on document and .box
+$(document).trigger("myEvent");
+$(".box").trigger("myEvent");
+
+// Without jQuery
+// Create and dispatch myEvent
+document.dispatchEvent(new Event("myEvent"));
+document.querySelector(".box").dispatchEvent(new Event("myEvent"));
+</code>
+</pre>
+<h3>Styling elements</h3>
+<p>Jquery's <b>.css()</b> alternative in vanilla js with <b>.style</b></p>
+<pre>
+<code class="lang-js">
+// With jQuery
+// Select .box and change text color to #000
+$(".box").css("color", "#000");
+
+// Without jQuery
+// Select the first .box and change its text color to #000
+document.querySelector(".box").style.color = "#000";
+</code>
+</pre>
+<p>With jQuery, you can pass an object with key-value pairs to style many properties at once. In JavaScript you can set the values one at a time, or set the entire style string:</p>
+<pre>
+<code class="lang-js">
+// With jQuery
+// Pass multiple styles
+$(".box").css({
+    "color": "#000",
+    "background-color": "red"
+});
+
+// Without jQuery
+// Set color to #000 and background to red
+var box = document.querySelector(".box");
+box.style.color = "#000";
+box.style.backgroundColor = "red";
+
+// Set all styles at once (and override any existing styles)
+box.style.cssText = "color: #000; background-color: red";
+</code>
+</pre>
+<h3>hide() and show()</h3>
+<p>The <b>.hide()</b> and <b>.show()</b> convenience methods are equivalent to accessing the <b>.style</b> property and setting <b>display</b> to <b>none</b> and <b>block</b>:</p>
+<pre>
+<code class="lang-js">
+// With jQuery
+// Hide and show and element
+$(".box").hide();
+$(".box").show();
+
+// Without jQuery
+// Hide and show an element by changing "display" to block and none
+document.querySelector(".box").style.display = "none";
+document.querySelector(".box").style.display = "block";
+</code>
+</pre>
+<h3>Document ready</h3>
+<p>Jquery's <b>$(document).ready()</b> alternative in vanilla js with <b>DOMContentLoaded</b></p>
+<pre>
+<code class="lang-js">
+// With jQuery
+$(document).ready(function() { 
+    /* Do things after DOM has fully loaded */
+});
+
+// Without jQuery
+// Define a convenience method and use it
+var ready = (callback) =&gt; {
+    if (document.readyState != "loading") callback();
+    else document.addEventListener("DOMContentLoaded", callback);
+}
+
+ready(() =&gt; { 
+    /* Do things after DOM has fully loaded */ 
+});
+</code>
+</pre>
+<h3>Working with classes</h3>
+<p>You can easily access and work with classes through the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList" target="_blank">classList</a> property to toggle, replace, add, and remove classes:</p>
+<pre>
+<code class="lang-js">
+// With jQuery
+// Add, remove, and the toggle the "focus" class
+$(".box").addClass("focus");
+$(".box").removeClass("focus");
+$(".box").toggleClass("focus");
+
+// Without jQuery
+// Add, remove, and the toggle the "focus" class
+var box = document.querySelector(".box");
+box.classList.add("focus");
+box.classList.remove("focus");
+box.classList.toggle("focus");
+</code>
+</pre>
+<p>If you want to remove or add multiple classes you can just pass multiple arguments to <b>.add()</b> and <b>.remove()</b>:</p>
+<pre>
+<code class="lang-js">
+// Add "focus" and "highlighted" classes, and then remove them
+var box = document.querySelector(".box");
+box.classList.add("focus", "highlighted");
+box.classList.remove("focus", "highlighted");
+</code>
+</pre>
+<p>If you’re toggling two classes that are mutually exclusive, you can access the <b>classList</b> property and call <b>.replace()</b> to replace one class with another:</p>
+<pre>
+<code class="lang-js">
+// Remove the "focus" class and add "blurred"
+document.querySelector(".box").classList.replace("focus", "blurred");
+</code>
+</pre>
+<h3>Checking if an element has a class</h3>
+<p>If you only want to run a function depending on if an element has a certain class, you can replace jQuery’s .hasClass() with .classList.contains()</p>
+<pre>
+<code class="lang-js">
+// With jQuery
+// Check if .box has a class of "focus", and do something
+if ($(".box").hasClass("focus")) {
+    // Do something...
+}
+
+// Without jQuery
+// Check if .box has a class of "focus", and do something
+if (document.querySelector(".box").classList.contains("focus")) {
+    // Do something...
+}
+</code>
+</pre>
+<h3>Network requests with .get() or .ajax()</h3>
+<p><b>fetch()</b> lets you create network requests in a similar fashion to jQuery’s <b>ajax()</b> and <b>get()</b> methods. <b>fetch()</b> takes a URL as an argument, and returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a> that you can use to handle the response:</p>
+<pre>
+<code class="lang-js">
+// With jQuery
+$.ajax({
+    url: "data.json"
+    }).done(function(data) {
+    // ...
+    }).fail(function() {
+    // Handle error
+    });
+
+// Without jQuery
+fetch("data.json")
+    .then(data =&gt; {
+    // Handle data
+    }).catch(error =&gt; {
+    // Handle error
+    });
+</code>
+</pre>
+<h3>Creating elements</h3>
+<pre>
+<code class="lang-js">
+// Create a div &amp; span
+$("<div>");
+$("<span></span>");
+
+// Create a div and a span
+document.createElement("div");
+document.createElement("span");
+</code>
+</pre>
+<p>If you want to add some content to those elements, you can simply set the textContent property, or create a text node with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode" target="_blank">createTextNode</a> and append it to the element:</p>
+<pre>
+<code class="lang-js">
+var element = document.createElement("div");
+element.textContent = "Text"
+// or create a textNode and append it
+var text = document.createTextNode("Text");
+element.appendChild(text);
+</code>
+</pre>
+<h3>Updating the DOM</h3>
+<p>If you’re only looking to read or update the text of an element, you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent" target="_blank">textContent</a> property of an object to return the current text, or update it:</p>
+<pre>
+<code class="lang-js">
+// With jQuery
+// Update the text of a .button
+$(".button").text("New text");
+// Read the text of a .button
+$(".button").text(); // Returns "New text"
+
+// Without jQuery
+// Update the text of a .button
+document.querySelector(".button").textContent = "New text";
+// Read the text of a .button
+document.querySelector(".button").textContent; // Returns "New text"
+</code>
+</pre>
+<p>If you’re constructing a new element, you can then add that element to another element by using the method on the parent <b>appendChild()</b>:</p>
+<pre>
+<code class="lang-js">
+// Create div element and append it to .container
+$(".container").append($("<div></div>"));
+
+// Create a div and append it to .container
+var element = document.createElement("div");
+document.querySelector(".container").appendChild(element);
+</code>
+</pre>
+<p>Put together, here’s how to create a div, update its text and class, and add it to the DOM:</p>
+<pre>
+<code class="lang-js">
+// Create a div
+var element = document.createElement("div");
+
+// Update its class
+element.classList.add("box");
+
+// Set its text
+element.textContent = "Text inside box";
+
+// Append the element to .container
+document.querySelector(".container").appendChild(element);
+</code>
+</pre>
+</div>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

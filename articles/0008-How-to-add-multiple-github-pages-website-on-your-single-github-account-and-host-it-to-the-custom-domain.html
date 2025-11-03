@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to add multiple github pages website on your single github account and host it to the
+                            custom domain | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">How to add multiple github pages website on your single github account and host it to the
+                            custom domain</h1>
+    <p class="text-gray-400 mb-10">Published on 11 September 2020 · github pages</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<p>I assume that you already aware of how to host free website using github pages on their subdomain
+                        <i>yourdomain.github.io</i>. But this article is about how you can add multiple github pages
+                        website into your same account. Yes you don't need to create separate github account to host
+                        your free github pages website to a custom domain. What you need a new repository in your github
+                        account and a domain. Lets get started
+                    </p>
+<p><b>1</b>. First you need to create a new repository in your github account. Go to your
+                        repositories page
+                        and click on new button.</p>
+<p><img src="../assets/img/blogs/0008_1.png"/></p>
+<p><b>2</b>. Then give any name to your repository and add some description in it. By default make
+                        this
+                        repository to Public so that it can access on the web</p>
+<p><img src="../assets/img/blogs/0008_2.png"/></p>
+<p><b>3</b>. Once your repository get created then route to repository main page and create a new
+                        branch in it named <b>"gh-pages"</b></p>
+<p><img src="../assets/img/blogs/0008_3.png"/></p>
+<p><b>4</b>. Push all your website files into this branch (gh-pages) along with a .txt file names
+                        CNAME.
+                    </p>
+<p><img src="../assets/img/blogs/0008_4.png"/></p>
+<p><b>5</b>. In this CNAME file insert your registered domain on which you want this content to be
+                        publish. for e.g<br/>
+<pre class="prettyprint">
+                            <ul>
+                                <li>www.yourdomain.com</li> 
+                                <li>yourdomain.com</li> 
+                                
+                            </ul>
+                        </pre>
+</p>
+<p><b>6.</b> Now go to your domain provider's website and redirect to DNS settings page. In my case
+                        i am using godaddy services to register my domain. and you need to add the following settings
+                        into the DNS.
+
+                    </p>
+<p><img src="../assets/img/blogs/0008_5.png"/></p>
+<p>For A record, set <i>185.199.108.153</i>, <i>185.199.109.153</i>, <i>185.199.110.153</i> and
+                        <i>185.199.111.153</i>. To
+                        redirect www subdomain to the original domain, add a CNAME record with your GitHub pages profile
+                        URL with a .(dot) in the end, for example, <i>'YOUR-GITHUB-USERNAME.github.io.'</i>.
+                    </p>
+<p><b>Official References:</b> For most up to date IP Addresses, use GitHub's <a href="https://help.github.com/articles/setting-up-an-apex-domain/" target="_blank">official
+                            documentation</a> and for setting up CNAME use this <a href="https://help.github.com/articles/setting-up-a-www-subdomain/" target="_blank"></a>documentation.</p>
+<p><b>Note:</b> These DNS settings could take upto 24 hours to reflect. Your domain will not show
+                        the changes until these settings will not update in your domain provider.</p>
+<p></p>
+<p></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

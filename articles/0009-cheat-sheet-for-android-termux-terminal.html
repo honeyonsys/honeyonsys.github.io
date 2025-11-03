@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheat sheet for Termux terminal (Android) | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">Cheat sheet for Termux terminal (Android)</h1>
+    <p class="text-gray-400 mb-10">Published on 23 Sep 2020 · cheat sheet</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<h3>What is termux?</h3>
+<p>Termux is a android terminal emulator and linux environment application that works directly with
+                        no rooting or setup required. A minimal base system is installed automatically, additional
+                        packages are installed using the APT package manager</p>
+<p>Following are some basic usage commands for termux</p>
+<h3>Gives storage permissions:</h3>
+<pre><code class="lang-powershell">termux-setup-storage</code></pre>
+<h3>Home directory:</h3>
+<pre><code class="lang-powershell">cd</code></pre>
+<h3>Previous directory:</h3>
+<pre><code class="lang-powershell">cd ..</code></pre>
+<h3>Jump to folder:</h3>
+<pre><code class="lang-powershell">cd (folder)</code></pre>
+<h3>Clear the terminal:</h3>
+<pre><code class="lang-powershell">clear</code></pre>
+<h3>Present working directory:</h3>
+<pre><code class="lang-powershell">pwd</code></pre>
+<h3>Copy a file:</h3>
+<pre><code class="lang-powershell">cp (file)</code></pre>
+<h3>Copy a folder:</h3>
+<pre><code class="lang-powershell">cp -rf (folder)</code></pre>
+<h3>Move a file:</h3>
+<pre><code class="lang-powershell">mv (file)</code></pre>
+<h3>Move a folder:</h3>
+<pre><code class="lang-powershell">mv (folder)</code></pre>
+<h3>Remove a file:</h3>
+<pre><code class="lang-powershell">rm (file)</code></pre>
+<h3>Remove a folder:</h3>
+<pre><code class="lang-powershell">rm -rf (folder)</code></pre>
+<h3>Create a file:</h3>
+<pre><code class="lang-powershell">touch (file name)</code></pre>
+<h3>Create a folder:</h3>
+<pre><code class="lang-powershell">mkdir (folder)</code></pre>
+<h3>Display the text of a file:</h3>
+<pre><code class="lang-powershell">cat (file name)</code></pre>
+<h3>Display date/calender:</h3>
+<pre><code class="lang-powershell">date/cal</code></pre>
+<h3>Install any package:</h3>
+<pre><code class="lang-powershell">apt or package install</code></pre>
+<h3>Upgrade any package:</h3>
+<pre><code class="lang-powershell">apt or package upgrade</code></pre>
+<h3>Uninstall a package:</h3>
+<pre><code class="lang-powershell">apt or pkg uninstall</code></pre>
+<h3>Executable permission to a file:</h3>
+<pre><code class="lang-powershell">chmod +x (file)</code></pre>
+<h3>Executable permission to all files in a folder:</h3>
+<pre><code class="lang-powershell">chmod +x *</code></pre>
+<h3>Display package version: </h3>
+<pre><code class="lang-powershell">(pkg name) --version</code></pre>
+<h3>List all packages:</h3>
+<pre><code class="lang-powershell">apt list</code></pre>
+<h3>Edit a file with nano editor:</h3>
+<pre><code class="lang-powershell">nano (file)</code></pre>
+<h3>Unzip a file:</h3>
+<pre><code class="lang-powershell">unzip (file)</code></pre>
+<h3>Zip folders and files:</h3>
+<pre><code class="lang-powershell">zip (folder / files)</code></pre>
+<h3>List files and folders:</h3>
+<pre><code class="lang-powershell">ls</code></pre>
+<h3>List hidded files and folders too:</h3>
+<pre><code class="lang-powershell">ls -a</code></pre>
+<h3>Show a package information:</h3>
+<pre><code class="lang-powershell">apt or pkg show (pkg name)</code></pre>
+<h3>List all installed packages:</h3>
+<pre><code class="lang-powershell">dpkg -list</code></pre>
+<h3>Remove unnecessary packages:</h3>
+<pre><code class="lang-powershell">apt autoremove</code></pre>
+<h3>Show system space:</h3>
+<pre><code class="lang-powershell">free</code></pre>
+<h3>Show device information:</h3>
+<pre><code class="lang-powershell">screenfetch</code></pre>
+<h3>Show login name:</h3>
+<pre><code class="lang-powershell">whoami</code></pre>
+<h3>Search a package:</h3>
+<pre><code class="lang-powershell">apt / pkg search (pkg)</code></pre>
+<h3>Search a file with name:</h3>
+<pre><code class="lang-powershell">locate (file)</code></pre>
+<h3>Install tools with wget package: </h3>
+<pre><code class="lang-powershell">wget (url)</code></pre>
+<h3>Install tools by cloning the tool (need git to be install first):</h3>
+<pre><code class="lang-powershell">git clone (url)</code></pre>
+<h3>Show all configuration of a network:</h3>
+<pre><code class="lang-powershell">ifconfig</code></pre>
+<h3>Exit the terminal:</h3>
+<pre><code class="lang-powershell">exit</code></pre>
+<p></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

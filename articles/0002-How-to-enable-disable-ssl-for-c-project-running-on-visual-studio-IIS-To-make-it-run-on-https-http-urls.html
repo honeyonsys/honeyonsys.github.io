@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to enable/disable ssl for c# project running on visual studio IIS. To make it run on
+                            https/http urls. | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">How to enable/disable ssl for c# project running on visual studio IIS. To make it run on
+                            https/http urls.</h1>
+    <p class="text-gray-400 mb-10">Published on 3 May 2020 · ssl</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<p>Enabled SSL or https urls in a visual studio web application ensures the authenticity of the web
+                        site. These days this feature is enabled by default in visual studio 2017 or above.</p>
+<p>This setting can cause issue while development where you dont want to use https url. In my case
+                        it was the issue while exposing my web application url (https://localhost/myApplication) with
+                        ngrok to the web.</p>
+<p>So i found over the web and get the following resolution:</p>
+<ul>
+<li>go to the <b>solution explorer</b> of you web project in visual studio</li>
+<li>right click on the prject name just below the Solution title <br/><br/> <img src="../assets/img/blogs/0002_1.png"/></li>
+<li>You will see the properties option at below, click on that <br/><br/><img src="../assets/img/blogs/0002_2.png"/></li>
+<li>When the properties window open click on the debug tab <br/><br/> <img src="../assets/img/blogs/0002_3.png"/></li>
+<li>At below there will be a checkbox named 'Enable SSL' uncheck that and you are done. <br/><br/>
+<img src="../assets/img/blogs/0002_4.png"/>
+</li>
+</ul>
+<p>Run your project and you will see that the https:// url changed to http://. You can again enable
+                        the SSL checkbox to view your web application over secure link</p>
+<p></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

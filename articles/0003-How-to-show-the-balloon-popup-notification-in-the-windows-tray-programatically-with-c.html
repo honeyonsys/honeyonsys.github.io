@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to show the balloon popup notification in the windows tray programatically with c# | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">How to show the balloon popup notification in the windows tray programatically with c#</h1>
+    <p class="text-gray-400 mb-10">Published on 27 May 2020 · windows-tray</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<p>Here is a simple example of a window form with a button click to show a ballon popup up in the
+                        windows tray.</p>
+<p>First create windows form applicaiton in your visual studio and add a button from the tool box in
+                        the form like below</p> <img src="../assets/img/blogs/0003_1.png"/>
+<p>Go to button's properties window (press f4). Click on event icons, it will show you the list of
+                        events below. we have to apply a click event on the button. You can double click on the button
+                        also which will take you to the code view of the form with automatically added click event
+                        function</p> <img src="../assets/img/blogs/0003_2.png">
+<p>When you see the below code snippet ready in your code view</p> <img src="../assets/img/blogs/0003_3.png"/>
+<p>Add the notify icon also in your windows form</p> <img src="../assets/img/blogs/0003_4.png"/>
+<p>also you need to add the icon by going to the notifiy icon's property. without that ballon popup
+                        will not appear.</p> <img src="../assets/img/blogs/0003_5.png"/>
+<p>Now add the following code in to the button click event</p>
+<pre class="prettyprint"> <ul> <li>/* this code will show the ballon popup */</li> <li>private void button1_Click(object sender, EventArgs e)</li> <li>{</li> <li> notifyIcon1.ShowBalloonTip(1000, "Your Title", "Message of your choice will appear here", ToolTipIcon.Info);</li> <li>}</li> </ul> </pre>
+<p>Run your application and click on the button. You should see the popup appear in the windows tray
+                        like below</p> <img src="../assets/img/blogs/0003_6.png"/>
+<p>try it! </p>
+<p></p>
+<p></p>
+</img>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

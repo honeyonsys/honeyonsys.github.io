@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to make your visual studio c# project live on the web from localhost by using ngrok | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">How to make your visual studio c# project live on the web from localhost by using ngrok</h1>
+    <p class="text-gray-400 mb-10">Published on 1 May 2020 · expose</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<p>As a developer many times i need to expose my localhost application to the web for demo
+                        purposes or to
+                        test my web application api with a webhook which only post to a live url. Either you should
+                        have a
+                        hosting for it or if you don't have much money spent on hosting you can still make you
+                        localhost
+                        applicaiton live with an application <a href="https://ngrok.com" target="_blank">ngrok</a>
+</p>
+<p><a href="https://ngrok.com" target="_blank">Ngrok</a> is a multiplatform tunnelling, reverse
+                        proxy
+                        software that establishes secure tunnels from a public endpoint such as internet to a
+                        locally running
+                        network service while capturing all traffic for detailed inspection and replay.</p>
+<p>In my case i am gonna show you how you can make your visual studio web application live with
+                        ngrok</p>
+<p>First of all you need your application run in the localhost. I believe that you already have
+                        your
+                        application which is running the localhost. I am just showing you a basic application which
+                        is running
+                        on my localhost:3000 and supports a post request from user and we will make that live with
+                        <a href="https://ngrok.com" target="_blank">ngrok</a> so that we can post the data to live
+                        url
+                        generated with ngrok and get response from it.
+                    </p>
+<p>So my localhost applicaiton is running</p>
+<p><img src="../assets/img/blogs/0001_1.png"/></p>
+<p>We need ngrok to be download first, so we will go to <a href="https://ngrok.com/download" target="_blank">https://ngrok.com/download</a> and download the latest version of the
+                        ngrok
+                        application.</p>
+<p>once you downloaded the ngrok exe simple run it by double click on it. its a portable command
+                        running
+                        application which will launch immediately and you will see the command prompt like below</p>
+<p><img src="../assets/img/blogs/0001_2.png"/></p>
+<p>Now there will be simple command to make you localhost application live to web. which will
+                        like this</p>
+<span class="code">ngrok http 3000</span>
+<p>Note: 3000 here is my port number. In your case it could be different. </p>
+<p>It is possible if you are using the ngrok for the first time it could prompt you for
+                        authrozie to use
+                        ngrok with api key. In that case you should create a new apikey by login into the ngrok and
+                        when you
+                        reach to your admin dashboard then redirect to Authentication -&gt; Your Auth Token, in the
+                        right area you
+                        should see your authtoken in the textbox copy it and do the following command</p>
+<p><img src="../assets/img/blogs/0001_3.png"/></p><span class="code">ngrok authtoken YOUR AUTH
+                        TOKEN</span>
+<p>and then again use the</p><span class="code">ngrok http 3000</span>
+<p>Sometimes port are very different and big like in 5 digits (44533, 55677, 34343 etc). It
+                        might give you
+                        trouble. so for that you can use the following command to make your application live</p>
+<span class="code">ngrok http 3000 -host-header="localhost:3000"</span>
+<p>If the above query runs successfully you will see the terminal like below. You can copy any
+                        of the
+                        highlited link and visit into the web, it will treat as same as trated in localhost </p>
+<p><img src="../assets/img/blogs/0001_4.png"/></p>
+<p></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

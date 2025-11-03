@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Javascript async and await | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">Javascript async and await</h1>
+    <p class="text-gray-400 mb-10">Published on 24 April 2022 · async</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<h3>What is Async?</h3>
+<p>The async keyword lets us define an asynchronous function. An asynchronous function returns a promise by default.</p>
+<p>If the function returns a valid value then the promise is resolved otherwise if any error occurs in the function then its get rejected</p>
+<p>Just like in the promises we can handle the promise from an async function using then and catch block</p>
+<p>Here's how we do it</p>
+<pre>
+<code class="lang-js">
+//Creating
+const getData = async (value) =&gt; {
+    if(value)
+        return 'Got data';
+    else
+        throw 'Did not get data'
+}
+
+//Handling 
+getData(true)
+    .then((res) =&gt; console.log(res))
+    .catch((err) =&gt; console.log(err))
+
+</code>
+</pre>
+<h3>What is await?</h3>
+<p>The await keyword allows us to wait until a promise is resolved or rejected.</p>
+<p>It can only be used inside an async function.</p>
+<p>Here's how we use it</p>
+<pre>
+<code class="lang-js">
+const showData = async () =&gt; {
+    //Waiting for the promise to get fulfilled
+    const value = await getData(true);
+    console.log("Value from promise: " + value)
+}
+
+showData();
+</code>
+</pre>
+<h3>How do we handle errors?</h3>
+<p>To handle errors we wrap the code in try/catch blocks</p>
+<p>Let's see how we use it</p>
+<pre>
+<code class="lang-js">
+const showData = async () =&gt; {
+    try {
+        //Waiting for the promise to get fulfilled
+        const value = await getData(true);
+        console.log("Value from promise: " + value);
+    }
+    catch(err) {
+        console.log('Error: ${err}');
+    }
+}
+</code>
+</pre>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

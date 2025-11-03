@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to get your hyper-v virtual machine connected to internet or fix the connectivity
+                            issue | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">How to get your hyper-v virtual machine connected to internet or fix the connectivity
+                            issue</h1>
+    <p class="text-gray-400 mb-10">Published on 2 Jan 2021 · hyper-v</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<p>Thank you <a href="https://superuser.com/users/47225/james-mertz" target="_blank">James Mertz</a>
+                        for the very useful answer on the <a href="https://superuser.com/questions/469806/windows-8-hyper-v-how-to-give-vm-internet-access" target="_blank">stackoverflow</a></p>
+<p>In order to get the VM connected to the internet you have to tie it to the Ethernet/Wireless NIC
+                        Card. In order to do this you have to create a "Virtual Switch".</p>
+<p><b>1.</b> Open your Hyper-V Manager</p>
+<p><b>2.</b>Select <i>Action</i> --&gt; <i>Virtual Switch Manager</i> </p>
+<p><img src="../assets/img/blogs/0015_1.png"/></p>
+<p><b>3.</b>Select <i>External</i> and then <i>Create Virtual Switch</i></p>
+<p><img src="../assets/img/blogs/0015_2.png"/></p>
+<p><b>4.</b>Give the Switch a Name and then select the External Controller you use to connect to the
+                        internet (Ethernet, or Wireless NIC, etc,.) <br/> <br/><b>Note:</b> You must select the way that
+                        you are actually connecting to the internet. IE, if your computer is set up to use Wifi or
+                        Ethernet, but is currently using Ethernet, you must use Ethernet - the Wifi connection will not
+                        work because the host machine isn't currently using it.</p>
+<p><img src="../assets/img/blogs/0015_3.png"/></p>
+<p><b>5.</b>Select <i>Apply</i> and then <i>OK</i></p>
+<p><b>6.</b>Right click on the Virtual Machine you want to connect and select <i>Settings</i></p>
+<p><img src="../assets/img/blogs/0015_4.png"/></p>
+<p><b>7.</b>Under the <i>Network Adapter</i> Setting select the newly created Virtual Switch</p>
+<p><img src="../assets/img/blogs/0015_5.png"/></p>
+<p>This should enable the connection you use to connect to the internet to be accessible to the VM
+                    </p>
+<p><b>Note:</b> you may have to do a <i>ipconfig /release</i> and <i>ipconfig /renew</i> (Windows)
+                        or a <i>sudo dhclient -v -r</i> and <i>sudo dhclient -v </i>(Linux) on the remote machine to get
+                        it to renew its DHCP settings and retrieve an IP address.</p>
+<p>or you can trouble shoot the network or suggested fix inside browser after go through above
+                        mentioned process (Windows)</p>
+<p></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

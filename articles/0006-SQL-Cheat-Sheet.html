@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQL Cheat Sheet | Harish Kumar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script>
+    document.documentElement.classList.add('dark');
+  </script>
+  <style>
+    article img {
+      @apply rounded-lg my-6;
+    }
+    article pre {
+      @apply my-6 rounded-lg overflow-x-auto;
+    }
+    article code {
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+
+  <header class="py-6 border-b border-gray-800">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 hover:text-blue-300">Harish Kumar</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="blog.html" class="text-blue-400 font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-4">SQL Cheat Sheet</h1>
+    <p class="text-gray-400 mb-10">Published on 16 August 2020 · sql query</p>
+
+    <article class="prose prose-invert prose-lg max-w-none">
+<h3>QUERY FROM A TABLE</h3>
+<p>Create a new column with three column</p>
+<pre><code class="lang-sql">SELECT c1, c2 FROM t; </code></pre>
+<p>Delete the table from the database</p>
+<pre><code class="lang-sql">DROP TABLE t;</code></pre>
+<p>Add a new column to the table</p>
+<pre><code class="lang-sql">ALTER TABLE t ADD column;</code></pre> <br/><br/>
+<h3>QUERYING FROM MULTIPLE TABLES</h3>
+<p>Inner join t1 and t2</p>
+<pre><code class="lang-sql">SELECT c1, c2 FROM t1 INNER JOIN t2 on condition;</code></pre>
+<p>Left join t1 and t2</p>
+<pre><code class="lang-sql">SELECT c1, c2 FROM t1 LEFT JOIN t2 ON condition;</code></pre>
+<p>Produce a Cartesian product of rows in tables</p>
+<pre><code class="lang-sql">SELECT c1, c2 FROM t1 CROSS JOIN t2;</code></pre> <br/><br/>
+<h3>USING SQL OPERATORS</h3>
+<p>Query rows between two values</p>
+<pre><code class="lang-sql">SELECT c1, c2 FROM t WHERE c1 BETWEEN low AND high</code></pre>
+<p>Combine rows from two queries</p>
+<pre><code class="lang-sql">SELECT c1, c2 FROM t1 UNION [ALL] SELECT c1, c2 FROM t2;</code></pre>
+<p>Check if values in a table is NULL or not</p>
+<pre><code class="lang-sql">SELECT c1, c2 FROM t WHERE c1 IS [NOT] NULL;</code></pre> <br/><br/>
+<h3>MODIFYING DATA</h3>
+<p>Insert one row into a table </p>
+<pre><code class="lang-sql">INSERT INTO t(column_list) VALUES(value_list);</code></pre>
+<p>Update new value in the column c1 for all rows</p>
+<pre><code class="lang-sql">UPDATE t SET c1=new_value;</code></pre>
+<p>Delete all data in a table</p>
+<pre><code class="lang-sql">DELETE FROM t;</code></pre>
+<p>Delete subset of rows in a table</p>
+<pre><code class="lang-sql">DELETE FROM t WHERE condition;</code></pre> <br/><br/>
+<h3>MANAGING VIEWS</h3>
+<p>Create a new view that consist of c1 and c2</p>
+<pre><code class="lang-sql">CREATE VIEW v(c1, c2) AS SELECT c1, c2 FROM t;</code></pre>
+<p>Create a temporary view</p>
+<pre><code class="lang-sql">CREATE TEMPORARY VIEW v AS SELECT c1, c2 FROM t;</code></pre>
+<p></p>
+<p></p>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+    <p>© 2025 Harish Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>
