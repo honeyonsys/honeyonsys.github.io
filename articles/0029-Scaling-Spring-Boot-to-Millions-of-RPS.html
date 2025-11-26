@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scaling Spring Boot to Millions of RPS | Harish Kumar</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+            rel="stylesheet"
+        />
+        <script>
+            document.documentElement.classList.add("dark");
+        </script>
+        <style>
+            /* Custom styles to better fit the article content, especially headings */
+            article img {
+                @apply rounded-lg my-6;
+            }
+            article pre {
+                @apply my-6 rounded-lg overflow-x-auto p-4; /* Added padding to pre */
+                background-color: #2d2d2d; /* Match prism-tomorrow background */
+            }
+            article code {
+                font-family: "Fira Code", monospace;
+                font-size: 0.95rem;
+            }
+            /* Ensure headings have proper margin and styling */
+            article h2 {
+                @apply text-3xl font-bold mt-10 mb-4 text-blue-300;
+            }
+            article h3 {
+                @apply text-xl font-semibold mt-6 mb-3 text-gray-200;
+            }
+            /* Apply basic prose styles */
+            article p {
+                @apply mb-4;
+            }
+            article li {
+                @apply mb-2 ml-4;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
+        <header class="py-6 border-b border-gray-800">
+            <div
+                class="container mx-auto px-6 flex justify-between items-center"
+            >
+                <a
+                    href="../index.html"
+                    class="text-2xl font-bold text-blue-400 hover:text-blue-300"
+                    >Harish Kumar</a
+                >
+                <nav class="space-x-6">
+                    <a href="../blog.html" class="text-blue-400 font-semibold"
+                        >Blog</a
+                    >
+                </nav>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-6 py-12 max-w-4xl">
+            <h1 class="text-4xl font-bold mb-4">
+                Scaling Spring Boot to Millions of RPS
+            </h1>
+            <p class="text-gray-400 mb-10">
+                Published on 10 July 2025 · High-Performance, System-Design,
+                Java
+            </p>
+
+            <article class="prose prose-invert prose-lg max-w-none">
+                <p>
+                    Handling millions of requests per second (RPS) in a **Java
+                    Spring Boot** environment requires a fundamental shift from
+                    traditional application design to a highly distributed,
+                    reactive, and resilient microservices architecture. The key
+                    is to **distribute load, avoid blocking I/O, and serve data
+                    from the fastest possible layer.**
+                </p>
+                <p>
+                    Here is a breakdown of how to achieve this scale using the
+                    Java/Spring ecosystem, covering key strategies for
+                    high-throughput systems.
+                </p>
+
+                <hr />
+                <h2>1. 🌐 Load Balancer</h2>
+                <p>
+                    The load balancer is the entry point that evenly distributes
+                    traffic across your horizontally scaled Spring Boot
+                    application instances.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Technology:</strong> Use a robust,
+                        high-performance load balancer like **NGINX**,
+                        **HAProxy**, or a cloud-managed service (e.g., AWS ALB,
+                        GCP Load Balancing).
+                    </li>
+                    <li>
+                        <strong>Strategy:</strong> Implement a **Layer 7
+                        (Application Layer) Load Balancer** that understands the
+                        HTTP protocol.
+                    </li>
+                    <li>
+                        <strong>Java Integration:</strong> The Spring Boot
+                        instances must be registered with a **Service
+                        Discovery** tool (like **Eureka** or **Consul**) so the
+                        load balancer (or an API Gateway like **Spring Cloud
+                        Gateway**) knows which instances are healthy and
+                        available.
+                    </li>
+                </ul>
+
+                <hr />
+                <h2>2. 📈 Horizontal Scaling</h2>
+                <p>
+                    This is the single most critical factor: instead of buying
+                    one massive server (vertical scaling), deploy hundreds or
+                    thousands of smaller, identical instances.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Principle:</strong> All Spring Boot services
+                        must be **stateless**. The application instance should
+                        not hold user session data, which allows any request to
+                        be served by any available instance.
+                    </li>
+                    <li>
+                        <strong>Implementation:</strong> Use a container
+                        orchestration platform like **Kubernetes (K8s)** or
+                        **Docker Swarm**. Kubernetes manages the deployment and
+                        health checks and automatically scales the number of
+                        Spring Boot Pods (instances) up or down based on CPU
+                        utilization (Horizontal Pod Autoscaler - HPA).
+                    </li>
+                    <li>
+                        <strong>Non-Blocking I/O:</strong> For extreme
+                        throughput, leverage **Spring WebFlux** (which uses the
+                        non-blocking **Netty** server) instead of the default
+                        Spring MVC (blocking Tomcat). WebFlux uses fewer threads
+                        to handle far more concurrent connections.
+                    </li>
+                </ul>
+
+                <hr />
+                <h2>3. 💾 Caching Layer</h2>
+                <p>
+                    Caching is the primary mechanism for mitigating the load on
+                    your database and application servers, serving the majority
+                    of requests from memory.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Technology:</strong> Implement a **Distributed
+                        In-Memory Cache** cluster like **Redis** or
+                        **Hazelcast**. This cache is external to the application
+                        instances, allowing all instances to share the same
+                        cache data.
+                    </li>
+                    <li>
+                        <strong>Spring Integration:</strong> Use **Spring Data
+                        Redis** and Spring's native **Caching Abstraction**
+                        (<code>@EnableCaching</code>, <code>@Cacheable</code>,
+                        etc.).
+                    </li>
+                    <li>
+                        <strong>Data Strategy:</strong> Prioritize caching
+                        frequently read, slowly changing data (e.g., product
+                        details, configuration settings) to achieve a **Cache
+                        Hit Ratio** of 90% or higher for high-volume endpoints.
+                    </li>
+                </ul>
+                <h3>Example Caching Layer (Conceptual)</h3>
+                <pre><code class="language-java">
+// /service/ProductService.java
+@Service
+@EnableCaching
+public class ProductService {
+    // ... repository dependency
+
+    // This data is fetched from the database only on a cache miss.
+    @Cacheable(value = "products", key = "#id")
+    public ProductEntity findProductById(Long id) {
+        log.info("Fetching product {} from DB (Cache Miss)", id);
+        return productRepository.findById(id)
+                   .orElseThrow(() -> new NotFoundException("Product not found"));
+    }
+
+    // Updates the DB and refreshes the cache entry
+    @CachePut(value = "products", key = "#product.id")
+    @Transactional
+    public ProductEntity updateProduct(ProductEntity product) {
+        // ... update logic
+        return productRepository.save(product);
+    }
+}
+        </code></pre>
+
+                <hr />
+                <h2>4. 🖼️ CDN for Static Content</h2>
+                <p>
+                    <strong>Content Delivery Networks (CDNs)</strong> handle
+                    static assets and can cache API responses.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Function:</strong> CDNs distribute your static
+                        content geographically closer to the end-user, reducing
+                        latency and completely **offloading** that traffic from
+                        your Spring Boot backend instances.
+                    </li>
+                    <li>
+                        <strong>Implementation:</strong> Use cloud providers
+                        like **Cloudflare**, **Akamai**, **AWS CloudFront**, or
+                        **Google Cloud CDN**.
+                    </li>
+                    <li>
+                        <strong>API Caching:</strong> For slow-changing APIs,
+                        configure the CDN to cache the API response by setting
+                        appropriate HTTP headers like
+                        <code>Cache-Control</code> (<code>max-age=...</code>)
+                        and <code>Etag</code> in your Spring Boot controller
+                        response.
+                    </li>
+                </ul>
+
+                <hr />
+                <h2>5. 📧 Async Processing (Queues)</h2>
+                <p>
+                    Any operation that is slow, involves external services, or
+                    doesn't need an immediate response from the client should be
+                    **decoupled** using a message queue.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Goal:</strong> Convert **synchronous** blocking
+                        operations (like sending an email or processing a
+                        report) into fast **asynchronous** operations. The user
+                        request completes quickly, acknowledging receipt (e.g.,
+                        HTTP 202 Accepted), and the work is done later.
+                    </li>
+                    <li>
+                        <strong>Technology:</strong> Use **Apache Kafka** (for
+                        high-throughput event streaming) or **RabbitMQ** (for
+                        reliable task queuing).
+                    </li>
+                    <li>
+                        <strong>Spring Integration:</strong> Use **Spring
+                        Kafka** or **Spring AMQP** (for RabbitMQ). A separate,
+                        dedicated **Worker Service** consumes messages from the
+                        queue to perform the slow, heavy work.
+                    </li>
+                </ul>
+                <h3>Example Asynchronous Producer (Kafka)</h3>
+                <pre><code class="language-java">
+// /service/OrderService.java
+@Service
+public class OrderService {
+    private final KafkaTemplate&lt;String, String&gt; kafkaTemplate;
+    // ... constructor injection
+
+    public OrderDto placeOrder(OrderRequestDto request) {
+        // 1. Save the order to the database (fast operation)
+        OrderEntity savedOrder = orderRepository.save(request.toEntity());
+
+        // 2. Publish the processing task to the queue immediately (non-blocking)
+        String orderEvent = savedOrder.getId().toString();
+        kafkaTemplate.send("order-processing-topic", orderEvent);
+
+        // 3. Return a successful 202 Accepted response to the client
+        return new OrderDto(savedOrder.getId(), "ACCEPTED");
+    }
+}
+        </code></pre>
+
+                <hr />
+                <h2>6. 💿 Database Sharding</h2>
+                <p>
+                    When a single database server can no longer handle the write
+                    load or total data volume, you must implement **sharding**
+                    (horizontal partitioning).
+                </p>
+                <ul>
+                    <li>
+                        <strong>Principle:</strong> Split the data into smaller,
+                        independent databases (**shards**).
+                    </li>
+                    <li>
+                        <strong>Strategy:</strong> Use **Key-Based Sharding**
+                        where a deterministic algorithm uses a **Sharding Key**
+                        (e.g., <code>user_id</code>) to map a record to a
+                        specific shard.
+                    </li>
+                    <li>
+                        <strong>Java Implementation:</strong> This requires
+                        custom logic or a framework like **Apache
+                        ShardingSphere** or a manually configured
+                        <code>AbstractRoutingDataSource</code> in Spring Boot to
+                        direct queries to the correct shard.
+                    </li>
+                </ul>
+
+                <hr />
+                <h2>7. 🚫 Rate Limiting</h2>
+                <p>
+                    Rate limiting is a protective layer to prevent system
+                    overload, resource exhaustion, and abuse from malicious or
+                    buggy clients.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Location:</strong> Ideally implemented at the
+                        **API Gateway** or Load Balancer.
+                    </li>
+                    <li>
+                        <strong>Java Implementation (Local):</strong> Use a
+                        library like **Bucket4j** (Token Bucket algorithm)
+                        integrated with a **distributed store like Redis** to
+                        ensure limits are consistent across all application
+                        instances.
+                    </li>
+                </ul>
+
+                <hr />
+                <h2>8. 📐 Lightweight Payloads</h2>
+                <p>
+                    The size of your request and response bodies directly
+                    impacts network latency and processing load.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Data Transfer Objects (DTOs):</strong>
+                        **Strictly use DTOs** in your Controller layer. Only
+                        include the fields the client *actually* needs.
+                    </li>
+                    <li>
+                        <strong>Serialization:</strong> For internal
+                        service-to-service communication, consider binary
+                        protocols like **Protocol Buffers (Protobuf)** for
+                        smaller payloads and faster serialization than JSON.
+                    </li>
+                    <li>
+                        <strong>Compression:</strong> Enable **GZIP
+                        compression** in your Load Balancer or Spring Boot
+                        server configuration
+                        (<code>server.compression.enabled=true</code>) to reduce
+                        the actual byte size transferred.
+                    </li>
+                </ul>
+            </article>
+        </main>
+
+        <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
+            <p>© 2025 Harish Kumar. All rights reserved.</p>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    </body>
+</html>
