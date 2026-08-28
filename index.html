@@ -1094,8 +1094,8 @@
                         name="name"
                         required
                         autocomplete="name"
-                        placeholder="Your name"
-                        class="p-3 rounded bg-gray-800 border border-gray-700"
+                        placeholder="Your name *"
+                        class="p-3 rounded bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-sky-500"
                     />
                     <label class="sr-only" for="cf-email">Your email</label>
                     <input
@@ -1104,8 +1104,17 @@
                         type="email"
                         required
                         autocomplete="email"
-                        placeholder="Your email"
-                        class="p-3 rounded bg-gray-800 border border-gray-700"
+                        placeholder="Your email *"
+                        class="p-3 rounded bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-sky-500"
+                    />
+                    <label class="sr-only" for="cf-phone">Phone number</label>
+                    <input
+                        id="cf-phone"
+                        name="phone"
+                        type="tel"
+                        autocomplete="tel"
+                        placeholder="Phone / WhatsApp (optional)"
+                        class="p-3 rounded bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-sky-500"
                     />
                     <label class="sr-only" for="cf-company">Company</label>
                     <input
@@ -1113,14 +1122,14 @@
                         name="company"
                         autocomplete="organization"
                         placeholder="Company (optional)"
-                        class="p-3 rounded bg-gray-800 border border-gray-700"
+                        class="p-3 rounded bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-sky-500"
                     />
-                    <label class="sr-only" for="cf-budget">Budget</label>
+                    <label class="sr-only" for="cf-budget">Budget &amp; country</label>
                     <input
                         id="cf-budget"
                         name="budget"
                         placeholder="Budget & country (optional)"
-                        class="p-3 rounded bg-gray-800 border border-gray-700"
+                        class="p-3 rounded bg-gray-800 border border-gray-700 sm:col-span-2 text-white placeholder-gray-400 focus:outline-none focus:border-sky-500"
                     />
                     <label class="sr-only" for="cf-message"
                         >Project brief</label
@@ -1129,13 +1138,14 @@
                         id="cf-message"
                         name="message"
                         required
-                        placeholder="Project brief (goals, timeline, current stack)"
-                        class="p-3 rounded bg-gray-800 border border-gray-700 sm:col-span-2"
-                        rows="6"
+                        placeholder="Project brief (goals, timeline, current stack) *"
+                        class="p-3 rounded bg-gray-800 border border-gray-700 sm:col-span-2 text-white placeholder-gray-400 focus:outline-none focus:border-sky-500"
+                        rows="5"
                     ></textarea>
                     <button
+                        id="cf-submit"
                         type="submit"
-                        class="sm:col-span-2 rounded px-6 py-3 bg-sky-500 text-gray-900 font-medium"
+                        class="sm:col-span-2 rounded px-6 py-3 bg-sky-500 text-gray-900 font-medium hover:bg-sky-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                     >
                         Send project brief
                     </button>
@@ -1181,30 +1191,60 @@
         </main>
 
         <script>
-            function handleContact(event) {
+            async function handleContact(event) {
                 event.preventDefault();
                 var form = event.target;
-                var data = new FormData(form);
-                var subject =
-                    "Project brief from " + (data.get("name") || "website");
-                var body =
-                    "Name: " +
-                    (data.get("name") || "") +
-                    "\nEmail: " +
-                    (data.get("email") || "") +
-                    "\nCompany: " +
-                    (data.get("company") || "-") +
-                    "\nBudget / country: " +
-                    (data.get("budget") || "-") +
-                    "\n\nProject brief:\n" +
-                    (data.get("message") || "");
-                window.location.href =
-                    "mailto:honeyonsys@gmail.com?subject=" +
-                    encodeURIComponent(subject) +
-                    "&body=" +
-                    encodeURIComponent(body);
-                document.getElementById("formStatus").textContent =
-                    "Opening your email client — if nothing happens, email honeyonsys@gmail.com directly.";
+                var submitBtn = document.getElementById("cf-submit") || form.querySelector('button[type="submit"]');
+                var statusEl = document.getElementById("formStatus");
+
+                var name = form.name ? form.name.value.trim() : "";
+                var email = form.email ? form.email.value.trim() : "";
+                var phone = form.phone ? form.phone.value.trim() : "";
+                var company = form.company ? form.company.value.trim() : "";
+                var budget = form.budget ? form.budget.value.trim() : "";
+                var message = form.message ? form.message.value.trim() : "";
+
+                if (!name || !email || !message) {
+                    statusEl.className = "sm:col-span-2 text-sm text-rose-400";
+                    statusEl.textContent = "Please fill in all required fields (Name, Email, Project brief).";
+                    return false;
+                }
+
+                submitBtn.disabled = true;
+                var originalBtnText = submitBtn.textContent;
+                submitBtn.textContent = "Sending...";
+                statusEl.className = "sm:col-span-2 text-sm text-sky-400";
+                statusEl.textContent = "Submitting your message...";
+
+                var formData = new FormData();
+                formData.append("entry.2005620554", name);
+                formData.append("entry.1045781291", email);
+                formData.append("entry.1166974658", phone);
+                formData.append("entry.1475282642", company);
+                formData.append("entry.598539458", budget);
+                formData.append("entry.839337160", message);
+
+                var FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc1axOuzbNrfSLi1CCPDNacBULbJbL_xVr35SxlflteBE35YA/formResponse";
+
+                try {
+                    await fetch(FORM_URL, {
+                        method: "POST",
+                        mode: "no-cors",
+                        body: formData
+                    });
+
+                    statusEl.className = "sm:col-span-2 text-sm text-emerald-400";
+                    statusEl.textContent = "✓ Thank you! Your project brief has been sent. I will get back to you within one working day.";
+                    form.reset();
+                } catch (err) {
+                    console.error("Form submission error:", err);
+                    statusEl.className = "sm:col-span-2 text-sm text-rose-400";
+                    statusEl.textContent = "Could not send automatically. Please email honeyonsys@gmail.com directly.";
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
+
                 return false;
             }
 
