@@ -1,28 +1,33 @@
-# Hi there, I'm a Lead Backend / Systems Architect 👋
+# Harish Kumar — E-Commerce & Website Development, Maintenance & Support 👋
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin)]([https://linkedin.com](https://www.linkedin.com/in/harish-kumar-java-developer/))
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/harish-kumar-b0a81834/)
 [![Email](https://img.shields.io/badge/Email-Get%20in%20Touch-EA4335?style=flat-square&logo=gmail)](mailto:honeyonsys@gmail.com)
 [![Experience](https://img.shields.io/badge/Experience-15%2B%20Years-2ea44f?style=flat-square)](#)
+[![Focus](https://img.shields.io/badge/Focus-Shopify%20%26%20WooCommerce-0ea5e9?style=flat-square)](#)
 
-> **Technical Lead & Senior Backend Architect** with **15+ years** of hands-on experience designing, scaling, and maintaining mission-critical, enterprise-grade distributed architectures and high-throughput systems.
-
----
-
-### 🚀 What I Bring to the Table
-
-* **Core Backend Mastery:** Expert in architecting resilient backend services using **Java (Spring Boot)**, **Python (FastAPI / Django)**, and **Node.js / NestJS**.
-* **Scalable Architectures:** Deep expertise in Microservices, Event-Driven Design, Domain-Driven Design (DDD), and high-volume REST/GraphQL APIs.
-* **Data & Caching at Scale:** Production performance tuning across **PostgreSQL, MySQL, MongoDB, Redis, and Elasticsearch**.
-* **Cloud & DevOps:** End-to-end CI/CD pipelines, containerization with **Docker & Kubernetes**, and cloud infrastructure across **AWS**,**Azure**,**GCP**,**Hostinger** etc..
-* **Technical Leadership:** Proven track record leading engineering teams, conducting rigorous system design reviews, and bridging business strategy with technical execution.
+> **Senior E-Commerce & Web Developer** with **15+ years** of experience helping businesses build, maintain, and scale high-performing **Shopify** and **WooCommerce** websites, optimize checkout speeds, and automate accounting/inventory integrations.
 
 ---
 
-### 🛠️ Core Tech Stack
+### 🚀 How I Help Businesses
+
+* **Store & Website Development:** Custom, mobile-friendly online stores and websites built on **Shopify** or **WooCommerce / WordPress** that turn visitors into paying customers.
+* **Monthly Website Maintenance & Care:** Ongoing plugin updates, security monitoring, regular backups, and quick bug fixes so your site runs 24/7 without issues.
+* **Speed & Checkout Optimization:** Fixing slow loading pages, cart errors, and checkout bottlenecks so your store handles busy sales campaigns without crashing.
+* **Accounting & Business Integrations:** Connecting your online store to **QuickBooks, Xero, Sage, Zoho**, shipping providers, and inventory systems to eliminate manual copy-pasting.
+* **Platform Migrations & Upgrades:** Moving stores to Shopify or WooCommerce smoothly with zero data loss, zero downtime, and preserved SEO rankings.
+
+---
+
+### 🛠️ Platforms & Tools
 
 ```text
-Backend Ecosystem : Java (Spring, Spring Boot), Python (FastAPI, Django), Node.js, NestJS
-Distributed & Msg : Apache Kafka, RabbitMQ, REST APIs, Microservices, gRPC
-Databases & Cache : PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch
-DevOps & Cloud    : AWS, Docker, Kubernetes, GitHub Actions, Linux / Ubuntu
-Quality & Tools   : JUnit, PyTest, Jest, Git, CI/CD Pipelines
+E-Commerce Platforms : Shopify & Shopify Plus, WooCommerce (WordPress), BigCommerce, Magento
+Custom Web & Backend : PHP (Laravel), WordPress Custom Plugins, Node.js, Python, Java
+Accounting & ERP     : QuickBooks Online/Desktop, Xero, Sage, Zoho Books, Custom WMS/3PL APIs
+Databases & Speed    : MySQL, PostgreSQL, Redis Caching, Cloudflare Speed & Security
+```
+
+---
+
+📍 **Website & Inquiries:** [honeyonsys.github.io](https://honeyonsys.github.io/) | [honeyonsys@gmail.com](mailto:honeyonsys@gmail.com)
