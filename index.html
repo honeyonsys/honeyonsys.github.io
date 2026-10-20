@@ -18,7 +18,7 @@
             content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
         />
         <meta name="author" content="Harish Kumar" />
-        <meta name="theme-color" content="#0ea5e9" />
+        <meta name="theme-color" content="#f8fafc" />
         <link rel="alternate" hreflang="en" href="https://honeyonsys.github.io/" />
         <link
             rel="alternate"
@@ -268,16 +268,17 @@
         <script src="https://unpkg.com/lucide@latest" defer></script>
         <style>
             .accent {
-                color: #0ea5e9;
+                color: #0284c7;
             }
             .glass-card {
-                background: rgba(255, 255, 255, 0.03);
-                border: 1px solid rgba(255, 255, 255, 0.08);
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
                 transition: all 0.2s ease-in-out;
             }
             .glass-card:hover {
-                background: rgba(255, 255, 255, 0.05);
-                border-color: rgba(14, 165, 233, 0.4);
+                border-color: #0284c7;
+                box-shadow: 0 6px 16px -2px rgba(2, 132, 199, 0.12), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
             }
             .skip-link {
                 position: absolute;
@@ -287,8 +288,8 @@
                 left: 1rem;
                 top: 1rem;
                 z-index: 50;
-                background: #0ea5e9;
-                color: #0b1220;
+                background: #0284c7;
+                color: #ffffff;
                 padding: 0.5rem 1rem;
                 border-radius: 0.375rem;
             }
@@ -306,31 +307,31 @@
         gtag('config', 'G-4R7Q81GGJ3');
         </script>
     </head>
-    <body class="bg-gray-900 text-gray-200 antialiased leading-relaxed">
+    <body class="bg-slate-50 text-slate-800 antialiased leading-relaxed">
         <a class="skip-link" href="#main">Skip to main content</a>
 
         <!-- Header -->
-        <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
-            <a href="#hero" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-sky-400 inline-block animate-pulse"></span>
+        <header class="max-w-6xl mx-auto p-6 flex items-center justify-between border-b border-slate-200/80">
+            <a href="#hero" class="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-sky-600 inline-block animate-pulse"></span>
                 Harish Kumar
                 <span class="sr-only">— E-Commerce &amp; Web Development Specialist</span>
             </a>
             <nav
-                class="hidden md:flex gap-6 items-center text-sm font-medium text-gray-300"
+                class="hidden md:flex gap-6 items-center text-sm font-medium text-slate-600"
                 aria-label="Primary"
             >
-                <a href="#services" class="hover:text-sky-400 transition-colors">Services</a>
-                <a href="#maintenance" class="hover:text-sky-400 transition-colors">Maintenance</a>
-                <a href="#about" class="hover:text-sky-400 transition-colors">Why Work With Me</a>
-                <a href="#platforms" class="hover:text-sky-400 transition-colors">Platforms</a>
-                <a href="#faq" class="hover:text-sky-400 transition-colors">FAQ</a>
-                <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
+                <a href="#services" class="hover:text-sky-600 transition-colors">Services</a>
+                <a href="#maintenance" class="hover:text-sky-600 transition-colors">Maintenance</a>
+                <a href="#about" class="hover:text-sky-600 transition-colors">Why Work With Me</a>
+                <a href="#platforms" class="hover:text-sky-600 transition-colors">Platforms</a>
+                <a href="#faq" class="hover:text-sky-600 transition-colors">FAQ</a>
+                <a href="#contact" class="hover:text-sky-600 transition-colors">Contact</a>
             </nav>
             <a
                 href="#contact"
                 id="ctaTop"
-                class="ml-4 rounded-lg px-4 py-2 text-sm font-semibold text-gray-950 bg-sky-400 hover:bg-sky-300 transition-colors shadow-sm"
+                class="ml-4 rounded-lg px-4 py-2 text-sm font-semibold text-white bg-sky-600 hover:bg-sky-700 transition-colors shadow-sm"
                 >Discuss Your Project</a
             >
         </header>
@@ -339,22 +340,22 @@
             <!-- HERO -->
             <section
                 id="hero"
-                class="pt-10 pb-16 flex flex-col lg:flex-row items-start gap-10"
+                class="pt-12 pb-16 flex flex-col lg:flex-row items-start gap-10"
             >
                 <div class="flex-1">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-semibold uppercase tracking-wider mb-4">
-                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-sky-400" aria-hidden="true"></i>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-sky-800 text-xs font-semibold uppercase tracking-wider mb-5">
+                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-sky-600" aria-hidden="true"></i>
                         Shopify • WooCommerce • Custom Web Development • Ongoing Maintenance
                     </div>
                     <h1
-                        class="text-4xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight"
+                        class="text-4xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight"
                     >
                         Reliable E-Commerce &amp; Website Development, <span class="accent">Maintenance &amp; Support</span>
                     </h1>
-                    <p class="mt-5 text-lg md:text-xl text-gray-300 max-w-2xl font-normal leading-relaxed">
+                    <p class="mt-5 text-lg md:text-xl text-slate-700 max-w-2xl font-normal leading-relaxed">
                         I help business owners and brands build, fix, and maintain high-performing <strong>Shopify</strong> and <strong>WooCommerce</strong> stores and custom websites.
                     </p>
-                    <p class="mt-3 text-base text-gray-400 max-w-2xl leading-relaxed">
+                    <p class="mt-3 text-base text-slate-600 max-w-2xl leading-relaxed">
                         Whether you need a new website built, your slow store speeded up, broken plugins fixed, regular monthly maintenance, or automatic connections to your accounting software (QuickBooks, Xero, Sage) — you work directly with a senior developer with <strong>15+ years of experience</strong>.
                     </p>
 
@@ -362,14 +363,14 @@
                     <div class="mt-8 flex flex-wrap gap-4 items-center">
                         <a
                             href="#contact"
-                            class="rounded-lg bg-sky-500 px-6 py-3.5 font-bold text-gray-950 hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/20 inline-flex items-center gap-2 text-sm"
+                            class="rounded-lg bg-sky-600 px-6 py-3.5 font-bold text-white hover:bg-sky-700 transition-all shadow-md shadow-sky-600/20 inline-flex items-center gap-2 text-sm"
                         >
                             Get in Touch / Request a Quote
                             <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
                         <a
                             href="#services"
-                            class="rounded-lg border border-gray-700 bg-gray-800/60 px-6 py-3.5 font-medium text-gray-200 hover:bg-gray-800 hover:border-gray-600 transition-colors text-sm"
+                            class="rounded-lg border border-slate-300 bg-white px-6 py-3.5 font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-400 transition-colors text-sm shadow-sm"
                         >
                             See How I Can Help
                         </a>
@@ -380,80 +381,80 @@
                         class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm"
                     >
                         <div class="glass-card p-4 rounded-xl">
-                            <dt class="text-xs font-medium text-gray-400 uppercase tracking-wider">Experience</dt>
-                            <dd class="mt-1 text-xl font-bold text-white">15+ Years</dd>
-                            <p class="text-xs text-gray-400 mt-1">Real-world production expertise</p>
+                            <dt class="text-xs font-medium text-slate-500 uppercase tracking-wider">Experience</dt>
+                            <dd class="mt-1 text-xl font-bold text-slate-900">15+ Years</dd>
+                            <p class="text-xs text-slate-500 mt-1">Real-world production expertise</p>
                         </div>
                         <div class="glass-card p-4 rounded-xl">
-                            <dt class="text-xs font-medium text-gray-400 uppercase tracking-wider">Stores &amp; Sites</dt>
-                            <dd class="mt-1 text-xl font-bold text-sky-400">Shopify &amp; Woo</dd>
-                            <p class="text-xs text-gray-400 mt-1">Plus WordPress &amp; Custom Web</p>
+                            <dt class="text-xs font-medium text-slate-500 uppercase tracking-wider">Stores &amp; Sites</dt>
+                            <dd class="mt-1 text-xl font-bold text-sky-600">Shopify &amp; Woo</dd>
+                            <p class="text-xs text-slate-500 mt-1">Plus WordPress &amp; Custom Web</p>
                         </div>
                         <div class="glass-card p-4 rounded-xl">
-                            <dt class="text-xs font-medium text-gray-400 uppercase tracking-wider">Reliability</dt>
-                            <dd class="mt-1 text-xl font-bold text-emerald-400">Fast &amp; Secure</dd>
-                            <p class="text-xs text-gray-400 mt-1">No crashes during sales</p>
+                            <dt class="text-xs font-medium text-slate-500 uppercase tracking-wider">Reliability</dt>
+                            <dd class="mt-1 text-xl font-bold text-emerald-600">Fast &amp; Secure</dd>
+                            <p class="text-xs text-slate-500 mt-1">No crashes during sales</p>
                         </div>
                         <div class="glass-card p-4 rounded-xl">
-                            <dt class="text-xs font-medium text-gray-400 uppercase tracking-wider">Direct Contact</dt>
-                            <dd class="mt-1 text-xl font-bold text-white">No Middlemen</dd>
-                            <p class="text-xs text-gray-400 mt-1">Work directly with the expert</p>
+                            <dt class="text-xs font-medium text-slate-500 uppercase tracking-wider">Direct Contact</dt>
+                            <dd class="mt-1 text-xl font-bold text-slate-900">No Middlemen</dd>
+                            <p class="text-xs text-slate-500 mt-1">Work directly with the expert</p>
                         </div>
                     </dl>
                 </div>
 
                 <!-- Aside Contact Box -->
                 <aside
-                    class="w-full lg:w-80 glass-card p-6 rounded-2xl border border-gray-800"
+                    class="w-full lg:w-80 glass-card p-6 rounded-2xl"
                     aria-label="Direct engagement and availability"
                 >
-                    <div class="flex items-center gap-2 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-ping"></span>
+                    <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-ping"></span>
                         Available for New Projects
                     </div>
-                    <h2 class="text-lg font-bold text-white mt-2">
+                    <h2 class="text-lg font-bold text-slate-900 mt-3">
                         Need Help With Your Website?
                     </h2>
-                    <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
                         Get friendly, reliable technical support without paying high agency overhead or dealing with junior contractors.
                     </p>
 
-                    <div class="mt-5 space-y-2.5 pt-4 border-t border-gray-800 text-xs text-gray-300">
+                    <div class="mt-5 space-y-2.5 pt-4 border-t border-slate-100 text-xs text-slate-700">
                         <div class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5" aria-hidden="true"></i>
+                            <i data-lucide="check" class="w-4 h-4 text-sky-600 shrink-0 mt-0.5" aria-hidden="true"></i>
                             <span>New store builds &amp; redesigns</span>
                         </div>
                         <div class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5" aria-hidden="true"></i>
+                            <i data-lucide="check" class="w-4 h-4 text-sky-600 shrink-0 mt-0.5" aria-hidden="true"></i>
                             <span>Monthly website maintenance &amp; updates</span>
                         </div>
                         <div class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5" aria-hidden="true"></i>
+                            <i data-lucide="check" class="w-4 h-4 text-sky-600 shrink-0 mt-0.5" aria-hidden="true"></i>
                             <span>Speeding up slow checkout &amp; pages</span>
                         </div>
                         <div class="flex items-start gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-sky-400 shrink-0 mt-0.5" aria-hidden="true"></i>
+                            <i data-lucide="check" class="w-4 h-4 text-sky-600 shrink-0 mt-0.5" aria-hidden="true"></i>
                             <span>Syncing accounting, inventory &amp; shipping</span>
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-4 border-t border-gray-800">
+                    <div class="mt-6 pt-4 border-t border-slate-100">
                         <a
                             href="mailto:honeyonsys@gmail.com?subject=Website%20Help%20Inquiry"
-                            class="block text-sm font-semibold text-white hover:text-sky-400 transition-colors"
+                            class="block text-sm font-semibold text-slate-900 hover:text-sky-600 transition-colors"
                             >honeyonsys@gmail.com</a
                         >
-                        <p class="text-xs text-gray-400 mt-1">
+                        <p class="text-xs text-slate-500 mt-1">
                             Quick response within 1 business day.
                         </p>
                     </div>
 
-                    <div class="mt-4 flex flex-wrap gap-4 pt-3 border-t border-gray-800 text-xs text-gray-300">
+                    <div class="mt-4 flex flex-wrap gap-4 pt-3 border-t border-slate-100 text-xs">
                         <a
                             href="https://wa.me/+917087196464?text=Hi%20Harish%2C%20I%20need%20help%20with%20my%20website"
                             rel="me noopener"
                             target="_blank"
-                            class="flex items-center gap-1.5 hover:text-emerald-400 transition-colors font-medium text-emerald-400"
+                            class="flex items-center gap-1.5 text-emerald-700 hover:text-emerald-800 font-semibold transition-colors"
                             ><i data-lucide="message-circle" class="w-3.5 h-3.5" aria-hidden="true"></i>
                             Chat on WhatsApp</a
                         >
@@ -461,7 +462,7 @@
                             href="https://www.linkedin.com/in/harish-kumar-b0a81834/"
                             rel="me noopener"
                             target="_blank"
-                            class="flex items-center gap-1.5 hover:text-sky-400 transition-colors"
+                            class="flex items-center gap-1.5 text-slate-600 hover:text-sky-600 transition-colors font-medium"
                             ><i data-lucide="linkedin" class="w-3.5 h-3.5" aria-hidden="true"></i>
                             LinkedIn</a
                         >
@@ -470,13 +471,13 @@
             </section>
 
             <!-- CORE SERVICES: WHAT I CAN DO FOR YOUR BUSINESS -->
-            <section id="services" class="py-14 border-t border-gray-800">
+            <section id="services" class="py-14 border-t border-slate-200">
                 <div class="max-w-3xl">
-                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-400">Services</p>
-                    <h2 class="text-3xl font-extrabold text-white mt-1">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Services</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1">
                         What I Can Do For Your Business
                     </h2>
-                    <p class="text-base text-gray-300 mt-2">
+                    <p class="text-base text-slate-600 mt-2">
                         Practical, dependable technical solutions designed to help your business make more sales and run without technical headaches.
                     </p>
                 </div>
@@ -485,16 +486,16 @@
                     <!-- Service 1 -->
                     <article class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <div class="w-10 h-10 rounded-xl bg-sky-950 flex items-center justify-center text-sky-400 mb-4 border border-sky-800/60">
+                            <div class="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center text-sky-700 mb-4 border border-sky-200">
                                 <i data-lucide="shopping-bag" class="w-5 h-5" aria-hidden="true"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-white">
+                            <h3 class="text-lg font-bold text-slate-900">
                                 Store &amp; Website Development
                             </h3>
-                            <p class="text-sm mt-2 text-gray-300 leading-relaxed">
+                            <p class="text-sm mt-2 text-slate-600 leading-relaxed">
                                 Build a modern, mobile-friendly online store or business website from the ground up on <strong>Shopify</strong> or <strong>WooCommerce / WordPress</strong>. Clean design, easy for your team to manage, and built to turn visitors into buyers.
                             </p>
-                            <ul class="mt-4 space-y-1.5 text-xs text-gray-400 border-t border-gray-800/80 pt-3">
+                            <ul class="mt-4 space-y-1.5 text-xs text-slate-500 border-t border-slate-100 pt-3">
                                 <li>• Custom theme design &amp; setup</li>
                                 <li>• Mobile-responsive and easy checkout</li>
                                 <li>• Payment gateways (Stripe, PayPal, Razorpay)</li>
@@ -505,16 +506,16 @@
                     <!-- Service 2 -->
                     <article class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <div class="w-10 h-10 rounded-xl bg-emerald-950 flex items-center justify-center text-emerald-400 mb-4 border border-emerald-800/60">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 mb-4 border border-emerald-200">
                                 <i data-lucide="wrench" class="w-5 h-5" aria-hidden="true"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-white">
+                            <h3 class="text-lg font-bold text-slate-900">
                                 Website Maintenance &amp; Support
                             </h3>
-                            <p class="text-sm mt-2 text-gray-300 leading-relaxed">
+                            <p class="text-sm mt-2 text-slate-600 leading-relaxed">
                                 Don't let your website break when you are busy running your business. I provide ongoing maintenance: updating plugins safely, monitoring security, performing regular backups, and fixing bugs as soon as they appear.
                             </p>
-                            <ul class="mt-4 space-y-1.5 text-xs text-gray-400 border-t border-gray-800/80 pt-3">
+                            <ul class="mt-4 space-y-1.5 text-xs text-slate-500 border-t border-slate-100 pt-3">
                                 <li>• Safe theme, core &amp; plugin updates</li>
                                 <li>• Quick fixes whenever something breaks</li>
                                 <li>• Daily/weekly backups and security monitoring</li>
@@ -525,16 +526,16 @@
                     <!-- Service 3 -->
                     <article class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <div class="w-10 h-10 rounded-xl bg-amber-950 flex items-center justify-center text-amber-400 mb-4 border border-amber-800/60">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700 mb-4 border border-amber-200">
                                 <i data-lucide="zap" class="w-5 h-5" aria-hidden="true"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-white">
+                            <h3 class="text-lg font-bold text-slate-900">
                                 Speed &amp; Checkout Optimization
                             </h3>
-                            <p class="text-sm mt-2 text-gray-300 leading-relaxed">
+                            <p class="text-sm mt-2 text-slate-600 leading-relaxed">
                                 If your website takes more than 3 seconds to load, you are losing customers. I clean up slow code, optimize images, fix checkout glitches, and ensure your site handles high-traffic sale days without crashing.
                             </p>
-                            <ul class="mt-4 space-y-1.5 text-xs text-gray-400 border-t border-gray-800/80 pt-3">
+                            <ul class="mt-4 space-y-1.5 text-xs text-slate-500 border-t border-slate-100 pt-3">
                                 <li>• Faster page loading on mobile and desktop</li>
                                 <li>• Friction-free, error-free checkout process</li>
                                 <li>• Traffic surge protection for holiday sales</li>
@@ -545,16 +546,16 @@
                     <!-- Service 4 -->
                     <article class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <div class="w-10 h-10 rounded-xl bg-purple-950 flex items-center justify-center text-purple-400 mb-4 border border-purple-800/60">
+                            <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-purple-700 mb-4 border border-purple-200">
                                 <i data-lucide="link" class="w-5 h-5" aria-hidden="true"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-white">
+                            <h3 class="text-lg font-bold text-slate-900">
                                 Accounting &amp; Business Integrations
                             </h3>
-                            <p class="text-sm mt-2 text-gray-300 leading-relaxed">
+                            <p class="text-sm mt-2 text-slate-600 leading-relaxed">
                                 Stop wasting hours on manual copy-pasting. I connect your store to your accounting software (<strong>QuickBooks, Xero, Sage, Zoho</strong>), inventory managers, and shipping carriers so orders and stock update automatically.
                             </p>
-                            <ul class="mt-4 space-y-1.5 text-xs text-gray-400 border-t border-gray-800/80 pt-3">
+                            <ul class="mt-4 space-y-1.5 text-xs text-slate-500 border-t border-slate-100 pt-3">
                                 <li>• Automated invoicing and sales reconciliation</li>
                                 <li>• Multi-warehouse inventory synchronization</li>
                                 <li>• Shipping carrier &amp; fulfillment tracking sync</li>
@@ -565,16 +566,16 @@
                     <!-- Service 5 -->
                     <article class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <div class="w-10 h-10 rounded-xl bg-rose-950 flex items-center justify-center text-rose-400 mb-4 border border-rose-800/60">
+                            <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center text-rose-700 mb-4 border border-rose-200">
                                 <i data-lucide="arrow-left-right" class="w-5 h-5" aria-hidden="true"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-white">
+                            <h3 class="text-lg font-bold text-slate-900">
                                 Platform Migrations &amp; Upgrades
                             </h3>
-                            <p class="text-sm mt-2 text-gray-300 leading-relaxed">
+                            <p class="text-sm mt-2 text-slate-600 leading-relaxed">
                                 Looking to move from WooCommerce to Shopify, or upgrade an older WordPress setup? I transfer all your products, customer accounts, and order histories smoothly without downtime or losing your Google SEO rankings.
                             </p>
-                            <ul class="mt-4 space-y-1.5 text-xs text-gray-400 border-t border-gray-800/80 pt-3">
+                            <ul class="mt-4 space-y-1.5 text-xs text-slate-500 border-t border-slate-100 pt-3">
                                 <li>• Zero data loss (orders, customers, products)</li>
                                 <li>• Careful SEO link redirects preserved</li>
                                 <li>• Zero website downtime during the switch</li>
@@ -585,16 +586,16 @@
                     <!-- Service 6 -->
                     <article class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <div class="w-10 h-10 rounded-xl bg-blue-950 flex items-center justify-center text-blue-400 mb-4 border border-blue-800/60">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-700 mb-4 border border-blue-200">
                                 <i data-lucide="sparkles" class="w-5 h-5" aria-hidden="true"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-white">
+                            <h3 class="text-lg font-bold text-slate-900">
                                 Smart AI &amp; Catalog Automation
                             </h3>
-                            <p class="text-sm mt-2 text-gray-300 leading-relaxed">
+                            <p class="text-sm mt-2 text-slate-600 leading-relaxed">
                                 Practical, time-saving automations for your store. Automatically generate product tags and descriptions, set up smart on-site search, or deploy an AI customer service helper that answers common order questions.
                             </p>
-                            <ul class="mt-4 space-y-1.5 text-xs text-gray-400 border-t border-gray-800/80 pt-3">
+                            <ul class="mt-4 space-y-1.5 text-xs text-slate-500 border-t border-slate-100 pt-3">
                                 <li>• Automated product categorization and tagging</li>
                                 <li>• Smart search that helps buyers find items fast</li>
                                 <li>• AI customer service assistants for order status</li>
@@ -605,33 +606,33 @@
             </section>
 
             <!-- MAINTENANCE PACKAGES HIGHLIGHT -->
-            <section id="maintenance" class="py-14 border-t border-gray-800">
-                <div class="glass-card p-8 rounded-2xl border-sky-500/30 bg-sky-950/10">
+            <section id="maintenance" class="py-14 border-t border-slate-200">
+                <div class="p-8 rounded-2xl border border-sky-200 bg-gradient-to-br from-sky-50/80 to-blue-50/80 shadow-sm">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                         <div>
-                            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Peace of Mind for Business Owners</span>
-                            <h3 class="text-2xl font-bold text-white mt-1">Need a Reliable Developer on Speed Dial?</h3>
-                            <p class="text-sm text-gray-300 mt-2 max-w-2xl leading-relaxed">
+                            <span class="text-xs font-bold text-sky-700 uppercase tracking-wider">Peace of Mind for Business Owners</span>
+                            <h3 class="text-2xl font-bold text-slate-900 mt-1">Need a Reliable Developer on Speed Dial?</h3>
+                            <p class="text-sm text-slate-700 mt-2 max-w-2xl leading-relaxed">
                                 Most businesses don't need a full-time in-house developer, but they do need someone who knows their website inside-out and is available whenever something needs fixing, updating, or improving.
                             </p>
-                            <div class="mt-4 grid sm:grid-cols-3 gap-3 text-xs text-gray-300">
+                            <div class="mt-4 grid sm:grid-cols-3 gap-3 text-xs text-slate-700">
                                 <div class="flex items-center gap-2">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true"></i>
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true"></i>
                                     <span>Regular updates &amp; backups</span>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true"></i>
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true"></i>
                                     <span>Quick bug &amp; layout fixes</span>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true"></i>
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true"></i>
                                     <span>Fast priority support</span>
                                 </div>
                             </div>
                         </div>
                         <a
                             href="#contact"
-                            class="rounded-lg bg-sky-500 px-6 py-3 text-sm font-bold text-gray-950 hover:bg-sky-400 transition-colors whitespace-nowrap self-start md:self-center shadow-md shadow-sky-500/20"
+                            class="rounded-lg bg-sky-600 px-6 py-3 text-sm font-bold text-white hover:bg-sky-700 transition-colors whitespace-nowrap self-start md:self-center shadow-md shadow-sky-600/20"
                         >
                             Ask About Monthly Care
                         </a>
@@ -640,16 +641,16 @@
             </section>
 
             <!-- ABOUT / WHY WORK WITH ME -->
-            <section id="about" class="py-14 border-t border-gray-800">
+            <section id="about" class="py-14 border-t border-slate-200">
                 <div class="max-w-3xl">
-                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-400">Why Work With Me</p>
-                    <h2 class="text-3xl font-extrabold text-white mt-1">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Why Work With Me</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1">
                         Direct Accountability &amp; 15+ Years of Proven Experience
                     </h2>
                 </div>
 
                 <div class="mt-8 grid md:grid-cols-12 gap-8 items-start">
-                    <div class="md:col-span-7 space-y-4 text-gray-300 text-base leading-relaxed">
+                    <div class="md:col-span-7 space-y-4 text-slate-700 text-base leading-relaxed">
                         <p>
                             Hi, I’m <strong>Harish Kumar</strong>. For over 15 years, I have helped businesses build, scale, and maintain websites and order systems that run reliably day in and day out.
                         </p>
@@ -657,26 +658,26 @@
                             Many business owners tell me the same story: they hired an agency or a freelancer who delivered a messy website, disappeared when things broke, or passed them around between different account managers and junior coders.
                         </p>
                         <p>
-                            When you work with me, <strong class="text-white">you work directly with the senior developer who writes the code and takes personal ownership of your site</strong>. I don't hide behind confusing buzzwords or technical jargon — I listen to your business goals, explain things in plain English, and get the job done properly.
+                            When you work with me, <strong class="text-slate-900">you work directly with the senior developer who writes the code and takes personal ownership of your site</strong>. I don't hide behind confusing buzzwords or technical jargon — I listen to your business goals, explain things in plain English, and get the job done properly.
                         </p>
                     </div>
 
                     <div class="md:col-span-5 space-y-3">
-                        <div class="glass-card p-4 rounded-xl border-l-4 border-l-sky-500">
-                            <h4 class="font-bold text-white text-sm">Direct Communication</h4>
-                            <p class="text-xs text-gray-300 mt-1">
+                        <div class="glass-card p-4 rounded-xl border-l-4 border-l-sky-600">
+                            <h4 class="font-bold text-slate-900 text-sm">Direct Communication</h4>
+                            <p class="text-xs text-slate-600 mt-1">
                                 Talk directly to the person doing the work. Clear timelines, fast updates, and no sales fluff.
                             </p>
                         </div>
-                        <div class="glass-card p-4 rounded-xl border-l-4 border-l-emerald-500">
-                            <h4 class="font-bold text-white text-sm">Honest &amp; Dependable</h4>
-                            <p class="text-xs text-gray-300 mt-1">
+                        <div class="glass-card p-4 rounded-xl border-l-4 border-l-emerald-600">
+                            <h4 class="font-bold text-slate-900 text-sm">Honest &amp; Dependable</h4>
+                            <p class="text-xs text-slate-600 mt-1">
                                 15+ years of building long-term relationships with businesses across the US, Europe, and India.
                             </p>
                         </div>
                         <div class="glass-card p-4 rounded-xl border-l-4 border-l-amber-500">
-                            <h4 class="font-bold text-white text-sm">Business-Outcome Focused</h4>
-                            <p class="text-xs text-gray-300 mt-1">
+                            <h4 class="font-bold text-slate-900 text-sm">Business-Outcome Focused</h4>
+                            <p class="text-xs text-slate-600 mt-1">
                                 Every line of code is written to make your website faster, easier to use, and more profitable.
                             </p>
                         </div>
@@ -685,25 +686,25 @@
             </section>
 
             <!-- PLATFORMS & TOOLS -->
-            <section id="platforms" class="py-14 border-t border-gray-800">
+            <section id="platforms" class="py-14 border-t border-slate-200">
                 <div class="max-w-3xl">
-                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-400">Platforms &amp; Tools</p>
-                    <h2 class="text-3xl font-extrabold text-white mt-1">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Platforms &amp; Tools</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1">
                         The Platforms &amp; Software I Work With
                     </h2>
-                    <p class="text-base text-gray-300 mt-2">
+                    <p class="text-base text-slate-600 mt-2">
                         I specialize in the world's leading e-commerce platforms and reliable business technologies.
                     </p>
                 </div>
 
                 <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 text-sm">
                     <div class="glass-card p-5 rounded-xl">
-                        <h4 class="font-bold text-white flex items-center gap-2 mb-2">
-                            <i data-lucide="shopping-cart" class="w-4 h-4 text-sky-400" aria-hidden="true"></i>
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4 text-sky-600" aria-hidden="true"></i>
                             E-Commerce
                         </h4>
-                        <p class="text-xs text-gray-400 mb-3">Online stores &amp; checkouts</p>
-                        <ul class="space-y-1.5 text-xs text-gray-300 font-medium">
+                        <p class="text-xs text-slate-500 mb-3">Online stores &amp; checkouts</p>
+                        <ul class="space-y-1.5 text-xs text-slate-700 font-medium">
                             <li>• Shopify &amp; Shopify Plus</li>
                             <li>• WooCommerce (WordPress)</li>
                             <li>• BigCommerce</li>
@@ -712,12 +713,12 @@
                     </div>
 
                     <div class="glass-card p-5 rounded-xl">
-                        <h4 class="font-bold text-white flex items-center gap-2 mb-2">
-                            <i data-lucide="layers" class="w-4 h-4 text-emerald-400" aria-hidden="true"></i>
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <i data-lucide="layers" class="w-4 h-4 text-emerald-600" aria-hidden="true"></i>
                             Accounting &amp; ERP
                         </h4>
-                        <p class="text-xs text-gray-400 mb-3">Invoicing &amp; ledger sync</p>
-                        <ul class="space-y-1.5 text-xs text-gray-300 font-medium">
+                        <p class="text-xs text-slate-500 mb-3">Invoicing &amp; ledger sync</p>
+                        <ul class="space-y-1.5 text-xs text-slate-700 font-medium">
                             <li>• QuickBooks Online &amp; Desktop</li>
                             <li>• Xero Accounting</li>
                             <li>• Sage &amp; Zoho Books</li>
@@ -726,12 +727,12 @@
                     </div>
 
                     <div class="glass-card p-5 rounded-xl">
-                        <h4 class="font-bold text-white flex items-center gap-2 mb-2">
-                            <i data-lucide="code" class="w-4 h-4 text-amber-400" aria-hidden="true"></i>
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <i data-lucide="code" class="w-4 h-4 text-amber-600" aria-hidden="true"></i>
                             Custom Web Tech
                         </h4>
-                        <p class="text-xs text-gray-400 mb-3">Clean backend development</p>
-                        <ul class="space-y-1.5 text-xs text-gray-300 font-medium">
+                        <p class="text-xs text-slate-500 mb-3">Clean backend development</p>
+                        <ul class="space-y-1.5 text-xs text-slate-700 font-medium">
                             <li>• PHP &amp; Laravel</li>
                             <li>• WordPress &amp; Custom Plugins</li>
                             <li>• Node.js &amp; Python</li>
@@ -740,12 +741,12 @@
                     </div>
 
                     <div class="glass-card p-5 rounded-xl">
-                        <h4 class="font-bold text-white flex items-center gap-2 mb-2">
-                            <i data-lucide="shield-check" class="w-4 h-4 text-purple-400" aria-hidden="true"></i>
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-purple-600" aria-hidden="true"></i>
                             Hosting &amp; Speed
                         </h4>
-                        <p class="text-xs text-gray-400 mb-3">Fast loading &amp; security</p>
-                        <ul class="space-y-1.5 text-xs text-gray-300 font-medium">
+                        <p class="text-xs text-slate-500 mb-3">Fast loading &amp; security</p>
+                        <ul class="space-y-1.5 text-xs text-slate-700 font-medium">
                             <li>• Cloudflare (DDoS &amp; Speed)</li>
                             <li>• AWS, DigitalOcean, Hostinger</li>
                             <li>• SSL, Security &amp; Daily Backups</li>
@@ -756,10 +757,10 @@
             </section>
 
             <!-- HOW IT WORKS: ENGAGEMENT MODELS -->
-            <section id="how-it-works" class="py-14 border-t border-gray-800">
+            <section id="how-it-works" class="py-14 border-t border-slate-200">
                 <div class="max-w-3xl">
-                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-400">Simple Ways to Work Together</p>
-                    <h2 class="text-3xl font-extrabold text-white mt-1">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Simple Ways to Work Together</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1">
                         Flexible Options Tailored to Your Needs
                     </h2>
                 </div>
@@ -767,39 +768,39 @@
                 <div class="mt-8 grid gap-6 sm:grid-cols-3">
                     <article class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Option 1</span>
-                            <h3 class="text-lg font-bold text-white mt-1">One-Time Project</h3>
-                            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            <span class="text-xs font-bold text-sky-700 uppercase tracking-wider">Option 1</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">One-Time Project</h3>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
                                 Ideal for building a new website, launching a Shopify/WooCommerce store, migrating platforms, or building a custom integration.
                             </p>
                         </div>
-                        <div class="mt-4 pt-3 border-t border-gray-800 text-xs text-gray-400">
+                        <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500">
                             Clear scope, fixed price, and guaranteed delivery schedule.
                         </div>
                     </article>
 
-                    <article class="glass-card p-6 rounded-2xl flex flex-col justify-between border-sky-500/40 bg-sky-950/20">
+                    <article class="p-6 rounded-2xl flex flex-col justify-between border-2 border-sky-500 bg-sky-50/70 shadow-sm">
                         <div>
-                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Option 2 (Most Popular)</span>
-                            <h3 class="text-lg font-bold text-white mt-1">Monthly Maintenance</h3>
-                            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            <span class="text-xs font-bold text-sky-800 uppercase tracking-wider">Option 2 (Most Popular)</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">Monthly Maintenance</h3>
+                            <p class="text-xs text-slate-700 mt-2 leading-relaxed">
                                 A set number of dedicated hours each month to keep your site updated, fix bugs, make design tweaks, and ensure peak performance.
                             </p>
                         </div>
-                        <div class="mt-4 pt-3 border-t border-gray-800 text-xs text-gray-400">
+                        <div class="mt-4 pt-3 border-t border-sky-200 text-xs text-sky-800 font-medium">
                             Peace of mind knowing your developer is on call.
                         </div>
                     </article>
 
                     <article class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Option 3</span>
-                            <h3 class="text-lg font-bold text-white mt-1">Website Speed &amp; Health Audit</h3>
-                            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            <span class="text-xs font-bold text-purple-700 uppercase tracking-wider">Option 3</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">Website Speed &amp; Health Audit</h3>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
                                 A quick review of your current store to identify why it's slow, check for security risks, and give you a simple step-by-step fix plan.
                             </p>
                         </div>
-                        <div class="mt-4 pt-3 border-t border-gray-800 text-xs text-gray-400">
+                        <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500">
                             Great starting point before a major redesign or sale.
                         </div>
                     </article>
@@ -807,71 +808,71 @@
             </section>
 
             <!-- FAQ -->
-            <section id="faq" class="py-14 border-t border-gray-800">
+            <section id="faq" class="py-14 border-t border-slate-200">
                 <div class="max-w-3xl">
-                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-400">Got Questions?</p>
-                    <h2 class="text-3xl font-extrabold text-white mt-1">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Got Questions?</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1">
                         Frequently Asked Questions
                     </h2>
                 </div>
 
                 <div class="mt-8 space-y-4">
                     <details class="glass-card p-5 rounded-xl">
-                        <summary class="font-semibold text-white cursor-pointer flex items-center justify-between">
+                        <summary class="font-semibold text-slate-900 cursor-pointer flex items-center justify-between">
                             <span>Can you take over and maintain our existing website?</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 shrink-0" aria-hidden="true"></i>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0" aria-hidden="true"></i>
                         </summary>
-                        <p class="text-sm mt-3 text-gray-300 leading-relaxed">
+                        <p class="text-sm mt-3 text-slate-600 leading-relaxed">
                             Yes! Many of my clients already have a live website that just needs reliable maintenance. I can step in, audit the setup, keep all plugins and themes updated safely, fix existing bugs, and add any new features you need over time.
                         </p>
                     </details>
 
                     <details class="glass-card p-5 rounded-xl">
-                        <summary class="font-semibold text-white cursor-pointer flex items-center justify-between">
+                        <summary class="font-semibold text-slate-900 cursor-pointer flex items-center justify-between">
                             <span>Do you work on both Shopify and WooCommerce?</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 shrink-0" aria-hidden="true"></i>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0" aria-hidden="true"></i>
                         </summary>
-                        <p class="text-sm mt-3 text-gray-300 leading-relaxed">
+                        <p class="text-sm mt-3 text-slate-600 leading-relaxed">
                             Yes. I work extensively with both platforms. If you're on Shopify, I handle custom Liquid theme modifications, store setup, app setups, and checkout tweaks. If you're on WooCommerce, I handle custom plugin development, database speed optimization, theme customization, and server management.
                         </p>
                     </details>
 
                     <details class="glass-card p-5 rounded-xl">
-                        <summary class="font-semibold text-white cursor-pointer flex items-center justify-between">
+                        <summary class="font-semibold text-slate-900 cursor-pointer flex items-center justify-between">
                             <span>Our store is slow or crashing during sales. Can you fix it?</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 shrink-0" aria-hidden="true"></i>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0" aria-hidden="true"></i>
                         </summary>
-                        <p class="text-sm mt-3 text-gray-300 leading-relaxed">
+                        <p class="text-sm mt-3 text-slate-600 leading-relaxed">
                             Yes. Store slowdowns are usually caused by too many unoptimized plugins, heavy images, or database bottlenecks. I audit your website, clean up the clutter, optimize page loading, and ensure your checkout remains fast and error-free even during peak sales campaigns.
                         </p>
                     </details>
 
                     <details class="glass-card p-5 rounded-xl">
-                        <summary class="font-semibold text-white cursor-pointer flex items-center justify-between">
+                        <summary class="font-semibold text-slate-900 cursor-pointer flex items-center justify-between">
                             <span>How does connecting our store to QuickBooks, Xero, or our ERP work?</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 shrink-0" aria-hidden="true"></i>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0" aria-hidden="true"></i>
                         </summary>
-                        <p class="text-sm mt-3 text-gray-300 leading-relaxed">
+                        <p class="text-sm mt-3 text-slate-600 leading-relaxed">
                             I build automated sync systems so that whenever an order is placed on your website, it automatically creates the invoice and matches the payment in your accounting software (QuickBooks, Xero, Sage, or Zoho). Stock levels and shipping details can also sync automatically so your inventory is always accurate.
                         </p>
                     </details>
 
                     <details class="glass-card p-5 rounded-xl">
-                        <summary class="font-semibold text-white cursor-pointer flex items-center justify-between">
+                        <summary class="font-semibold text-slate-900 cursor-pointer flex items-center justify-between">
                             <span>Why work with an independent developer instead of an agency?</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 shrink-0" aria-hidden="true"></i>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0" aria-hidden="true"></i>
                         </summary>
-                        <p class="text-sm mt-3 text-gray-300 leading-relaxed">
+                        <p class="text-sm mt-3 text-slate-600 leading-relaxed">
                             Agencies charge large monthly retainers to pay for account managers, sales reps, and office overhead — and your actual project is often handed down to inexperienced juniors. With me, you get direct access to a senior developer with 15+ years of experience. You get faster answers, higher quality work, and personal accountability.
                         </p>
                     </details>
 
                     <details class="glass-card p-5 rounded-xl">
-                        <summary class="font-semibold text-white cursor-pointer flex items-center justify-between">
+                        <summary class="font-semibold text-slate-900 cursor-pointer flex items-center justify-between">
                             <span>How do we get started?</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 shrink-0" aria-hidden="true"></i>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0" aria-hidden="true"></i>
                         </summary>
-                        <p class="text-sm mt-3 text-gray-300 leading-relaxed">
+                        <p class="text-sm mt-3 text-slate-600 leading-relaxed">
                             Simply fill out the brief form below or send me an email. Share your website URL and what you're looking to achieve (a new build, bug fixes, speed improvement, or ongoing maintenance). I will review your requirements and get back to you with a straightforward proposal and timeline within 24 hours.
                         </p>
                     </details>
@@ -879,13 +880,13 @@
             </section>
 
             <!-- CONTACT -->
-            <section id="contact" class="py-14 border-t border-gray-800">
+            <section id="contact" class="py-14 border-t border-slate-200">
                 <div class="max-w-3xl">
-                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-400">Get in Touch</p>
-                    <h2 class="text-3xl font-extrabold text-white mt-1">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-sky-600">Get in Touch</p>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1">
                         Tell Me About Your Website or Project
                     </h2>
-                    <p class="mt-2 text-base text-gray-300">
+                    <p class="mt-2 text-base text-slate-600">
                         Whether you need a new website built, ongoing maintenance, or a quick fix — send a short message and I will reply within 1 business day.
                     </p>
                 </div>
@@ -896,18 +897,18 @@
                     onsubmit="return handleContact(event);"
                 >
                     <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1" for="cf-name">Your Name *</label>
+                        <label class="block text-xs font-medium text-slate-700 mb-1" for="cf-name">Your Name *</label>
                         <input
                             id="cf-name"
                             name="name"
                             required
                             autocomplete="name"
                             placeholder="e.g. John Smith"
-                            class="w-full p-3 rounded-lg bg-gray-800/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 text-sm"
+                            class="w-full p-3 rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600 text-sm shadow-sm"
                         />
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1" for="cf-email">Your Email *</label>
+                        <label class="block text-xs font-medium text-slate-700 mb-1" for="cf-email">Your Email *</label>
                         <input
                             id="cf-email"
                             name="email"
@@ -915,54 +916,54 @@
                             required
                             autocomplete="email"
                             placeholder="e.g. john@yourcompany.com"
-                            class="w-full p-3 rounded-lg bg-gray-800/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 text-sm"
+                            class="w-full p-3 rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600 text-sm shadow-sm"
                         />
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1" for="cf-phone">Phone / WhatsApp (Optional)</label>
+                        <label class="block text-xs font-medium text-slate-700 mb-1" for="cf-phone">Phone / WhatsApp (Optional)</label>
                         <input
                             id="cf-phone"
                             name="phone"
                             type="tel"
                             autocomplete="tel"
                             placeholder="+1 (555) 000-0000"
-                            class="w-full p-3 rounded-lg bg-gray-800/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 text-sm"
+                            class="w-full p-3 rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600 text-sm shadow-sm"
                         />
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1" for="cf-company">Website / Store URL</label>
+                        <label class="block text-xs font-medium text-slate-700 mb-1" for="cf-company">Website / Store URL</label>
                         <input
                             id="cf-company"
                             name="company"
                             autocomplete="organization"
                             placeholder="e.g. yourstore.com (if you have one)"
-                            class="w-full p-3 rounded-lg bg-gray-800/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 text-sm"
+                            class="w-full p-3 rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600 text-sm shadow-sm"
                         />
                     </div>
                     <div class="sm:col-span-2">
-                        <label class="block text-xs font-medium text-gray-300 mb-1" for="cf-budget">What Type of Help Do You Need?</label>
+                        <label class="block text-xs font-medium text-slate-700 mb-1" for="cf-budget">What Type of Help Do You Need?</label>
                         <input
                             id="cf-budget"
                             name="budget"
                             placeholder="e.g. New store build, Monthly maintenance, Speed optimization, or System integration"
-                            class="w-full p-3 rounded-lg bg-gray-800/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 text-sm"
+                            class="w-full p-3 rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600 text-sm shadow-sm"
                         />
                     </div>
                     <div class="sm:col-span-2">
-                        <label class="block text-xs font-medium text-gray-300 mb-1" for="cf-message">How Can I Help You? *</label>
+                        <label class="block text-xs font-medium text-slate-700 mb-1" for="cf-message">How Can I Help You? *</label>
                         <textarea
                             id="cf-message"
                             name="message"
                             required
                             placeholder="Tell me a bit about your business, what platform you use (Shopify, WooCommerce, etc.), and what you'd like to get done..."
-                            class="w-full p-3 rounded-lg bg-gray-800/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 text-sm"
+                            class="w-full p-3 rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-600 focus:ring-1 focus:ring-sky-600 text-sm shadow-sm"
                             rows="5"
                         ></textarea>
                     </div>
                     <button
                         id="cf-submit"
                         type="submit"
-                        class="sm:col-span-2 rounded-lg px-6 py-3.5 bg-sky-500 text-gray-950 font-bold hover:bg-sky-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-sm shadow-lg shadow-sky-500/20"
+                        class="sm:col-span-2 rounded-lg px-6 py-3.5 bg-sky-600 text-white font-bold hover:bg-sky-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-sm shadow-md shadow-sky-600/20"
                     >
                         Send Message
                     </button>
@@ -970,15 +971,15 @@
                         id="formStatus"
                         role="status"
                         aria-live="polite"
-                        class="sm:col-span-2 text-sm text-gray-400"
+                        class="sm:col-span-2 text-sm text-slate-500"
                     ></p>
                 </form>
 
-                <p class="mt-6 text-sm text-gray-400">
+                <p class="mt-6 text-sm text-slate-600">
                     Prefer direct email? Reach me at
                     <a
                         href="mailto:honeyonsys@gmail.com?subject=Website%20Inquiry"
-                        class="text-sky-400 hover:underline font-medium"
+                        class="text-sky-600 hover:underline font-medium"
                         >honeyonsys@gmail.com</a
                     >
                     — guaranteed personal reply within 1 business day.
@@ -987,27 +988,27 @@
 
             <!-- FOOTER -->
             <footer
-                class="py-10 border-t border-gray-800 text-xs text-gray-400 space-y-4"
+                class="py-10 border-t border-slate-200 text-xs text-slate-500 space-y-4"
             >
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                        <div class="text-sm font-bold text-white">Harish Kumar</div>
-                        <p class="mt-1 text-gray-400 max-w-xl">
+                        <div class="text-sm font-bold text-slate-900">Harish Kumar</div>
+                        <p class="mt-1 text-slate-600 max-w-xl">
                             E-Commerce &amp; Website Development, Maintenance &amp; Business Integrations. Helping brands build, maintain, and grow fast, reliable Shopify &amp; WooCommerce websites.
                         </p>
                     </div>
-                    <nav aria-label="Footer" class="flex flex-wrap gap-4 text-xs font-medium text-gray-300">
-                        <a href="#services" class="hover:text-sky-400">Services</a>
-                        <a href="#maintenance" class="hover:text-sky-400">Maintenance</a>
-                        <a href="#about" class="hover:text-sky-400">Why Work With Me</a>
-                        <a href="#platforms" class="hover:text-sky-400">Platforms</a>
-                        <a href="#faq" class="hover:text-sky-400">FAQ</a>
-                        <a href="#contact" class="hover:text-sky-400">Contact</a>
+                    <nav aria-label="Footer" class="flex flex-wrap gap-4 text-xs font-medium text-slate-600">
+                        <a href="#services" class="hover:text-sky-600">Services</a>
+                        <a href="#maintenance" class="hover:text-sky-600">Maintenance</a>
+                        <a href="#about" class="hover:text-sky-600">Why Work With Me</a>
+                        <a href="#platforms" class="hover:text-sky-600">Platforms</a>
+                        <a href="#faq" class="hover:text-sky-600">FAQ</a>
+                        <a href="#contact" class="hover:text-sky-600">Contact</a>
                     </nav>
                 </div>
-                <div class="pt-4 border-t border-gray-800/60 flex flex-col sm:flex-row items-center justify-between gap-2">
+                <div class="pt-4 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-2">
                     <p>© <span id="year"></span> Harish Kumar. All rights reserved.</p>
-                    <p class="text-gray-400">Serving businesses in North America, the UK, Europe, and India.</p>
+                    <p class="text-slate-500">Serving businesses in North America, the UK, Europe, and India.</p>
                 </div>
             </footer>
         </main>
@@ -1027,7 +1028,7 @@
                 var message = form.message ? form.message.value.trim() : "";
 
                 if (!name || !email || !message) {
-                    statusEl.className = "sm:col-span-2 text-sm text-rose-400";
+                    statusEl.className = "sm:col-span-2 text-sm text-rose-600 font-medium";
                     statusEl.textContent = "Please fill in all required fields (Name, Email, Message).";
                     return false;
                 }
@@ -1035,7 +1036,7 @@
                 submitBtn.disabled = true;
                 var originalBtnText = submitBtn.textContent;
                 submitBtn.textContent = "Sending Message...";
-                statusEl.className = "sm:col-span-2 text-sm text-sky-400";
+                statusEl.className = "sm:col-span-2 text-sm text-sky-600 font-medium";
                 statusEl.textContent = "Sending your message...";
 
                 var formData = new FormData();
@@ -1055,12 +1056,12 @@
                         body: formData
                     });
 
-                    statusEl.className = "sm:col-span-2 text-sm text-emerald-400 font-medium";
+                    statusEl.className = "sm:col-span-2 text-sm text-emerald-600 font-semibold";
                     statusEl.textContent = "✓ Thank you! Your message has been sent. I will get back to you within 1 business day.";
                     form.reset();
                 } catch (err) {
                     console.error("Form submission error:", err);
-                    statusEl.className = "sm:col-span-2 text-sm text-rose-400";
+                    statusEl.className = "sm:col-span-2 text-sm text-rose-600 font-medium";
                     statusEl.textContent = "Could not send automatically. Please email honeyonsys@gmail.com directly.";
                 } finally {
                     submitBtn.disabled = false;
